@@ -1,3 +1,9 @@
-#h1 {
-  color: #aaf;
+#quick_start .material-icons {
+  font-size: 80px;
+  padding-top: 10%;
+  padding-left: 5%;
+}
+
+#quick_start h3 {
+  font-weight: bold;
 }

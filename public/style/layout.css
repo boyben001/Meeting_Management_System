@@ -1,0 +1,45 @@
+.dark {
+  color: white;
+}
+
+body.dark {
+  background: #303134;
+}
+
+.material-icons {
+  font-size: 32px;
+}
+
+nav {
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.navbar-brand {
+  display: flex;
+}
+
+.nav-link {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#brand_icon {
+  font-size: 48px;
+  padding: 0 10px 0;
+}
+
+#brand_name {
+  font-size: 24px;
+  font-weight: bold;
+  padding: 5px 5px;
+}
+
+#username {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 0 0.5rem;
+}
+
+#darkmode_icon {
+  padding: 0.5rem;
+}
