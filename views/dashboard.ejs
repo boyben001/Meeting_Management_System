@@ -13,6 +13,7 @@
 <body>
   <%- include('layout') %>
 
+  <!-- 大螢幕版本的 Quick Start-->
   <div id="quick_start" class="container-fluid mb-5 d-none d-md-block">
     <div class="row mx-2">
       <div class="card text-white bg-primary m-1 col">
@@ -43,6 +44,16 @@
           <p class="card-text">查看/修改您的個人資料</p>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- 小螢幕版本的 Quick Start-->
+  <div id="quick_start_mobile" class="container-fluid mb-5 d-block d-md-none">
+    <div class="d-grid gap-1">
+      <button class="btn text-white bg-primary">建立會議</button>
+      <button class="btn text-white bg-secondary">即將到來的會議</button>
+      <button class="btn text-white bg-success">歷史會議</button>
+      <button class="btn text-white bg-danger">查看/修改個人資料</button>
     </div>
   </div>
 
