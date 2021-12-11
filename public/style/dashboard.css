@@ -7,15 +7,27 @@
 #quick_start h3,
 #quick_start_mobile button {
   font-weight: bold;
+  height: 70px;
 }
 
 /*===================================================*/
-
-.calendar_icon {
+.open_calendar {
+  width: 15vw;
   display: block;
   text-align: center;
   margin: 0 auto;
+  background-color: transparent;
+  border: none;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 10px;
 }
+
+.open_calendar:hover {
+  box-shadow: 0 5px 20px inset rgba(0, 0, 0, 0.5);
+}
+
 
 #calendar thead {
   font-family: "Freestyle Script";
@@ -31,12 +43,12 @@
 #calendar thead tr,
 #calendar tbody tr {
   justify-content: space-around;
-  padding: 10px 0;
+  padding: 10px 10px;
 }
 
 #calendar thead td {
   margin: 0 auto;
-  width: 13.5vw;
+  width: 12vw;
   text-align: center;
 }
 
