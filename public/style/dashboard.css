@@ -1,13 +1,13 @@
 #quick_start .material-icons {
   font-size: 80px;
-  padding-top: 10%;
-  padding-left: 5%;
+  padding-top: 8%;
+  padding-left: 3%;
 }
 
 #quick_start h3,
 #quick_start_mobile button {
   font-weight: bold;
-  height: 70px;
+  height: 50px;
 }
 
 /*===================================================*/
@@ -17,7 +17,7 @@
   text-align: center;
   margin: 0 auto;
   background-color: transparent;
-  border: none;
+  border: 1px solid rgba(0, 0, 0, 0.5);
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
   margin-bottom: 20px;
   padding: 10px;
@@ -28,6 +28,18 @@
   box-shadow: 0 5px 20px inset rgba(0, 0, 0, 0.5);
 }
 
+.calendar_choose {
+  text-align: center;
+  font-family: "Freestyle Script";
+  font-size: 34px;
+  font-weight: bold;
+}
+
+.calendar_choose select {
+  padding: 5px 15px;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
 
 #calendar thead {
   font-family: "Freestyle Script";
@@ -101,4 +113,53 @@
 .fifth_color,
 .sixth_color {
   background-color: #ccff90;
+}
+
+
+/*===================================================*/
+
+#phone_calendar {
+  background-color: #1b1b1b;
+  color: aliceblue;
+  font-family: "Gen Jyuu Gothic";
+  padding: 0 5px;
+}
+
+#phone_calendar table {
+  width: 100%;
+}
+
+#phone_calendar tr {
+  vertical-align: top;
+}
+
+#phone_calendar td {
+  text-align: center;
+  color: #1b1b1b;
+}
+
+#phone_calendar td div {
+  border-radius: 8px;
+}
+
+#phone_calendar td h3 {
+  padding: 3px 0;
+}
+
+#phone_calendar table tr td:first-child {
+  color: aliceblue;
+}
+
+.decorate_current_date {
+  background-color: #424242;
+  border-bottom: 5px solid lightslategray;
+}
+
+.decorate_current_date td {}
+
+.no_activity {
+  color: #6d6d6d;
+  font-size: 28px;
+  vertical-align: middle;
+  text-align-last: left;
 }
