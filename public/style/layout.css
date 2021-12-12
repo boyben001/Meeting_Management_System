@@ -39,7 +39,7 @@ nav {
   font-weight: bold;
   display: inline-block;
   text-align: center;
-  width: 100px;
+  white-space: nowrap;
 }
 
 @media screen and (max-width:992px) {
@@ -50,7 +50,7 @@ nav {
 
 #brand_icon {
   font-size: 48px;
-  padding: 0 10px 0;
+  padding: 0 10px;
 }
 
 #brand_name {
@@ -62,9 +62,13 @@ nav {
 #username {
   font-size: 20px;
   font-weight: bold;
-  padding: 0 0.5rem;
+  margin-right: 25px;
 }
 
 #darkmode_icon {
-  padding: 0.5rem;
+  padding: 5px;
+}
+
+#nav_btn {
+  margin-left: 25px;
 }

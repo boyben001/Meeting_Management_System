@@ -1,1 +1,2 @@
-console.log('hello');
+let today = new Date();
+
