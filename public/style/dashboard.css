@@ -120,8 +120,6 @@ th {
   text-align: center;
 }
 
-
-/*===================================================*/
 .hide {
   visibility: hidden;
 }
@@ -129,8 +127,6 @@ th {
 .highlight {
   background-color: #b2ebf2;
 }
-
-/*===================================================*/
 
 #calendar_zone_mobile {
   background-color: #1b1b1b;
@@ -175,27 +171,3 @@ th {
   vertical-align: middle;
   text-align-last: left;
 }
-
-.first_color,
-.tenth_color {
-  background-color: #b6e3ff;
-}
-
-.second_color,
-.ninth_color {
-  background-color: #b5ffff;
-}
-
-.third_color,
-.eighth_color {
-  background-color: #ffffb0;
-}
-
-.fourth_color,
-.seventh_color {
-  background-color: #ff9e80;
-}
-
-.fifth_color,
-.sixth_color {
-  background-color: #ccff90;
