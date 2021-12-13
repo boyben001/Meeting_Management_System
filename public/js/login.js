@@ -385,4 +385,3 @@ function hexToRgb(hex) {
 window.onresize=()=>{
     location.reload();
 }
-
