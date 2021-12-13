@@ -14,7 +14,7 @@ $(document).ready(() => {
     /* 當 datepicker 值改變 */
     $('#datepicker').change((e) => {
         currentDate = $('#datepicker').val();
-        /* TODO: 更改日曆程式碼 */
+        /* TODO: 更改桌面版日曆程式碼 */
     });
 
     /* 上個月按鈕 */
