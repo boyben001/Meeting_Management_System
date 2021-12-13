@@ -15,21 +15,52 @@
 }
 
 .calendar_choose {
-  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   font-family: "Freestyle Script";
-  font-size: 34px;
+  font-size: 30px;
+  font-weight: bold;
+  background-color: hsl(203, 10%, 86%);
+  padding: 15px 0;
+}
+
+.choose_button_style {
+  width: 70px;
+  border-radius: 20px;
+  border: none;
+  padding: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  background-color: aliceblue;
+}
+
+.choose_button_style:active {
+  box-shadow: 0 5px 20px inset rgba(0, 0, 0, 0.5);
+  background-color: transparent;
+}
+
+
+#datepicker {
+  border-radius: 10px;
+  border: none;
+  background-color: aliceblue;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  width: 200px;
+  height: 60px;
+  font-size: 48px;
   font-weight: bold;
 }
 
-.calendar_choose select {
-  padding: 5px 15px;
-  border-radius: 10px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+#datepicker td,
+th {
+  width: 100px;
+  height: 100px;
 }
 
 #calendar thead {
   height: 6vh;
-  background-color: #b6e3ff;
+  background-color: hsl(203, 100%, 86%);
 }
 
 #calendar thead tr {
@@ -46,7 +77,7 @@
 }
 
 #calendar tbody {
-  background-color: #a3bed4;
+  background-color: #80b2db;
 }
 
 #calendar tbody tr {
@@ -86,6 +117,15 @@
   text-align: center;
 }
 
+
+/*===================================================*/
+.hide {
+  visibility: hidden;
+}
+
+.highlight {
+  background-color: #b2ebf2;
+}
 
 /*===================================================*/
 
