@@ -20,6 +20,10 @@ app.use('/login', login);
 let dashboard = require('./routes/dashboard');
 app.use('/dashboard', dashboard);
 
+/* INFO: 個人資料路由 */
+let profile = require('./routes/profile');
+app.use('/profile', profile);
+
 app.use((req, res) => {
     res.status(404).send('404 Not Found.');
 });
