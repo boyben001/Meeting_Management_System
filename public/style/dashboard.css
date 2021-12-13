@@ -1,3 +1,201 @@
-#h1 {
-  color: #aaf;
+#quick_start .material-icons {
+  font-size: 80px;
+  padding-top: 8%;
+  padding-left: 3%;
 }
+
+#quick_start h3,
+#quick_start_mobile button {
+  font-weight: bold;
+  height: 50px;
+}
+
+#quick_start_mobile .text {
+  font-size: 20px;
+}
+
+.calendar_choose {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: "Freestyle Script";
+  font-size: 30px;
+  font-weight: bold;
+  background-color: hsl(203, 10%, 86%);
+  padding: 15px 0;
+}
+
+.month_control_btn {
+  width: 70px;
+  border-radius: 20px;
+  font-size: 40px;
+  border: none;
+  padding: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  background-color: aliceblue;
+}
+
+.month_control_btn:active {
+  box-shadow: 0 5px 20px inset rgba(0, 0, 0, 0.5);
+  background-color: transparent;
+}
+
+
+#datepicker {
+  border-radius: 10px;
+  border: none;
+  background-color: aliceblue;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  width: 200px;
+  height: 60px;
+  font-size: 48px;
+  font-weight: bold;
+  caret-color: transparent;
+  cursor: pointer;
+}
+
+#datepicker td,
+th {
+  width: 100px;
+  height: 100px;
+}
+
+#calendar thead {
+  height: 6vh;
+  background-color: hsl(203, 100%, 86%);
+}
+
+#calendar thead tr {
+  height: 100%;
+}
+
+#calendar thead td {
+  display: inline-block;
+  width: 13vw;
+  font-family: "Freestyle Script";
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+}
+
+#calendar tbody {
+  background-color: #80b2db;
+}
+
+#calendar tbody tr {
+  margin: 1vh 0.5vw;
+}
+
+#calendar .day_block {
+  position: relative;
+  height: 15vh;
+  width: 13vw;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.1);
+  border-right: 1px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3px);
+}
+
+#calendar .number_block {
+  display: block;
+  transform: translate(-0.5vh, -0.25vw);
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  font-size: 32px;
+  font-weight: bold;
+  font-family: "Freestyle Script";
+  border-radius: 20%;
+  width: 40px;
+  text-align: center;
+}
+
+#calendar .meeting_name {
+  font-family: "Gen Jyuu Gothic";
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+}
+
+
+/*===================================================*/
+.hide {
+  visibility: hidden;
+}
+
+.highlight {
+  background-color: #b2ebf2;
+}
+
+/*===================================================*/
+
+#calendar_zone_mobile {
+  background-color: #1b1b1b;
+  color: aliceblue;
+  font-family: "Gen Jyuu Gothic";
+  padding: 0 5px;
+}
+
+#calendar_zone_mobile table {
+  width: 100%;
+}
+
+#calendar_zone_mobile tr {
+  vertical-align: top;
+}
+
+#calendar_zone_mobile td {
+  text-align: center;
+  color: #1b1b1b;
+}
+
+#calendar_zone_mobile td div {
+  border-radius: 8px;
+}
+
+#calendar_zone_mobile td h3 {
+  padding: 3px 0;
+}
+
+#calendar_zone_mobile table tr td:first-child {
+  color: aliceblue;
+}
+
+.decorate_current_date {
+  background-color: #424242;
+  border-bottom: 5px solid lightslategray;
+}
+
+.no_activity {
+  color: #6d6d6d;
+  font-size: 28px;
+  vertical-align: middle;
+  text-align-last: left;
+}
+
+.first_color,
+.tenth_color {
+  background-color: #b6e3ff;
+}
+
+.second_color,
+.ninth_color {
+  background-color: #b5ffff;
+}
+
+.third_color,
+.eighth_color {
+  background-color: #ffffb0;
+}
+
+.fourth_color,
+.seventh_color {
+  background-color: #ff9e80;
+}
+
+.fifth_color,
+.sixth_color {
+  background-color: #ccff90;

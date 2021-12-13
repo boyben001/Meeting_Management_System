@@ -1,0 +1,74 @@
+header {
+  font-family: "Noto Sans TC";
+}
+
+.dark {
+  color: white;
+}
+
+body.dark {
+  background: #303134;
+}
+
+.material-icons {
+  font-size: 32px;
+}
+
+nav {
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.navbar-brand {
+  display: flex;
+}
+
+.wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.layout {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.nav-link {
+  font-size: 20px;
+  font-weight: bold;
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+}
+
+@media screen and (max-width:992px) {
+  .nav-link {
+    text-align: left;
+  }
+}
+
+#brand_icon {
+  font-size: 48px;
+  padding: 0 10px;
+}
+
+#brand_name {
+  font-size: 24px;
+  font-weight: bold;
+  padding: 8px 5px;
+}
+
+#username {
+  font-size: 20px;
+  font-weight: bold;
+  margin-right: 25px;
+}
+
+#darkmode_icon {
+  padding: 5px;
+}
+
+#nav_btn {
+  margin-left: 25px;
+}
