@@ -25,16 +25,17 @@
   padding: 15px 0;
 }
 
-.choose_button_style {
+.month_control_btn {
   width: 70px;
   border-radius: 20px;
+  font-size: 40px;
   border: none;
   padding: 10px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
   background-color: aliceblue;
 }
 
-.choose_button_style:active {
+.month_control_btn:active {
   box-shadow: 0 5px 20px inset rgba(0, 0, 0, 0.5);
   background-color: transparent;
 }
@@ -50,6 +51,8 @@
   height: 60px;
   font-size: 48px;
   font-weight: bold;
+  caret-color: transparent;
+  cursor: pointer;
 }
 
 #datepicker td,

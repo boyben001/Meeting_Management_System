@@ -6,10 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>首頁 | 高大資工會議管理系統</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/css/datepicker.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="./../style/layout.css">
   <link rel="stylesheet" href="./../style/dashboard.css">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/css/datepicker.min.css" rel="stylesheet">
 </head>
 <body>
   <%- include('layout') %>
@@ -73,16 +73,12 @@
   <!-- 大螢幕版本的月曆 -->
   <div id="calendar_zone" class="container-fluid mb-5 d-none d-lg-block">
     <div class="calendar_choose">
-      <button class="choose_button_style">
-        <span class=" material-icons d-block" style="font-size: 40px;">
-          arrow_back_ios_new
-        </span>
+      <button id="prev_month" class="month_control_btn">
+        <span class=" material-icons d-block">arrow_back_ios_new</span>
       </button>
       <input type="text" class="form-control" name="datepicker" id="datepicker" />
-      <button class="choose_button_style">
-        <span class="material-icons d-block" style="font-size: 40px;">
-          arrow_forward_ios
-        </span>
+      <button id="next_month" class="month_control_btn">
+        <span class="material-icons d-block">arrow_forward_ios</span>
       </button>
 
     </div>
