@@ -1,3 +1,69 @@
-h1 {
-  color: #aaf;
+*,
+*::before,
+*::after {
+  font-family: "Gen Jyuu Gothic";
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.setting {
+  font-weight: bold;
+  margin: 0;
+}
+
+.my_info button,
+.my_photo button {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: transparent;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  border: none;
+  border-radius: 5px;
+}
+
+.my_info button:hover,
+.my_photo button:hover {
+  background-color: #bdbdbd;
+  box-shadow: 0 5px 20px inset rgba(0, 0, 0, 0.3);
+}
+
+.my_info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 10vw;
+}
+
+.my_info input,
+label {
+  margin-top: 10px;
+}
+
+.my_photo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.my_photo img {
+  width: 200px;
+  height: 200px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  margin-bottom: 30px;
+}
+
+.my_photo button {
+  margin: 5px;
+}
+
+.edit {
+  display: flex;
+  margin: 20px 0;
+}
+
+.edit_icon {
+  display: flex;
+  width: 100px;
+  justify-content: center;
 }

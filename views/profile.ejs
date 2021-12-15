@@ -13,7 +13,99 @@
 <body>
   <%- include('layout') %>
 
-  <h1>Profile</h1>
+  <div class="container-fluid original_setting">
+    <div class="row">
+      <div class="col">
+        <h2 class="setting">一般設定</h2>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-sm-12 col-lg-8 my_info order-sm-2 order-lg-1">
+        <label for="">帳號</label>
+        <input type="account">
+        <label for="">密碼</label>
+        <input type="password">
+        <label for="">全名</label>
+        <input type="name">
+        <label for="">郵箱</label>
+        <input type="email" placeholder=" 您的 Email ">
+        <label for="">電話</label>
+        <input type="phone">
+
+        <div class="edit">
+          <button type="text" class="edit_icon">
+            <span class="material-icons" style="font-size: 22px;">
+              edit
+            </span>
+            編輯
+          </button>
+          <button type="text">儲存</button>
+          <button type="reset">重設</button>
+        </div>
+      </div>
+      <div class="col-sm-12 col-lg-4 my_photo order-sm-1 order-lg-2">
+        <img src="./../img/photo.jpg" alt="" class="d-block">
+        <button type="button" class="d-block">選擇大頭貼</button>
+        <button type="reset" class="d-block">重設大頭貼</button>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid advanced_setting">
+    <div class="row">
+      <div class="col">
+        <h2 class="setting">進階設定</h2>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col">
+        <div class="card mb-3" style="max-width: 18rem;">
+          <div class="card-header">學生代表</div>
+          <div class="card-body">
+            <h5 class="card-title">Primary card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card mb-3" style="max-width: 18rem;">
+          <div class="card-header">系助理</div>
+          <div class="card-body">
+            <h5 class="card-title">Primary card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card mb-3" style="max-width: 18rem;">
+          <div class="card-header">系上老師</div>
+          <div class="card-body">
+            <h5 class="card-title">Primary card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card mb-3" style="max-width: 18rem;">
+          <div class="card-header">校外老師</div>
+          <div class="card-body">
+            <h5 class="card-title">Primary card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card mb-3" style="max-width: 18rem;">
+          <div class="card-header">業界專家</div>
+          <div class="card-body">
+            <h5 class="card-title">Primary card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="./../js/profile.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
