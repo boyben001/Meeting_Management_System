@@ -21,7 +21,7 @@
           <input id="login_btn" type="submit" value="登入">
         </form>
       </div>
-      <% if (errmsg != '') { %>
+      <% if (typeof(errmsg) != 'undefined') { %>
       <div class="error"><%= errmsg %></div>
       <% } %>
     </div>

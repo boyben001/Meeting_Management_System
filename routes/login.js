@@ -1,4 +1,5 @@
 let express = require('express');
+let router = express.Router();
 
 /* body-parser */
 let bodyParser = require('body-parser');
@@ -16,12 +17,13 @@ let dbOption = {
     database: 'Meeting_System_SQL'
 };
 
-let router = express.Router();
+/* cookies */
+let cookieParser = require('cookie-parser');
+router.use(cookieParser('PurpleRed is awesome!!'));
 
 router.get('/', (req, res) => {
-    res.render('login', {
-        errmsg: ''
-    });
+    res.clearCookie('username');
+    res.render('login');
 });
 
 router.post('/', urlencodedParser, (req, res) => {
@@ -38,7 +40,13 @@ router.post('/', urlencodedParser, (req, res) => {
         else if (rows.length == 0 || rows[0]['密碼'] != pwdInput) res.render('login', {
             errmsg: '帳號或密碼錯誤'
         });
-        else res.redirect('/dashboard');
+        else {
+            res.cookie('username', rows[0]['姓名'], {
+                maxAge: 86400000,
+                httpOnly: true
+            });
+            res.redirect('/dashboard');
+        }
     });
     dbConnection.end();
 });
