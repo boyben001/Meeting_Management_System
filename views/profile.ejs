@@ -13,15 +13,11 @@
 <body>
   <%- include('layout') %>
 
-  <div class="container-fluid original_setting">
-    <div class="row">
-      <div class="col">
-        <h2 class="setting">一般設定</h2>
-      </div>
-    </div>
+  <div class="container-fluid my-5">
+    <h2>一般設定</h2>
     <hr>
-    <div class="row">
-      <div class="col-sm-12 col-lg-8 my_info order-sm-2 order-lg-1">
+    <div class="row justify-content-evenly">
+      <div id="my_info" class="d-flex flex-column justify-content-center col-10 col-lg-6 order-2 order-lg-1 my-3">
         <label for="">帳號</label>
         <input type="account">
         <label for="">密碼</label>
@@ -33,163 +29,75 @@
         <label for="">電話</label>
         <input type="phone">
 
-        <div class="edit">
-          <button type="text" class="edit_icon">
-            <span class="material-icons" style="font-size: 22px;">
-              edit
-            </span>
+        <div id="edit_btn">
+          <button type="text">
+            <span class="material-icons" style="font-size: 22px;">edit</span>
             編輯
           </button>
           <button type="text">儲存</button>
           <button type="reset">重設</button>
         </div>
       </div>
-      <div class="col-sm-12 col-lg-4 my_photo order-sm-1 order-lg-2">
+      <div id="my_photo" class="d-flex flex-column justify-content-start align-items-center mt-3 col-12 col-lg-3 order-1 order-lg-2 my-3">
         <img src="./../img/photo.jpg" alt="" class="d-block">
         <button type="button" class="d-block">選擇大頭貼</button>
         <button type="reset" class="d-block">重設大頭貼</button>
       </div>
     </div>
   </div>
-  <div class="container-fluid advanced_setting">
-    <div class="row">
-      <div class="col">
-        <h2 class="setting">進階設定</h2>
-      </div>
-    </div>
+  <div id="advanced_setting" class="container-fluid my-5">
+    <h2>進階設定</h2>
     <hr>
-    <div class="row">
-      <div class="col-2">
+    <div class="row justify-content-center">
+      <div id="group" class="col-10 col-lg-3 my-3">
         <ul class="list-group">
           <li class="list-group-item d-flex justify-content-between align-items-center">
             學生代表
-            <span class="badge bg-transparent text-dark rounded-pill">100</span>
+            <span class="badge bg-transparent text-dark rounded-pill">5</span>
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-center">
             系助理
-            <span class="badge bg-transparent text-dark rounded-pill"></span>
+            <span class="badge bg-transparent text-dark rounded-pill">10</span>
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-center">
             系上老師
-            <span class="badge bg-transparent text-dark rounded-pill"></span>
+            <span class="badge bg-transparent text-dark rounded-pill">100</span>
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-center">
             校外老師
-            <span class="badge bg-transparent text-dark rounded-pill"></span>
+            <span class="badge bg-transparent text-dark rounded-pill">1</span>
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-center">
             業界專家
-            <span class="badge bg-transparent text-dark rounded-pill"></span>
+            <span class="badge bg-transparent text-dark rounded-pill">0</span>
           </li>
         </ul>
       </div>
-      <div class="col-10 scroll">
-        <table id="student_representative" class="table">
+      <div class="col-10 col-lg-7 scroll my-3">
+        <table id="representative_table" class="table">
           <thead>
             <tr>
               <td>帳號</td>
               <td>姓名</td>
               <td>是否為管理員</td>
-              <td></td>
+              <td>動作</td>
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr class="table_item">
               <td>PurpleRed</td>
               <td>林子閎</td>
               <td>
-                <input class="me-2" type="radio" name="manager1" id="yes" style="width: 22px; height:22px; vertical-align: middle;">
-                <span>是</span>
-                <input class="mx-2" type="radio" name="manager1" id="no" style="width: 22px; height:22px; vertical-align: middle;">
-                <span>否</span>
-              </td>
-              <td>
-                <button>
-                  <span class="material-icons">
-                    edit
-                  </span>
-                </button>
-                <button>
-                  <span class="material-icons">
-                    delete_forever
-                  </span>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>PurpleRed</td>
-              <td>林子閎</td>
-              <td>
-                <input class="me-2" type="radio" name="manager2" id="yes" style="width: 22px; height:22px; vertical-align: middle;">
-                <span>是</span>
-                <input class="mx-2" type="radio" name="manager2" id="no" style="width: 22px; height:22px; vertical-align: middle;">
-                <span>否</span>
-              </td>
-              <td>
-                <button>
-                  <span class="material-icons">
-                    edit
-                  </span>
-                </button>
-                <button>
-                  <span class="material-icons">
-                    delete_forever
-                  </span>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>PurpleRed</td>
-              <td>林子閎</td>
-              <td>
-                <input class="me-2" type="radio" name="manager3" id="yes" style="width: 22px; height:22px; vertical-align: middle;">
-                <span>是</span>
-                <input class="mx-2" type="radio" name="manager3" id="no" style="width: 22px; height:22px; vertical-align: middle;">
-                <span>否</span>
-              </td>
-              <td>
-                <button>
-                  <span class="material-icons">
-                    edit
-                  </span>
-                </button>
-                <button>
-                  <span class="material-icons">
-                    delete_forever
-                  </span>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>PurpleRed</td>
-              <td>林子閎</td>
-              <td>
-                <input class="me-2" type="radio" name="manager4" id="yes" style="width: 22px; height:22px; vertical-align: middle;">
-                <span>是</span>
-                <input class="mx-2" type="radio" name="manager4" id="no" style="width: 22px; height:22px; vertical-align: middle;">
-                <span>否</span>
-              </td>
-              <td>
-                <button>
-                  <span class="material-icons">
-                    edit
-                  </span>
-                </button>
-                <button>
-                  <span class="material-icons">
-                    delete_forever
-                  </span>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>PurpleRed</td>
-              <td>林子閎</td>
-              <td>
-                <input class="me-2" type="radio" name="manager5" id="yes" style="width: 22px; height:22px; vertical-align: middle;">
-                <span>是</span>
-                <input class="mx-2" type="radio" name="manager5" id="no" style="width: 22px; height:22px; vertical-align: middle;">
-                <span>否</span>
+                <div class="d-flex justify-content-evenly">
+                  <div class="d-flex align-items-center">
+                    <input class="me-2" type="radio" name="is_admin_true" checked>
+                    <span>是</span>
+                  </div>
+                  <div class="d-flex align-items-center">
+                    <input class="mx-2" type="radio" name="is_admin_false">
+                    <span>否</span>
+                  </div>
+                </div>
               </td>
               <td>
                 <button>
@@ -206,18 +114,12 @@
             </tr>
           </tbody>
           <tfoot>
-            <tr>
-              <td>
-                <button class="person_add">
-                  <span class="material-icons" style="font-size: 50px;">
-                    person_add
-                  </span>
-                </button>
-              </td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
+            <td>
+              <button>新增人員</button>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
           </tfoot>
         </table>
       </div>

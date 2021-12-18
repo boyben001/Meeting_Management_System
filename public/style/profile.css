@@ -1,71 +1,64 @@
-*,
-*::before,
-*::after {
+* {
   font-family: "Gen Jyuu Gothic";
   font-weight: bold;
+}
+
+h2 {
+  margin: 0 7vw;
+  font-weight: bold;
+}
+
+hr {
+  margin: 1vh 7vw 2vh;
+}
+
+#my_info label {
   font-size: 18px;
 }
 
-.setting {
-  font-weight: bold;
-  margin: 0;
-}
-
-.my_info button,
-.my_photo button {
-  margin: 10px 0;
-  padding: 10px;
+#my_info button,
+#my_photo button,
+#representative_table tfoot button {
+  padding: 1vh 1vw;
   background-color: transparent;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
   border: none;
   border-radius: 5px;
+  font-size: 18px;
 }
 
-.my_info button:hover,
-.my_photo button:hover {
+#my_info button:hover,
+#my_photo button:hover,
+#representative_table tfoot button:hover {
   background-color: #bdbdbd;
   box-shadow: 0 5px 20px inset rgba(0, 0, 0, 0.3);
 }
 
-.my_info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 10vw;
-}
-
-.my_info input,
+#my_info input,
 label {
   margin-top: 10px;
 }
 
-.my_photo {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.my_photo img {
-  width: 200px;
-  height: 200px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-  margin-bottom: 30px;
-}
-
-.my_photo button {
-  margin: 5px;
-}
-
-.edit {
+#edit_btn {
   display: flex;
   margin: 20px 0;
 }
 
-.edit_icon {
+#edit_btn button {
   display: flex;
   width: 100px;
   justify-content: center;
+}
+
+#my_photo img {
+  width: 200px;
+  height: 200px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  margin-bottom: 30px;
+}
+
+#my_photo button {
+  margin: 5px;
 }
 
 .scroll {
@@ -73,30 +66,47 @@ label {
   overflow-y: scroll;
 }
 
-.advanced_setting .table {
+#group {
+  padding: 0 2vw 0 1vw;
+}
+
+#advanced_setting .badge {
+  font-size: 16px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+#advanced_setting .list-group-item {
+  font-size: 18px;
+}
+
+#representative_table {
+  height: 50vh;
   text-align: center;
 }
 
-.advanced_setting .table td {
-  font-size: 20px;
+#representative_table td {
+  font-size: 18px;
   vertical-align: middle;
 }
 
-.advanced_setting .badge {
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-}
-
-.advanced_setting .list-group-item {
-  font-size: 24px;
-}
-
-.advanced_setting .table button {
+.table_item button {
+  font-size: 18px;
   background-color: transparent;
   border: none;
   padding: 10px;
   border-radius: 10px;
 }
 
-.advanced_setting .table button:hover {
+.table_item .material-icons {
+  font-size: 28px;
+}
+
+.table_item button:hover {
   box-shadow: 0 5px 20px inset rgba(0, 0, 0, 0.5);
+}
+
+.table_item input {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
 }
