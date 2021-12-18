@@ -67,3 +67,36 @@ label {
   width: 100px;
   justify-content: center;
 }
+
+.scroll {
+  max-height: 300px;
+  overflow-y: scroll;
+}
+
+.advanced_setting .table {
+  text-align: center;
+}
+
+.advanced_setting .table td {
+  font-size: 20px;
+  vertical-align: middle;
+}
+
+.advanced_setting .badge {
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.advanced_setting .list-group-item {
+  font-size: 24px;
+}
+
+.advanced_setting .table button {
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.advanced_setting .table button:hover {
+  box-shadow: 0 5px 20px inset rgba(0, 0, 0, 0.5);
+}
