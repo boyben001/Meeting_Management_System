@@ -8,9 +8,6 @@ app.set('views', './views');
 app.set('view engine', 'ejs');
 
 /* INFO: 根路由 */
-app.get('/', (req, res) => {
-    res.send('This is root page.');
-});
 
 /* INFO: 登入路由 */
 let login = require('./routes/login');

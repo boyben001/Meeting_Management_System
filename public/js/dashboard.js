@@ -1,10 +1,10 @@
 $(document).ready(() => {
     /* initialize */
     let today = new Date();
-    let currentDate;  // 當前 datepicker 的值
+    let currentDate; // 當前 datepicker 的值
     $('#datepicker').datepicker({
         format: 'yyyy-mm',
-        startView: 'months', 
+        startView: 'months',
         minViewMode: 'months',
         autoclose: true
     });

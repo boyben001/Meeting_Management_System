@@ -1,12 +1,5 @@
 {
-    /* Language Setting */
-    "[html]": {
-        "editor.tabSize": 2,
-        "editor.defaultFormatter": "HookyQR.beautify"
-    },
-    "[css]": {
-        "editor.tabSize": 2
-    },
+    "editor.defaultFormatter": "HookyQR.beautify",
 
     /* Beautify */
     "beautify.config": {
@@ -14,7 +7,9 @@
         "end_with_newline": true,
         "extra_liners": [],
         "js": {
-            "indent_size": 4
+            "indent_size": 4,
+            "space_before_conditional": true,
+            "max_preserve_newlines": "2",
         },
     },
 
