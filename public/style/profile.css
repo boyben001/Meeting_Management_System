@@ -1,0 +1,128 @@
+* {
+  font-family: "Gen Jyuu Gothic";
+  font-weight: bold;
+}
+
+h2 {
+  margin: 0 7vw;
+  font-weight: bold;
+}
+
+hr {
+  margin: 1vh 7vw 2vh;
+}
+
+#my_info label {
+  font-size: 18px;
+}
+
+#my_info button,
+#my_photo button,
+#representative_table tfoot button {
+  padding: 1vh 1vw;
+  background-color: transparent;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+#my_info button:hover,
+#my_photo button:hover,
+#representative_table tfoot button:hover {
+  background-color: #bdbdbd;
+  box-shadow: 0 5px 20px inset rgba(0, 0, 0, 0.3);
+}
+
+#my_info input,
+label {
+  margin-top: 10px;
+}
+
+#edit_btn {
+  display: flex;
+  margin: 20px 0;
+}
+
+#edit_btn button {
+  display: flex;
+  width: 100px;
+  justify-content: center;
+}
+
+#my_photo img {
+  width: 200px;
+  height: 200px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  margin-bottom: 30px;
+}
+
+#my_photo button {
+  margin: 5px;
+}
+
+.scroll {
+  border: 0.3px solid rgba(0, 0, 0, .125);
+  height: 50vh;
+  overflow-y: scroll;
+}
+
+.scroll::-webkit-scrollbar {
+  width: 10px;
+}
+
+.scroll::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, .125);
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, .125);
+  border-radius: 50px;
+  border: .3px solid rgba(0, 0, 0, .15);
+}
+
+#group {
+  padding: 0 2vw 0 1vw;
+}
+
+#advanced_setting .badge {
+  font-size: 16px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+#advanced_setting .list-group-item {
+  font-size: 18px;
+}
+
+#representative_table {
+  height: 50vh*20%;
+  text-align: center;
+  scrollbar-width: thin;
+}
+
+#representative_table td {
+  font-size: 18px;
+  vertical-align: middle;
+}
+
+.table_item button {
+  font-size: 18px;
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.table_item .material-icons {
+  font-size: 28px;
+}
+
+.table_item button:hover {
+  box-shadow: 0 5px 20px inset rgba(0, 0, 0, 0.5);
+}
+
+.table_item input {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+}
