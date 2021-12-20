@@ -19,7 +19,7 @@
     <div class="row justify-content-evenly">
       <div id="my_info" class="d-flex flex-column justify-content-center col-10 col-lg-6 order-2 order-lg-1 my-3">
         <label for="">帳號</label>
-        <input type="account">
+        <input id="account_input" type="account" value="<%= accountInput %>">
         <label for="">密碼</label>
         <input type="password">
         <label for="">全名</label>
@@ -28,7 +28,6 @@
         <input type="email" placeholder=" 您的 Email ">
         <label for="">電話</label>
         <input type="phone">
-
         <div id="edit_btn">
           <button type="text">
             <span class="material-icons" style="font-size: 22px;">edit</span>

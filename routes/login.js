@@ -31,7 +31,6 @@ router.post('/', urlencodedParser, (req, res) => {
     let pwdInput = req.body.password;
     let dbConnection = mysql.createConnection(dbOption);
 
-    let errString = ['發生錯誤，請稍後再試一次', '帳號或密碼錯誤'];
     let findAccQuery = 'SELECT * FROM 使用者 WHERE 帳號 = "' + accInput + '"' // 尋找資料庫是否有輸入者所輸入的帳號
     dbConnection.query(findAccQuery, (err, rows, fields) => {
         if (err) res.render('login', {
@@ -42,6 +41,10 @@ router.post('/', urlencodedParser, (req, res) => {
         });
         else {
             res.cookie('username', rows[0]['姓名'], {
+                maxAge: 86400000,
+                httpOnly: true
+            });
+            res.cookie('userID', rows[0]['使用者編號'], {
                 maxAge: 86400000,
                 httpOnly: true
             });
