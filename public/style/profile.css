@@ -12,6 +12,10 @@ hr {
   margin: 1vh 7vw 2vh;
 }
 
+input {
+  padding: 0px 8px;
+}
+
 #my_info label {
   font-size: 18px;
 }
@@ -48,6 +52,7 @@ label {
   display: flex;
   width: 100px;
   justify-content: center;
+  align-items: center;
 }
 
 #my_photo img {
@@ -59,6 +64,16 @@ label {
 
 #my_photo button {
   margin: 5px;
+}
+
+
+.table td {
+  vertical-align: middle;
+}
+
+.table td:first-child {
+  text-align: center;
+  width: 150px;
 }
 
 .scroll {

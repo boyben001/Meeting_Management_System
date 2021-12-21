@@ -21,13 +21,65 @@
         <label for="">帳號</label>
         <input id="account_input" type="account" value="<%= accountInput %>">
         <label for="">密碼</label>
-        <input type="password">
+        <input id="password_input" type="password">
         <label for="">全名</label>
-        <input type="name">
+        <input id="name_input" type="name">
+        <label for="">性別</label>
+        <div class="d-flex mt-2">
+          <div class="d-flex align-items-center">
+            <input id="gender_input_male" type="radio" name="gender" class="mt-0 mx-5" style="width:18px; height: 18px;">
+            <span>男</span>
+          </div>
+          <div class="d-flex align-items-center">
+            <input id="gender_input_female" type="radio" name="gender" class="mt-0 mx-5" style="width:18px; height: 18px;">
+            <span>女</span>
+          </div>
+        </div>
         <label for="">郵箱</label>
-        <input type="email" placeholder=" 您的 Email ">
+        <input id="email_input" type="email" placeholder=" 您的 Email ">
         <label for="">電話</label>
-        <input type="phone">
+        <input id="tel_input" type="phone">
+        <label for="">使用者編號</label>
+        <input id="number_input" type="text">
+        <label for="" class="d-flex align-items-center">身分</label>
+        <input id="identity_input" type="text">
+        <label for="">學號</label>
+        <input id="student_id_input" type="text">
+        <label for="">學制</label>
+        <input id="student_system_input" type="text">
+        <label for="">班級</label>
+        <input id="student_class_input" type="text">
+
+        <label for="">辦公室電話</label>
+        <input id="department_assistant_tel_input" type="tel">
+
+        <label for="">職級</label>
+        <input id="department_teacher_job_input" type="text">
+
+        <label for="">任職學校</label>
+        <input id="outside_teacher_school_input" type="text">
+        <label for="">系所</label>
+        <input id="outside_teacher_deparment_input" type="text">
+        <label for="">職稱</label>
+        <input id="outside_teacher_title_input" type="text">
+        <label for="">辦公室電話</label>
+        <input id="outside_teacher_tel_input" type="text">
+        <label for="">聯絡地址</label>
+        <input id="outside_teacher_addr_input" type="text">
+        <label for="">銀行帳號</label>
+        <input id="outside_teacher_bank_input" type="text">
+
+        <label for="">任職公司</label>
+        <input id="industry_expert_company_input" type="text">
+        <label for="">職稱</label>
+        <input id="industry_expert_title_input" type="text">
+        <label for="">辦公室電話</label>
+        <input id="industry_expert_tel_input" type="text">
+        <label for="">聯絡地址</label>
+        <input id="industry_expert_addr_input" type="text">
+        <label for="">銀行帳號</label>
+        <input id="industry_expert_bank_input" type="text">
+
         <div id="edit_btn">
           <button type="text">
             <span class="material-icons" style="font-size: 22px;">edit</span>
@@ -89,11 +141,11 @@
               <td>
                 <div class="d-flex justify-content-evenly">
                   <div class="d-flex align-items-center">
-                    <input class="me-2" type="radio" name="is_admin_true" checked>
+                    <input class="me-2" type="radio" name="is_admin_1" checked>
                     <span>是</span>
                   </div>
                   <div class="d-flex align-items-center">
-                    <input class="mx-2" type="radio" name="is_admin_false">
+                    <input class="mx-2" type="radio" name="is_admin_1">
                     <span>否</span>
                   </div>
                 </div>
@@ -117,11 +169,11 @@
               <td>
                 <div class="d-flex justify-content-evenly">
                   <div class="d-flex align-items-center">
-                    <input class="me-2" type="radio" name="is_admin_true" checked>
+                    <input class="me-2" type="radio" name="is_admin_2" checked>
                     <span>是</span>
                   </div>
                   <div class="d-flex align-items-center">
-                    <input class="mx-2" type="radio" name="is_admin_false">
+                    <input class="mx-2" type="radio" name="is_admin_2">
                     <span>否</span>
                   </div>
                 </div>
@@ -145,11 +197,11 @@
               <td>
                 <div class="d-flex justify-content-evenly">
                   <div class="d-flex align-items-center">
-                    <input class="me-2" type="radio" name="is_admin_true" checked>
+                    <input class="me-2" type="radio" name="is_admin_3" checked>
                     <span>是</span>
                   </div>
                   <div class="d-flex align-items-center">
-                    <input class="mx-2" type="radio" name="is_admin_false">
+                    <input class="mx-2" type="radio" name="is_admin_3">
                     <span>否</span>
                   </div>
                 </div>
@@ -173,11 +225,11 @@
               <td>
                 <div class="d-flex justify-content-evenly">
                   <div class="d-flex align-items-center">
-                    <input class="me-2" type="radio" name="is_admin_true" checked>
+                    <input class="me-2" type="radio" name="is_admin_4" checked>
                     <span>是</span>
                   </div>
                   <div class="d-flex align-items-center">
-                    <input class="mx-2" type="radio" name="is_admin_false">
+                    <input class="mx-2" type="radio" name="is_admin_4">
                     <span>否</span>
                   </div>
                 </div>
@@ -201,39 +253,11 @@
               <td>
                 <div class="d-flex justify-content-evenly">
                   <div class="d-flex align-items-center">
-                    <input class="me-2" type="radio" name="is_admin_true" checked>
+                    <input class="me-2" type="radio" name="is_admin_5" checked>
                     <span>是</span>
                   </div>
                   <div class="d-flex align-items-center">
-                    <input class="mx-2" type="radio" name="is_admin_false">
-                    <span>否</span>
-                  </div>
-                </div>
-              </td>
-              <td>
-                <button>
-                  <span class="material-icons">
-                    edit
-                  </span>
-                </button>
-                <button>
-                  <span class="material-icons">
-                    delete_forever
-                  </span>
-                </button>
-              </td>
-            </tr>
-            <tr class="table_item">
-              <td>PurpleRed</td>
-              <td>林子閎</td>
-              <td>
-                <div class="d-flex justify-content-evenly">
-                  <div class="d-flex align-items-center">
-                    <input class="me-2" type="radio" name="is_admin_true" checked>
-                    <span>是</span>
-                  </div>
-                  <div class="d-flex align-items-center">
-                    <input class="mx-2" type="radio" name="is_admin_false">
+                    <input class="mx-2" type="radio" name="is_admin_5">
                     <span>否</span>
                   </div>
                 </div>
