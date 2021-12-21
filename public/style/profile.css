@@ -18,6 +18,7 @@ input {
 
 #my_info label {
   font-size: 18px;
+  margin: 15px 0 5px;
 }
 
 #my_info button,
@@ -38,19 +39,13 @@ input {
   box-shadow: 0 5px 20px inset rgba(0, 0, 0, 0.3);
 }
 
-#my_info input,
-label {
-  margin-top: 10px;
-}
 
-#edit_btn {
-  display: flex;
-  margin: 20px 0;
-}
-
-#edit_btn button {
+#edit_btn,
+#save_btn,
+#reset_btn {
   display: flex;
   width: 100px;
+  margin-right: 20px;
   justify-content: center;
   align-items: center;
 }
@@ -73,7 +68,6 @@ label {
 
 .table td:first-child {
   text-align: center;
-  width: 150px;
 }
 
 .scroll {
@@ -96,11 +90,22 @@ label {
   border: .3px solid rgba(0, 0, 0, .15);
 }
 
-#group {
+#identity_list {
   padding: 0 2vw 0 1vw;
 }
 
+#identity_list li {
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+#identity_list li:hover {
+  transition: 0.3s;
+  background-color: #cbdcf7;
+}
+
 #advanced_setting .badge {
+  background-color: #fff;
   font-size: 16px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
@@ -133,10 +138,10 @@ label {
 }
 
 .table_item button:hover {
-  box-shadow: 0 5px 20px inset rgba(0, 0, 0, 0.5);
+  box-shadow: 0 3px 10px inset rgba(0, 0, 0, 0.5);
 }
 
-.table_item input {
+.radio_btn {
   width: 16px;
   height: 16px;
   vertical-align: middle;

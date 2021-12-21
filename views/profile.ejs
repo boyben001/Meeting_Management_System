@@ -18,75 +18,76 @@
     <hr>
     <div class="row justify-content-evenly">
       <div id="my_info" class="d-flex flex-column justify-content-center col-10 col-lg-6 order-2 order-lg-1 my-3">
+        <label>使用者編號: <%= id %></label>
+        <label>身分: <%= identity %></label>
         <label for="">帳號</label>
-        <input id="account_input" type="account" value="<%= accountInput %>">
+        <input id="account_input" type="text" value="<%= accountInput %>" disabled>
         <label for="">密碼</label>
-        <input id="password_input" type="password">
+        <input id="password_input" type="password" disabled>
         <label for="">全名</label>
-        <input id="name_input" type="name">
+        <input id="name_input" type="name" disabled>
         <label for="">性別</label>
-        <div class="d-flex mt-2">
-          <div class="d-flex align-items-center">
-            <input id="gender_input_male" type="radio" name="gender" class="mt-0 mx-5" style="width:18px; height: 18px;">
+        <div class="d-flex">
+          <div class="d-flex align-items-center me-3" disabled>
+            <input id="gender_input_male" type="radio" name="gender" class="me-2 radio_btn" disabled>
             <span>男</span>
           </div>
           <div class="d-flex align-items-center">
-            <input id="gender_input_female" type="radio" name="gender" class="mt-0 mx-5" style="width:18px; height: 18px;">
+            <input id="gender_input_female" type="radio" name="gender" class="me-2 radio_btn" disabled>
             <span>女</span>
           </div>
         </div>
         <label for="">郵箱</label>
-        <input id="email_input" type="email" placeholder=" 您的 Email ">
+        <input id="email_input" type="email" disabled>
         <label for="">電話</label>
-        <input id="tel_input" type="phone">
-        <label for="">使用者編號</label>
-        <input id="number_input" type="text">
-        <label for="" class="d-flex align-items-center">身分</label>
-        <input id="identity_input" type="text">
+        <input id="tel_input" type="phone" disabled>
+
+        <% if (identity == '學生代表') { %>
         <label for="">學號</label>
-        <input id="student_id_input" type="text">
+        <input id="student_id_input" type="text" disabled>
         <label for="">學制</label>
-        <input id="student_system_input" type="text">
+        <input id="student_system_input" type="text" disabled>
         <label for="">班級</label>
-        <input id="student_class_input" type="text">
-
+        <input id="student_class_input" type="text" disabled>
+        <% } else if (identity == '系助理') { %>
         <label for="">辦公室電話</label>
-        <input id="department_assistant_tel_input" type="tel">
-
+        <input id="department_assistant_tel_input" type="tel" disabled>
+        <% } else if (identity == '系上老師') { %>
         <label for="">職級</label>
-        <input id="department_teacher_job_input" type="text">
-
+        <input id="department_teacher_job_input" type="text" disabled>
+        <% } else if (identity == '校外老師') { %>
         <label for="">任職學校</label>
-        <input id="outside_teacher_school_input" type="text">
+        <input id="outside_teacher_school_input" type="text" disabled>
         <label for="">系所</label>
-        <input id="outside_teacher_deparment_input" type="text">
+        <input id="outside_teacher_deparment_input" type="text" disabled>
         <label for="">職稱</label>
-        <input id="outside_teacher_title_input" type="text">
+        <input id="outside_teacher_title_input" type="text" disabled>
         <label for="">辦公室電話</label>
-        <input id="outside_teacher_tel_input" type="text">
+        <input id="outside_teacher_tel_input" type="text" disabled>
         <label for="">聯絡地址</label>
-        <input id="outside_teacher_addr_input" type="text">
+        <input id="outside_teacher_addr_input" type="text" disabled>
         <label for="">銀行帳號</label>
-        <input id="outside_teacher_bank_input" type="text">
-
+        <input id="outside_teacher_bank_input" type="text" disabled>
+        <% } else if (identity == '業界專家') { %>
         <label for="">任職公司</label>
-        <input id="industry_expert_company_input" type="text">
+        <input id="industry_expert_company_input" type="text" disabled>
         <label for="">職稱</label>
-        <input id="industry_expert_title_input" type="text">
+        <input id="industry_expert_title_input" type="text" disabled>
         <label for="">辦公室電話</label>
-        <input id="industry_expert_tel_input" type="text">
+        <input id="industry_expert_tel_input" type="text" disabled>
         <label for="">聯絡地址</label>
-        <input id="industry_expert_addr_input" type="text">
+        <input id="industry_expert_addr_input" type="text" disabled>
         <label for="">銀行帳號</label>
-        <input id="industry_expert_bank_input" type="text">
+        <input id="industry_expert_bank_input" type="text" disabled>
+        <% } %>
 
-        <div id="edit_btn">
-          <button type="text">
+        <div class="d-flex mt-4">
+          <button id="edit_btn">
             <span class="material-icons" style="font-size: 22px;">edit</span>
             編輯
           </button>
-          <button type="text">儲存</button>
-          <button type="reset">重設</button>
+          <button id="save_btn">儲存</button>
+          <button id="reset_btn">重設</button>
         </div>
       </div>
       <div id="my_photo" class="d-flex flex-column justify-content-start align-items-center mt-3 col-12 col-lg-3 order-1 order-lg-2 my-3">
@@ -100,27 +101,27 @@
     <h2>進階設定</h2>
     <hr>
     <div class="row justify-content-center">
-      <div id="group" class="col-10 col-lg-3 my-3">
+      <div id="identity_list" class="col-10 col-lg-3 my-3">
         <ul class="list-group">
           <li class="list-group-item d-flex justify-content-between align-items-center">
             學生代表
-            <span class="badge bg-transparent text-dark rounded-pill">5</span>
+            <span class="badge text-dark rounded-pill">5</span>
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-center">
             系助理
-            <span class="badge bg-transparent text-dark rounded-pill">10</span>
+            <span class="badge text-dark rounded-pill">10</span>
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-center">
             系上老師
-            <span class="badge bg-transparent text-dark rounded-pill">100</span>
+            <span class="badge text-dark rounded-pill">100</span>
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-center">
             校外老師
-            <span class="badge bg-transparent text-dark rounded-pill">1</span>
+            <span class="badge text-dark rounded-pill">1</span>
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-center">
             業界專家
-            <span class="badge bg-transparent text-dark rounded-pill">0</span>
+            <span class="badge text-dark rounded-pill">0</span>
           </li>
         </ul>
       </div>
@@ -130,7 +131,7 @@
             <tr>
               <td>帳號</td>
               <td>姓名</td>
-              <td>是否為管理員</td>
+              <td>管理員</td>
               <td>動作</td>
             </tr>
           </thead>
@@ -141,137 +142,21 @@
               <td>
                 <div class="d-flex justify-content-evenly">
                   <div class="d-flex align-items-center">
-                    <input class="me-2" type="radio" name="is_admin_1" checked>
+                    <input class="me-2 radio_btn" type="radio" name="is_admin_1" checked>
                     <span>是</span>
                   </div>
                   <div class="d-flex align-items-center">
-                    <input class="mx-2" type="radio" name="is_admin_1">
+                    <input class="mx-2 radio_btn" type="radio" name="is_admin_1">
                     <span>否</span>
                   </div>
                 </div>
               </td>
               <td>
                 <button>
-                  <span class="material-icons">
-                    edit
-                  </span>
+                  <span class="material-icons">edit</span>
                 </button>
                 <button>
-                  <span class="material-icons">
-                    delete_forever
-                  </span>
-                </button>
-              </td>
-            </tr>
-            <tr class="table_item">
-              <td>PurpleRed</td>
-              <td>林子閎</td>
-              <td>
-                <div class="d-flex justify-content-evenly">
-                  <div class="d-flex align-items-center">
-                    <input class="me-2" type="radio" name="is_admin_2" checked>
-                    <span>是</span>
-                  </div>
-                  <div class="d-flex align-items-center">
-                    <input class="mx-2" type="radio" name="is_admin_2">
-                    <span>否</span>
-                  </div>
-                </div>
-              </td>
-              <td>
-                <button>
-                  <span class="material-icons">
-                    edit
-                  </span>
-                </button>
-                <button>
-                  <span class="material-icons">
-                    delete_forever
-                  </span>
-                </button>
-              </td>
-            </tr>
-            <tr class="table_item">
-              <td>PurpleRed</td>
-              <td>林子閎</td>
-              <td>
-                <div class="d-flex justify-content-evenly">
-                  <div class="d-flex align-items-center">
-                    <input class="me-2" type="radio" name="is_admin_3" checked>
-                    <span>是</span>
-                  </div>
-                  <div class="d-flex align-items-center">
-                    <input class="mx-2" type="radio" name="is_admin_3">
-                    <span>否</span>
-                  </div>
-                </div>
-              </td>
-              <td>
-                <button>
-                  <span class="material-icons">
-                    edit
-                  </span>
-                </button>
-                <button>
-                  <span class="material-icons">
-                    delete_forever
-                  </span>
-                </button>
-              </td>
-            </tr>
-            <tr class="table_item">
-              <td>PurpleRed</td>
-              <td>林子閎</td>
-              <td>
-                <div class="d-flex justify-content-evenly">
-                  <div class="d-flex align-items-center">
-                    <input class="me-2" type="radio" name="is_admin_4" checked>
-                    <span>是</span>
-                  </div>
-                  <div class="d-flex align-items-center">
-                    <input class="mx-2" type="radio" name="is_admin_4">
-                    <span>否</span>
-                  </div>
-                </div>
-              </td>
-              <td>
-                <button>
-                  <span class="material-icons">
-                    edit
-                  </span>
-                </button>
-                <button>
-                  <span class="material-icons">
-                    delete_forever
-                  </span>
-                </button>
-              </td>
-            </tr>
-            <tr class="table_item">
-              <td>PurpleRed</td>
-              <td>林子閎</td>
-              <td>
-                <div class="d-flex justify-content-evenly">
-                  <div class="d-flex align-items-center">
-                    <input class="me-2" type="radio" name="is_admin_5" checked>
-                    <span>是</span>
-                  </div>
-                  <div class="d-flex align-items-center">
-                    <input class="mx-2" type="radio" name="is_admin_5">
-                    <span>否</span>
-                  </div>
-                </div>
-              </td>
-              <td>
-                <button>
-                  <span class="material-icons">
-                    edit
-                  </span>
-                </button>
-                <button>
-                  <span class="material-icons">
-                    delete_forever
-                  </span>
+                  <span class="material-icons">delete_forever</span>
                 </button>
               </td>
             </tr>
