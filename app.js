@@ -21,6 +21,9 @@ app.use('/dashboard', dashboard);
 let profile = require('./routes/profile');
 app.use('/profile', profile);
 
+let meeting = require('./routes/meeting');
+app.use('/meeting', meeting);
+
 app.use((req, res) => {
     res.status(404).send('404 Not Found.');
 });
