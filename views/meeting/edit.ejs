@@ -55,7 +55,7 @@
         <label>身分權限</label>
       </div>
       <div class="col-8">
-        <div class="me-5 scroll p-0">
+        <div class="scroll p-0 me-4">
           <table class="table">
             <thead>
               <tr>
@@ -174,13 +174,11 @@
     <h2>報告事項</h2>
     <hr>
     <div class="row">
-      <div class="col-4 d-flex justify-content-end">
+      <div class="col-4 d-flex" style="justify-content: end;">
         <label>報告內容</label>
       </div>
-      <div class="col-8">
-        <div class="me-5 overflow-auto">
-          <textarea name="" id="" cols="80" rows="4" class="p-3"></textarea>
-        </div>
+      <div class="col-8 d-flex justify-content-center">
+        <textarea name="" id="" cols="80" rows="4" class="p-3 me-4"></textarea>
       </div>
     </div>
   </div>
@@ -202,19 +200,19 @@
           </button>
         </div>
         <div class="d-flex justify-content-center ">
-          <table class="table mt-2 overflow-auto">
+          <table class="table mt-2">
             <tr>
               <td class="item">案由</td>
-              <td><input type="text" name="reason" id="reason" onkeypress="this.style.width = 80 + ((this.value.length + 1) * 8) + 'px';"></td>
+              <td class="decision_attr"><input type="text" name="reason" id="reason" onkeypress="this.style.width = 80 + ((this.value.length + 1) * 8) + 'px';"></td>
             </tr>
             <tr>
               <td class="item">說明</td>
-              <td><input type="text" name="explanation" id="explanation" onkeypress="this.style.width = 80 + ((this.value.length + 1) * 8) + 'px';"></td>
+              <td class="decision_attr"><input type="text" name="explanation" id="explanation" onkeypress="this.style.width = 80 + ((this.value.length + 1) * 8) + 'px';"></td>
             </tr>
             <tr>
               <td class="item">決議</td>
               <td>
-                <div class="d-flex justify-content-around align-items-center">
+                <div class="d-flex justify-content-around align-items-center meeting_decision">
                   <span class="item">決議事項</span>
                   <textarea name="" id="" cols="30" rows="4" class="p-3"></textarea>
                   <span class="item">執行情況</span>
@@ -240,29 +238,31 @@
             add
           </span>
         </button>
-        <ol type="1" class="list">
-          <li>
-            <div class="input-group mb-3 ms-3" style="width: 40vw">
-              <input id="input_group_file_1" type="file" class="form-control">
-            </div>
-          </li>
-          <li>
-            <div class="input-group mb-3 ms-3" style="width: 40vw">
-              <input id="input_group_file_2" type="file" class="form-control">
-            </div>
-          </li>
-          <li>
-            <div class="input-group mb-3 ms-3" style="width: 40vw">
-              <input id="input_group_file_3" type="file" class="form-control">
-            </div>
-          </li>
-        </ol>
+        <div class="d-flex justify-content-center">
+          <ol type="1" class="list">
+            <li>
+              <div class="input-group mb-3 ms-3" style="width: 40vw">
+                <input id="input_group_file_1" type="file" class="form-control">
+              </div>
+            </li>
+            <li>
+              <div class="input-group mb-3 ms-3" style="width: 40vw">
+                <input id="input_group_file_2" type="file" class="form-control">
+              </div>
+            </li>
+            <li>
+              <div class="input-group mb-3 ms-3" style="width: 40vw">
+                <input id="input_group_file_3" type="file" class="form-control">
+              </div>
+            </li>
+          </ol>
+        </div>
       </div>
     </div>
   </div>
   <div class="container-fluid send">
     <div class="row mb-3">
-      <div class="col col-2">
+      <div class="col-4">
         <button type="submit" class="add_button">
           <span class="material-icons" style="font-size: 50px;">
             check
