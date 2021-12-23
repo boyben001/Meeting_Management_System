@@ -94,7 +94,7 @@ router.get('/', (req, res) => {
                                 genderInput: rows[0]['性別'],
                                 emailInput: rows[0]['e-mail'],
                                 telInput: rows[0]['電話號碼'],
-                                departmentAssistentTelInput: rowsAssist[0]['辦公室電話']
+                                departmentAssistantTelInput: rowsAssist[0]['辦公室電話']
                             });
                         }
                     });

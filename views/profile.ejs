@@ -18,8 +18,8 @@
     <hr>
     <div class="row justify-content-evenly">
       <div id="my_info" class="d-flex flex-column justify-content-center col-10 col-lg-6 order-2 order-lg-1 my-3">
-        <label>使用者編號: <%= id %></label>
-        <label>身分: <%= identity %></label>
+        <label id=number>使用者編號: <%= id %></label>
+        <label id=identity>身分: <%= identity %></label>
         <label for="">帳號</label>
         <input id="account_input" type="text" value="<%= accountInput %>" disabled>
         <label for="">密碼</label>
@@ -51,7 +51,7 @@
         <input id="student_class_input" type="text" value="<%= typeof(studentClassInput) != 'undefined' ? studentClassInput : '' %>" disabled>
         <% } else if (identity == '系助理') { %>
         <label for="">辦公室電話</label>
-        <input id="department_assistant_tel_input" type="tel" value="<%= typeof(departmentAssistentTelInput) != 'undefined' ? departmentAssistentTelInput : '' %>" disabled>
+        <input id="department_assistant_tel_input" type="tel" value="<%= typeof(departmentAssistantTelInput) != 'undefined' ? departmentAssistantTelInput : '' %>" disabled>
         <% } else if (identity == '系上老師') { %>
         <label for="">職級</label>
         <input id="department_teacher_job_input" type="text" value="<%= typeof(departmentTeacherJobInput) != 'undefined' ? departmentTeacherJobInput : '' %>" disabled>
@@ -59,7 +59,7 @@
         <label for="">任職學校</label>
         <input id="outside_teacher_school_input" type="text" value="<%= typeof(outsideTeacherSchoolInput) != 'undefined' ? outsideTeacherSchoolInput : '' %>" disabled>
         <label for="">系所</label>
-        <input id="outside_teacher_deparment_input" type="text" value="<%= typeof(outsideTeacherDepartmentInput) != 'undefined' ? outsideTeacherDepartmentInput : '' %>" disabled>
+        <input id="outside_teacher_department_input" type="text" value="<%= typeof(outsideTeacherDepartmentInput) != 'undefined' ? outsideTeacherDepartmentInput : '' %>" disabled>
         <label for="">職稱</label>
         <input id="outside_teacher_title_input" type="text" value="<%= typeof(outsideTeacherTitleInput) != 'undefined' ? outsideTeacherTitleInput : '' %>" disabled>
         <label for="">辦公室電話</label>
