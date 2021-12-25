@@ -39,15 +39,19 @@ input {
   box-shadow: 0 5px 20px inset rgba(0, 0, 0, 0.3);
 }
 
-
 #edit_btn,
-#save_btn,
-#reset_btn {
+#save_btn {
   display: flex;
   width: 100px;
   margin-right: 20px;
   justify-content: center;
   align-items: center;
+}
+
+#edit_btn span,
+#save_btn span {
+  font-size: 22px;
+  margin-right: 5px;
 }
 
 #my_photo img {

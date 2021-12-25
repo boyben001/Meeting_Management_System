@@ -5,7 +5,6 @@ window.onload = function() {
     editBtn.disabled = false; //編輯按鈕初始化為可以按
     saveBtn.disabled = true; //儲存按鈕初始化為不能按
     editBtn.addEventListener('click', edit);
-    saveBtn.addEventListener('click', save);
 
     function edit(e) {
         let data = getData(); //取用該頁面資料
@@ -13,20 +12,8 @@ window.onload = function() {
             if ((i != 'number') && (i != 'identity')) //把欄位的disable拿掉
                 data[i].disabled = false;
         }
-        //        console.log(data['depAssTel'].value);
         editBtn.disabled = true;
         saveBtn.disabled = false;
-    }
-
-    function save(e) {
-        let data = getData(); //取用該頁面資料
-        for (let i in data) {
-            if ((i != 'number') && (i != 'identity')) //把欄位的disable放上
-                data[i].disabled = true;
-        }
-        //        console.log(data['depAssTel'].value);
-        editBtn.disabled = false;
-        saveBtn.disabled = true;
     }
 
     function getData() { //透過Json格式回傳該頁面所有欄位
