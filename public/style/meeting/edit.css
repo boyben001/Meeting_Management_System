@@ -1,0 +1,169 @@
+*,
+*::before,
+*::after {
+  font-family: "Gen Jyuu Gothic";
+  font-weight: bold;
+}
+
+h2 {
+  margin: 0 7vw;
+  font-weight: bold;
+}
+
+hr {
+  margin: 1vh 7vw 2vh;
+}
+
+input {
+  padding: 4px 15px;
+
+}
+
+label {
+  font-size: 18px;
+}
+
+.scroll {
+  border: .3px solid rgba(0, 0, 0, .125);
+  height: 240px;
+  overflow: auto;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+
+*::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, .125);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, .125);
+  border-radius: 50px;
+  border: .3px solid rgba(0, 0, 0, .15);
+}
+
+.add_button {
+  font-weight: bold;
+  background-color: transparent;
+  border: none;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.add_button:hover {
+  box-shadow: 0 5px 5px inset rgba(0, 0, 0, 0.5);
+}
+
+.row {
+  justify-content: center;
+  align-items: center;
+}
+
+.agenda .table {
+  text-align: center;
+}
+
+.agenda #date {
+  width: 20vw;
+  text-align: center;
+}
+
+.agenda .caption {
+  color: grey;
+  font-size: 14px;
+}
+
+.agenda #first_attr {
+  min-width: 100px;
+}
+
+.agenda #second_attr {
+  min-width: 100px;
+}
+
+.agenda #third_attr {
+  min-width: 100px;
+}
+
+.agenda #fourth_attr {
+  min-width: 50px;
+}
+
+.agenda #fifth_attr {
+  min-width: 50px;
+}
+
+.agenda #sixth_attr {
+  min-width: 250px;
+}
+
+.agenda .power {
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  vertical-align: middle;
+}
+
+
+
+
+.discuss_item .table {
+  border: .3px solid rgba(0, 0, 0, .125);
+}
+
+.discuss_item .table td {
+  vertical-align: middle;
+}
+
+.discuss_item .trash {
+  font-weight: bold;
+  background-color: transparent;
+  border: none;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.discuss_item .trash:hover {
+  box-shadow: 0 5px 5px inset rgba(0, 0, 0, 0.5);
+}
+
+.discuss_item .item {
+  margin: 0px 5px;
+  min-width: 80px;
+  text-align: center;
+}
+
+.discuss_item .decision_attr {
+  text-align: center;
+}
+
+@media screen and (max-width: 1075px) {
+  .discuss_item .meeting_decision {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .report_content .col-4 {
+    justify-content: center;
+  }
+}
+
+
+.attachment .file {
+  margin: 10px 50px 20px;
+}
+
+.attachment .list {
+  font-size: 22px;
+}
+
+.send .row .col-4 {
+  display: flex;
+  justify-content: space-around;
+}
+
+.send button {
+  border-radius: 100%;
+  padding: 5px;
+}

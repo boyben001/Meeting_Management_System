@@ -20,9 +20,8 @@ app.use('/dashboard', dashboard);
 let profile = require('./routes/profile');
 app.use('/profile', profile);
 
-app.get('/error', (req, res) => {
-    res.render('error');
-});
+let meeting = require('./routes/meeting');
+app.use('/meeting', meeting);
 
 app.use((req, res) => {
     res.status(404).render('error', {
