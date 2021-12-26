@@ -1,13 +1,12 @@
 let express = require('express');
-
 let router = express.Router();
 
-/* cookies */
+/* INFO: cookie-parser */
 let cookieParser = require('cookie-parser');
 router.use(cookieParser('PurpleRed is awesome!!'));
 
 router.get('/', (req, res) => {
-    if (req.cookies.username == null) {
+    if (Object.keys(req.cookies).length != process.env.NUM_OF_COOKIES) {
         res.redirect('/login');
     } else {
         res.render('dashboard', {
