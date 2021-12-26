@@ -21,7 +21,6 @@ router.get('/', (req, res) => {
     let cookies = req.cookies;
     for (let prop in cookies)
         res.clearCookie(prop);
-
     res.render('login');
 });
 
@@ -49,8 +48,9 @@ router.post('/', urlencodedParser, (req, res) => {
             });
             res.redirect('/dashboard');
         }
+
+        dbConnection.end();
     });
-    dbConnection.end();
 });
 
 module.exports = router;
