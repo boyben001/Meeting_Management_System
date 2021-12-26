@@ -1,5 +1,10 @@
 {
     "editor.defaultFormatter": "HookyQR.beautify",
+    "files.autoSave": "onFocusChange",
+    "editor.formatOnType": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.wordWrap": "on",
 
     /* Beautify */
     "beautify.config": {

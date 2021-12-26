@@ -1,13 +1,12 @@
 let express = require('express');
+require('dotenv').config();
 let app = express();
 
 app.use(express.static('./public'));
 
-/* ejs */
+/* INFO: ejs */
 app.set('views', './views');
 app.set('view engine', 'ejs');
-
-/* INFO: 根路由 */
 
 /* INFO: 登入路由 */
 let login = require('./routes/login');
@@ -21,13 +20,20 @@ app.use('/dashboard', dashboard);
 let profile = require('./routes/profile');
 app.use('/profile', profile);
 
+app.get('/error', (req, res) => {
+    res.render('error');
+});
+
 app.use((req, res) => {
-    res.status(404).send('404 Not Found.');
+    res.status(404).render('error', {
+        errmsg: '404 Not Found.'
+    });
 });
 
 app.use((err, req, res) => {
-    console.log(err);
-    res.status(500).send('Internal server error.\n\n' + err);
+    res.status(500).render('error', {
+        errmsg: err
+    });
 });
 
 let port = process.env.PORT || 3000;
