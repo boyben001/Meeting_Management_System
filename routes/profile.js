@@ -1,6 +1,12 @@
 let express = require('express');
 let router = express.Router();
 
+/* INFO: body-parser */
+let bodyParser = require('body-parser');
+let urlencodedParser = bodyParser.urlencoded({
+    extended: false
+});
+
 /* INFO: cookie-parser */
 let cookieParser = require('cookie-parser');
 router.use(cookieParser('PurpleRed is awesome!!'));
@@ -156,11 +162,12 @@ router.get('/', (req, res) => {
     } else getSqlAndRender(req, res);
 });
 
-router.post('/', (req, res) => {
+router.post('/', urlencodedParser, (req, res) => {
     if (Object.keys(req.cookies).length != process.env.NUM_OF_COOKIES) {
         res.redirect('/login');
     } else {
         // TODO: 寫入更新的值到 SQL
+        console.log(req.body); // 測試輸出
         getSqlAndRender(req, res);
     }
 });
