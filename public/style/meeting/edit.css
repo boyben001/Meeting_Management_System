@@ -11,7 +11,7 @@
 }
 
 .form_item input {
-  width: 40vw;
+  width: 45vw;
   margin-right: 10vw;
 }
 
@@ -20,8 +20,6 @@
   height: 240px;
   overflow: auto;
 }
-
-
 
 .add_button {
   font-weight: bold;
@@ -39,10 +37,6 @@
   align-items: center;
 }
 
-.agenda .table {
-  text-align: center;
-}
-
 .agenda #date {
   width: 20vw;
   text-align: center;
@@ -53,27 +47,37 @@
   font-size: 14px;
 }
 
-.agenda #first_attr {
+.form_table {
+  width: 45vw;
+  margin-right: 10vw;
+}
+
+.table input {
+  width: auto;
+  margin: 0;
+}
+
+.table #first_attr {
   min-width: 100px;
 }
 
-.agenda #second_attr {
+.table #second_attr {
   min-width: 100px;
 }
 
-.agenda #third_attr {
+.table #third_attr {
   min-width: 100px;
 }
 
-.agenda #fourth_attr {
+.table #fourth_attr {
   min-width: 50px;
 }
 
-.agenda #fifth_attr {
+.table #fifth_attr {
   min-width: 50px;
 }
 
-.agenda #sixth_attr {
+.table #sixth_attr {
   min-width: 250px;
 }
 
