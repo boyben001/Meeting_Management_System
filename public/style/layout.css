@@ -1,3 +1,4 @@
+/* INFO: navigation */
 header {
   font-family: "Noto Sans TC";
 }
@@ -15,6 +16,7 @@ body.dark {
 }
 
 nav {
+  height: 78px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
 }
 
@@ -71,4 +73,41 @@ nav {
 
 #nav_btn {
   margin-left: 3vw;
+}
+
+
+/* INFO: 統一樣式 */
+*,
+*::before,
+*::after {
+  font-family: "Gen Jyuu Gothic";
+  font-weight: bold;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, .125);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, .125);
+  border-radius: 50px;
+  border: .3px solid rgba(0, 0, 0, .15);
+}
+
+h2 {
+  margin: 0 7vw;
+  font-weight: bold;
+}
+
+hr {
+  margin: 1vh 7vw 2vh;
+}
+
+input {
+  padding: 2px 8px;
 }
