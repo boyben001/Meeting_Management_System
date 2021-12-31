@@ -26,7 +26,7 @@
           <label>密碼</label>
           <input id="password_input" name="passwordInput" type="password" value="<%= passwordInput %>" disabled>
           <label>全名</label>
-          <input id="name_input" name="nameInput" type="text" value="<%= nameInput %>" disabled>
+          <input id="name_input" name="nameInput" type="text" value="<%= username %>" disabled>
           <label>性別</label>
           <div class="d-flex">
             <div class="d-flex align-items-center me-3" disabled>
@@ -101,7 +101,7 @@
       </div>
     </div>
   </div>
-  <% if (isAdmin == true) { %>
+
   <div id="advanced_setting" class="container-fluid my-5">
     <h2>進階設定</h2>
     <hr>
@@ -178,7 +178,6 @@
       </div>
     </div>
   </div>
-  <% } %>
 
   <script src="/js/profile.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
