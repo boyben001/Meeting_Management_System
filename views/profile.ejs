@@ -83,11 +83,11 @@
           <% } %>
 
           <div class="d-flex mt-4">
-            <button id="edit_btn">
+            <button id="edit_btn" class="icon_text_button">
               <span class="material-icons">edit</span>
               編輯
             </button>
-            <button id="save_btn" type="submit">
+            <button id="save_btn" class="icon_text_button" type="submit">
               <span class="material-icons">save</span>
               儲存
             </button>
@@ -96,8 +96,14 @@
       </form>
       <div id="my_photo" class="d-flex flex-column justify-content-start align-items-center mt-3 col-12 col-lg-3 order-1 order-lg-2 my-3">
         <img src="./../img/photo.jpg" alt="" class="d-block">
-        <button type="button" class="d-block">選擇大頭貼</button>
-        <button type="reset" class="d-block">重設大頭貼</button>
+        <button type="button" class="icon_text_button">
+          <span class="material-icons">perm_media</span>
+          選擇大頭貼
+        </button>
+        <button type="reset" class="icon_text_button">
+          <span class="material-icons">refresh</span>
+          重設大頭貼
+        </button>
       </div>
     </div>
   </div>
@@ -168,7 +174,7 @@
           </tbody>
           <tfoot>
             <td>
-              <button>新增人員</button>
+              <button class="icon_text_button">新增人員</button>
             </td>
             <td></td>
             <td></td>

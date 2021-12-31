@@ -111,3 +111,29 @@ hr {
 input {
   padding: 2px 8px;
 }
+
+.icon_text_button {
+  padding: 1vh 1vw;
+  background-color: transparent;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon_text_button:hover {
+  background-color: #bdbdbd;
+  box-shadow: 0 5px 20px inset rgba(0, 0, 0, 0.3);
+}
+
+.icon_text_button span {
+  font-size: 22px;
+  margin-right: 5px;
+}
+
+.card h3 {
+  font-weight: bold;
+}
