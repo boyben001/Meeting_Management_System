@@ -30,11 +30,11 @@
           <label>性別</label>
           <div class="d-flex">
             <div class="d-flex align-items-center me-3" disabled>
-              <input id="gender_input_male" type="radio" class="me-2 radio_btn" disabled <%= genderInput==1 ? 'checked' : '' %>>
+              <input id="gender_input_male" name="genderInput" type="radio" value="1" class="me-2 radio_btn" disabled <%= genderInput==1 ? 'checked' : '' %>>
               <span>男</span>
             </div>
             <div class="d-flex align-items-center">
-              <input id="gender_input_female" type="radio" class="me-2 radio_btn" disabled <%= genderInput==2 ? 'checked' : '' %>>
+              <input id="gender_input_female" name="genderInput" type="radio" value="2" class="me-2 radio_btn" disabled <%= genderInput==2 ? 'checked' : '' %>>
               <span>女</span>
             </div>
           </div>

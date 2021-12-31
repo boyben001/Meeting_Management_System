@@ -31,8 +31,9 @@ function sqlError(res, err) {
 /* INFO: 取得 SQL 資料並渲染網頁 */
 function getSqlAndRender(req, res) {
     let dbConnection = mysql.createConnection(dbOption);
-    let findUserDataQuery = 'SELECT * FROM 使用者 WHERE 使用者編號 = "' + req.cookies.userID + '"' // 透過編號搜尋使用者資料
+    let findUserDataQuery = 'SELECT * FROM 使用者 WHERE 使用者編號 = "' + req.cookies.userID + '"' + ';' // 透過編號搜尋使用者資料
     dbConnection.query(findUserDataQuery, (err, rows, fields) => {
+
         if (err) sqlError(res, err);
         else {
             if (rows[0]['身分'] == '系上老師') {
@@ -43,7 +44,7 @@ function getSqlAndRender(req, res) {
                         res.render('profile', {
                             username: req.cookies.username,
                             id: req.cookies.userID,
-                            identity: rows[0]['身分'],
+                            identity: req.cookies.userIdentity,
                             accountInput: rows[0]['帳號'],
                             passwordInput: rows[0]['密碼'],
                             nameInput: rows[0]['姓名'],
@@ -64,7 +65,7 @@ function getSqlAndRender(req, res) {
                         res.render('profile', {
                             username: req.cookies.username,
                             id: req.cookies.userID,
-                            identity: rows[0]['身分'],
+                            identity: req.cookies.userIdentity,
                             accountInput: rows[0]['帳號'],
                             passwordInput: rows[0]['密碼'],
                             nameInput: rows[0]['姓名'],
@@ -87,7 +88,7 @@ function getSqlAndRender(req, res) {
                         res.render('profile', {
                             username: req.cookies.username,
                             id: req.cookies.userID,
-                            identity: rows[0]['身分'],
+                            identity: req.cookies.userIdentity,
                             accountInput: rows[0]['帳號'],
                             passwordInput: rows[0]['密碼'],
                             nameInput: rows[0]['姓名'],
@@ -108,7 +109,7 @@ function getSqlAndRender(req, res) {
                         res.render('profile', {
                             username: req.cookies.username,
                             id: req.cookies.userID,
-                            identity: rows[0]['身分'],
+                            identity: req.cookies.userIdentity,
                             accountInput: rows[0]['帳號'],
                             passwordInput: rows[0]['密碼'],
                             nameInput: rows[0]['姓名'],
@@ -134,7 +135,7 @@ function getSqlAndRender(req, res) {
                         res.render('profile', {
                             username: req.cookies.username,
                             id: req.cookies.userID,
-                            identity: rows[0]['身分'],
+                            identity: req.cookies.userIdentity,
                             accountInput: rows[0]['帳號'],
                             passwordInput: rows[0]['密碼'],
                             nameInput: rows[0]['姓名'],
@@ -167,8 +168,54 @@ router.post('/', urlencodedParser, (req, res) => {
         res.redirect('/login');
     } else {
         // TODO: 寫入更新的值到 SQL
-        console.log(req.body); // 測試輸出
-        getSqlAndRender(req, res);
+        let data = req.body;
+        let number = req.cookies.userID; //使用者編號
+        let dbConnection = mysql.createConnection(dbOption);
+        let deleteInstruction = 'DELETE FROM `使用者` WHERE `使用者編號` = ' + String(number) + ';'; //刪除資料庫
+        dbConnection.query(deleteInstruction, (err, row, fields) => {
+            dbConnection.end;
+        });
+        let input = `${number},'${data['accountInput']}','${data['passwordInput']}','${data['nameInput']}','${data['genderInput']}','${data['telInput']}','${data['emailInput']}','${req.cookies.userIdentity}',true`;
+        let addInstruction_1 = 'insert into 使用者 values(' + input + ');';
+        dbConnection.query(addInstruction_1, (err, row, fields) => {
+            dbConnection.end;
+        });
+        if (req.cookies.userIdentity == '系上老師') {
+            let addInstruction_2 = `insert into 系上老師 values('${number}', '${data['departmentTeacherJobInput']}');`;
+            dbConnection.query(addInstruction_2, (err, row, fields) => {
+                dbConnection.end;
+                getSqlAndRender(req, res);
+            });
+        } else if (req.cookies.userIdentity == '學生代表') {
+
+            let addInstruction_2 = `insert into 學生代表 values('${number}', '${data['studentIdInput']}','${data['studentSystemInput']}','${data['studentClassInput']}');`;
+            dbConnection.query(addInstruction_2, (err, row, fields) => {
+                dbConnection.end;
+                getSqlAndRender(req, res);
+            });
+
+        } else if (req.cookies.userIdentity == '系助理') {
+            let addInstruction_2 = `insert into 系助理 values('${number}', '${data['departmentAssistantTelInput']}');`;
+            dbConnection.query(addInstruction_2, (err, row, fields) => {
+                dbConnection.end;
+                getSqlAndRender(req, res);
+            });
+
+        } else if (req.cookies.userIdentity == '校外老師') {
+            let addInstruction_2 = `insert into 校外老師 values('${number}', '${data['outsideTeacherSchoolInput']}','${data['outsideTeacherDepartmentInput']}','${data['outsideTeacherTitleInput']}','${data['outsideTeacherTelInput']}','${data['outsideTeacherAddrInput']}','${data['outsideTeacherBankInput']}');`;
+            dbConnection.query(addInstruction_2, (err, row, fields) => {
+                dbConnection.end;
+                getSqlAndRender(req, res);
+            });
+
+        } else if (req.cookies.userIdentity == '業界專家') {
+
+            let addInstruction_2 = `insert into 業界專家 values('${number}', '${data['industryExpertCompanyInput']}','${data['industryExpertTitleInput']}','${data['industryExpertTelInput']}','${data['industryExpertAddrInput']}','${data['industryExpertBankInput']}');`;
+            dbConnection.query(addInstruction_2, (err, row, fields) => {
+                dbConnection.end;
+                getSqlAndRender(req, res);
+            });
+        }
     }
 });
 
