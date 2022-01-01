@@ -19,69 +19,68 @@
     <div class="row justify-content-evenly">
       <form action="/profile" method="post" class="col-10 col-lg-6 order-2 order-lg-1 my-3">
         <div id="my_info" class="d-flex flex-column justify-content-center">
-          <label id=number>使用者編號: <%= id %></label>
-          <label id=identity>身分: <%= identity %></label>
+          <label id="number">使用者編號: <%= id %></label>
+          <label id="identity">身分: <%= identity %></label>
           <label>帳號</label>
-          <input id="account_input" type="text" value="<%= accountInput %>" disabled>
+          <input id="account_input" name="accountInput" type="text" value="<%= accountInput %>" disabled>
           <label>密碼</label>
-          <input id="password_input" type="password" value="<%= passwordInput %>" disabled>
+          <input id="password_input" name="passwordInput" type="password" value="<%= passwordInput %>" disabled>
           <label>全名</label>
-          <input id="name_input" type="name" value="<%= nameInput %>" disabled>
+          <input id="name_input" name="nameInput" type="text" value="<%= username %>" disabled>
           <label>性別</label>
           <div class="d-flex">
             <div class="d-flex align-items-center me-3" disabled>
-              <input id="gender_input_male" type="radio" name="gender" class="me-2 radio_btn" disabled <%= genderInput==1 ? 'checked' : '' %>>
+              <input id="gender_input_male" name="genderInput" type="radio" value="1" class="me-2 radio_btn" disabled <%= genderInput==1 ? 'checked' : '' %>>
               <span>男</span>
             </div>
             <div class="d-flex align-items-center">
-              <input id="gender_input_female" type="radio" name="gender" class="me-2 radio_btn" disabled <%= genderInput==2 ? 'checked' : '' %>>
+              <input id="gender_input_female" name="genderInput" type="radio" value="2" class="me-2 radio_btn" disabled <%= genderInput==2 ? 'checked' : '' %>>
               <span>女</span>
             </div>
           </div>
           <label>郵箱</label>
-          <input id="email_input" type="email" value="<%= emailInput %>" disabled>
+          <input id="email_input" name="emailInput" type="text" value="<%= emailInput %>" disabled>
           <label>電話</label>
-          <input id="tel_input" type="phone" value="<%= telInput %>" disabled>
+          <input id="tel_input" name="telInput" type="text" value="<%= telInput %>" disabled>
 
           <% if (identity == '學生代表') { %>
           <label>學號</label>
-          <input id="student_id_input" type="text" value="<%= typeof(studentIdInput) != 'undefined' ? studentIdInput : '' %>" disabled>
+          <input id="student_id_input" name="studentIdInput" type="text" value="<%= typeof(studentIdInput) != 'undefined' ? studentIdInput : '' %>" disabled>
           <label>學制</label>
-          <input id="student_system_input" type="text" value="<%= typeof(studentSystemInput) != 'undefined' ? studentSystemInput : '' %>" disabled>
+          <input id="student_system_input" name="studentSystemInput" type="text" value="<%= typeof(studentSystemInput) != 'undefined' ? studentSystemInput : '' %>" disabled>
           <label>班級</label>
-          <input id="student_class_input" type="text" value="<%= typeof(studentClassInput) != 'undefined' ? studentClassInput : '' %>" disabled>
+          <input id="student_class_input" name="studentClassInput" type="text" value="<%= typeof(studentClassInput) != 'undefined' ? studentClassInput : '' %>" disabled>
           <% } else if (identity == '系助理') { %>
           <label>辦公室電話</label>
-          <input id="department_assistant_tel_input" type="tel" value="<%= typeof(departmentAssistantTelInput) != 'undefined' ? departmentAssistantTelInput : '' %>" disabled>
+          <input id="department_assistant_tel_input" name="departmentAssistantTelInput" type="text" value="<%= typeof(departmentAssistantTelInput) != 'undefined' ? departmentAssistantTelInput : '' %>" disabled>
           <% } else if (identity == '系上老師') { %>
           <label>職級</label>
-          <input id="department_teacher_job_input" type="text" value="<%= typeof(departmentTeacherJobInput) != 'undefined' ? departmentTeacherJobInput : '' %>" disabled>
+          <input id="department_teacher_job_input" name="departmentTeacherJobInput" type="text" value="<%= typeof(departmentTeacherJobInput) != 'undefined' ? departmentTeacherJobInput : '' %>" disabled>
           <% } else if (identity == '校外老師') { %>
           <label>任職學校</label>
-          <input id="outside_teacher_school_input" type="text" value="<%= typeof(outsideTeacherSchoolInput) != 'undefined' ? outsideTeacherSchoolInput : '' %>" disabled>
+          <input id="outside_teacher_school_input" name="outsideTeacherSchoolInput" type="text" value="<%= typeof(outsideTeacherSchoolInput) != 'undefined' ? outsideTeacherSchoolInput : '' %>" disabled>
           <label>系所</label>
-          <input id="outside_teacher_department_input" type="text" value="<%= typeof(outsideTeacherDepartmentInput) != 'undefined' ? outsideTeacherDepartmentInput : '' %>" disabled>
+          <input id="outside_teacher_department_input" name="outsideTeacherDepartmentInput" type="text" value="<%= typeof(outsideTeacherDepartmentInput) != 'undefined' ? outsideTeacherDepartmentInput : '' %>" disabled>
           <label>職稱</label>
-          <input id="outside_teacher_title_input" type="text" value="<%= typeof(outsideTeacherTitleInput) != 'undefined' ? outsideTeacherTitleInput : '' %>" disabled>
+          <input id="outside_teacher_title_input" name="outsideTeacherTitleInput" type="text" value="<%= typeof(outsideTeacherTitleInput) != 'undefined' ? outsideTeacherTitleInput : '' %>" disabled>
           <label>辦公室電話</label>
-          <input id="outside_teacher_tel_input" type="text" value="<%= typeof(outsideTeacherTelInput) != 'undefined' ? outsideTeacherTelInput : '' %>" disabled>
+          <input id="outside_teacher_tel_input" name="outsideTeacherTelInput" type="text" value="<%= typeof(outsideTeacherTelInput) != 'undefined' ? outsideTeacherTelInput : '' %>" disabled>
           <label>聯絡地址</label>
-          <input id="outside_teacher_addr_input" type="text" value="<%= typeof(outsideTeacherAddrInput) != 'undefined' ? outsideTeacherAddrInput : '' %>" disabled>
+          <input id="outside_teacher_addr_input" name="outsideTeacherAddrInput" type="text" value="<%= typeof(outsideTeacherAddrInput) != 'undefined' ? outsideTeacherAddrInput : '' %>" disabled>
           <label>銀行帳號</label>
-          <input id="outside_teacher_bank_input" type="text" value="<%= typeof(outsideTeacherBankInput) != 'undefined' ? outsideTeacherBankInput : '' %>" disabled>
+          <input id="outside_teacher_bank_input" name="outsideTeacherBankInput" type="text" value="<%= typeof(outsideTeacherBankInput) != 'undefined' ? outsideTeacherBankInput : '' %>" disabled>
           <% } else if (identity == '業界專家') { %>
           <label>任職公司</label>
-          <input id="industry_expert_company_input" type="text" value="<%= typeof(industryExpertCompanyInput) != 'undefined' ? industryExpertCompanyInput : '' %>" disabled>
+          <input id="industry_expert_company_input" name="industryExpertCompanyInput" type="text" value="<%= typeof(industryExpertCompanyInput) != 'undefined' ? industryExpertCompanyInput : '' %>" disabled>
           <label>職稱</label>
-          <input id="industry_expert_title_input" type="text" value="<%= typeof(industryExpertTitleInput) != 'undefined' ? industryExpertTitleInput : '' %>" disabled>
+          <input id="industry_expert_title_input" name="industryExpertTitleInput" type="text" value="<%= typeof(industryExpertTitleInput) != 'undefined' ? industryExpertTitleInput : '' %>" disabled>
           <label>辦公室電話</label>
-          <input id="industry_expert_tel_input" type="text" value="<%= typeof(industryExpertTelInput) != 'undefined' ? industryExpertTelInput : '' %>" disabled>
+          <input id="industry_expert_tel_input" name="industryExpertTelInput" type="text" value="<%= typeof(industryExpertTelInput) != 'undefined' ? industryExpertTelInput : '' %>" disabled>
           <label>聯絡地址</label>
-          <input id="industry_expert_addr_input" type="text" value="<%= typeof(industryExpertAddrInput) != 'undefined' ? industryExpertAddrInput : '' %>" disabled>
+          <input id="industry_expert_addr_input" name="industryExpertAddrInput" type="text" value="<%= typeof(industryExpertAddrInput) != 'undefined' ? industryExpertAddrInput : '' %>" disabled>
           <label>銀行帳號</label>
-          <input id="industry_expert_bank_input" type="text" value="<%= typeof(industryExpertBankInput) != 'undefined' ? industryExpertBankInput : '' %>" disabled>
+          <input id="industry_expert_bank_input" name="industryExpertBankInput" type="text" value="<%= typeof(industryExpertBankInput) != 'undefined' ? industryExpertBankInput : '' %>" disabled>
           <% } %>
-
           <div class="d-flex mt-4">
             <button id="edit_btn">
               <span class="material-icons">edit</span>
@@ -94,6 +93,7 @@
           </div>
         </div>
       </form>
+      
       <div id="my_photo" class="d-flex flex-column justify-content-start align-items-center mt-3 col-12 col-lg-3 order-1 order-lg-2 my-3">
         <img src="./../img/photo.jpg" alt="" class="d-block">
         <button type="button" class="d-block">選擇大頭貼</button>
@@ -101,7 +101,7 @@
       </div>
     </div>
   </div>
-  <% if (isAdmin == true) { %>
+
   <div id="advanced_setting" class="container-fluid my-5">
     <h2>進階設定</h2>
     <hr>
@@ -178,7 +178,6 @@
       </div>
     </div>
   </div>
-  <% } %>
 
   <script src="/js/profile.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
