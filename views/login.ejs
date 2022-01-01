@@ -20,6 +20,8 @@
           <input id="password" name="password" type="password">
           <% if (typeof(errmsg) != 'undefined') { %>
           <div class="error"><%= errmsg %></div>
+          <% } else { %>
+          <div class="error"></div>
           <% } %>
           <input id="login_btn" type="submit" value="登入">
         </form>

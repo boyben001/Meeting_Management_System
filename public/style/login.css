@@ -56,6 +56,7 @@ input {
   border-radius: 5px;
   margin: 10px auto;
   font-size: 22px;
+  max-width: 400px;
 }
 
 .col input {
@@ -76,7 +77,7 @@ input {
 }
 
 #login_btn {
-  margin: 5vh auto 3vh auto;
+  margin: 3vh auto;
   width: 100px;
   height: 45px;
   border-radius: 5px;
@@ -93,7 +94,8 @@ input {
 }
 
 .error {
-  margin: 5vh auto 15px auto;
+  height: 40px;
+  margin: 3vh auto;
   font-size: 20px;
   color: #fff3e0;
   text-align: center;
@@ -116,10 +118,4 @@ input {
     width: 60vw;
     font-size: 18px;
   }
-
-  .error {
-    font-size: 18px;
-    margin: 5vh auto 15px auto;
-  }
-
 }
