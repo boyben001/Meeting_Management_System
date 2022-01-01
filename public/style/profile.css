@@ -3,36 +3,8 @@ label {
   margin: 15px 0 5px;
 }
 
-#my_info button,
-#my_photo button,
-#representative_table tfoot button {
-  padding: 1vh 1vw;
-  background-color: transparent;
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
-  border: none;
-  border-radius: 5px;
-  font-size: 18px;
-}
-
-#my_info button:hover,
-#my_photo button:hover,
-#representative_table tfoot button:hover {
-  background-color: #bdbdbd;
-  box-shadow: 0 5px 20px inset rgba(0, 0, 0, 0.3);
-}
-
-#edit_btn,
-#save_btn {
-  display: flex;
+#edit_btn {
   margin-right: 20px;
-  justify-content: center;
-  align-items: center;
-}
-
-#edit_btn span,
-#save_btn span {
-  font-size: 22px;
-  margin-right: 5px;
 }
 
 #my_photo img {

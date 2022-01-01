@@ -1,18 +1,58 @@
 .form_item {
+  margin: 0 auto 20px;
+  width: 75vw;
   display: flex;
-  justify-content: center;
+  flex-direction: row;
   align-items: center;
-  margin-bottom: 20px;
 }
 
 .form_item label {
   font-size: 18px;
-  margin-right: 5vw;
+  padding-right: 5%;
 }
 
 .form_item input {
-  width: 40vw;
-  margin-right: 10vw;
+  width: 70%;
+  max-width: 400px;
+}
+
+#authority_table,
+.form_item textarea,
+#attachment_list ol {
+  width: 70%;
+  max-width: 800px;
+  resize: none;
+}
+
+#authority_table table {
+  margin: 0;
+}
+
+#authority_table input {
+  width: auto;
+  margin: 0;
+}
+
+#attachment_list input {
+  width: 100%;
+  max-width: 800px;
+  margin-left: 1vw;
+  margin-bottom: 1vh;
+}
+
+#account_attr,
+#name_attr,
+#id_attr {
+  min-width: 100px;
+}
+
+#view_attr,
+#edit_attr {
+  min-width: 50px;
+}
+
+#participant_attr {
+  min-width: 250px;
 }
 
 .scroll {
@@ -21,127 +61,41 @@
   overflow: auto;
 }
 
-
-
-.add_button {
-  font-weight: bold;
-  background-color: transparent;
-  border: none;
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+.card {
+  width: 100%;
+  max-width: 1200px;
+  padding: 2vh 2vw;
 }
 
-.add_button:hover {
-  box-shadow: 0 5px 5px inset rgba(0, 0, 0, 0.5);
-}
-
-.row {
-  justify-content: center;
+.card_item {
+  margin: 0 auto 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
   align-items: center;
 }
 
-.agenda .table {
-  text-align: center;
+.card_item h3 {
+  margin: 0;
 }
 
-.agenda #date {
-  width: 20vw;
-  text-align: center;
-}
+@media screen and (max-width: 992px) {
 
-.agenda .caption {
-  color: grey;
-  font-size: 14px;
-}
-
-.agenda #first_attr {
-  min-width: 100px;
-}
-
-.agenda #second_attr {
-  min-width: 100px;
-}
-
-.agenda #third_attr {
-  min-width: 100px;
-}
-
-.agenda #fourth_attr {
-  min-width: 50px;
-}
-
-.agenda #fifth_attr {
-  min-width: 50px;
-}
-
-.agenda #sixth_attr {
-  min-width: 250px;
-}
-
-.agenda .power {
-  width: 20px;
-  height: 20px;
-  border-radius: 100%;
-  vertical-align: middle;
-}
-
-
-
-
-.discuss_item .table {
-  border: .3px solid rgba(0, 0, 0, .125);
-}
-
-.discuss_item .table td {
-  vertical-align: middle;
-}
-
-.discuss_item .trash {
-  font-weight: bold;
-  background-color: transparent;
-  border: none;
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
-}
-
-.discuss_item .trash:hover {
-  box-shadow: 0 5px 5px inset rgba(0, 0, 0, 0.5);
-}
-
-.discuss_item .item {
-  margin: 0px 5px;
-  min-width: 80px;
-  text-align: center;
-}
-
-.discuss_item .decision_attr {
-  text-align: center;
-}
-
-@media screen and (max-width: 1075px) {
-  .discuss_item .meeting_decision {
+  .form_item,
+  .card_item {
     flex-direction: column;
-    align-items: center;
+    align-items: start;
   }
 
-  .report_content .col-4 {
-    justify-content: center;
+  .form_item label {
+    padding-bottom: 1vh;
   }
-}
 
-
-.attachment .file {
-  margin: 10px 50px 20px;
-}
-
-.attachment .list {
-  font-size: 22px;
-}
-
-.send .row .col-4 {
-  display: flex;
-  justify-content: space-around;
-}
-
-.send button {
-  border-radius: 100%;
-  padding: 5px;
+  .form_item input,
+  .form_item textarea,
+  .card_item textarea,
+  #authority_table,
+  #attachment_list ol {
+    width: 100%;
+  }
 }
