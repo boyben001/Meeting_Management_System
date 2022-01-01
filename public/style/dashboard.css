@@ -1,5 +1,10 @@
-#quick_start a {
+#quick_start a,
+#quick_start_mobile a {
   text-decoration: none;
+}
+
+#quick_start_mobile a {
+  height: 100%;
 }
 
 #quick_start .material-icons {
@@ -11,6 +16,7 @@
 #quick_start h3,
 #quick_start_mobile button {
   height: 50px;
+  padding: 0;
 }
 
 #quick_start_mobile .text {

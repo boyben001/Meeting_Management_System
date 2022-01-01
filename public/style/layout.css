@@ -69,6 +69,7 @@ nav {
 
 #darkmode_icon {
   padding: 5px;
+  cursor: pointer;
 }
 
 #nav_btn {
