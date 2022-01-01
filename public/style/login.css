@@ -29,8 +29,8 @@ body {
   left: 0;
   right: 0;
   margin: auto;
-  height: 55vh;
-  width: 50vw;
+  height: 60vh;
+  width: 55vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -99,21 +99,21 @@ input {
   text-align: center;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 768px) {
   .row {
     width: 80vw;
     height: 65vh;
   }
 
   .title {
-    font-size: 28px;
+    font-size: 26px;
     width: 70vw;
     flex-direction: column;
   }
 
   .col label,
   input {
-    width: 50vw;
+    width: 60vw;
     font-size: 18px;
   }
 
