@@ -7,6 +7,10 @@ let urlencodedParser = bodyParser.urlencoded({
     extended: false
 });
 
+/* INFO: cookie-parser */
+let cookieParser = require('cookie-parser');
+router.use(cookieParser('PurpleRed is awesome!!'));
+
 /* INFO: MySQL */
 let mysql = require('mysql');
 dbOption = {
@@ -43,6 +47,10 @@ router.post('/', urlencodedParser, (req, res) => {
                 httpOnly: true
             });
             res.cookie('userID', rows[0]['使用者編號'], {
+                maxAge: 86400000,
+                httpOnly: true
+            });
+            res.cookie('userIdentity', rows[0]['身分'], {
                 maxAge: 86400000,
                 httpOnly: true
             });

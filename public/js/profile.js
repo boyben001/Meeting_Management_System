@@ -1,4 +1,5 @@
 window.onload = function() {
+
     let editBtn = document.getElementById('edit_btn');
     let saveBtn = document.getElementById('save_btn');
 
@@ -9,8 +10,7 @@ window.onload = function() {
     function edit(e) {
         let data = getData(); //取用該頁面資料
         for (let i in data) {
-            if ((i != 'number') && (i != 'identity')) //把欄位的disable拿掉
-                data[i].disabled = false;
+            data[i].disabled = false;
         }
         editBtn.disabled = true;
         saveBtn.disabled = false;
@@ -22,7 +22,8 @@ window.onload = function() {
         let accountInput = document.getElementById('account_input');
         let passwordInput = document.getElementById('password_input');
         let nameInput = document.getElementById('name_input');
-        let gender = getGender(); //1為男性、2為女性
+        let genderMale = document.getElementById('gender_input_male');
+        let genderFemale = document.getElementById('gender_input_female')
         let emailInput = document.getElementById('email_input');
         let telInput = document.getElementById('tel_input');
         if (identity == '系上老師') {
@@ -33,6 +34,8 @@ window.onload = function() {
                 accountInput: accountInput,
                 passwordInput: passwordInput,
                 nameInput: nameInput,
+                genderMale: genderMale,
+                genderFemale: genderFemale,
                 emailInput: emailInput,
                 telInput: telInput,
                 depTeaJob: depTeaJob
@@ -47,10 +50,12 @@ window.onload = function() {
                 accountInput: accountInput,
                 passwordInput: passwordInput,
                 nameInput: nameInput,
+                genderMale: genderMale,
+                genderFemale: genderFemale,
                 emailInput: emailInput,
                 telInput: telInput,
                 stuId: stuId,
-                stuSys: stuSysm,
+                stuSys: stuSys,
                 stuClass: stuClass
             });
         } else if (identity == '系助理') {
@@ -61,6 +66,8 @@ window.onload = function() {
                 accountInput: accountInput,
                 passwordInput: passwordInput,
                 nameInput: nameInput,
+                genderMale: genderMale,
+                genderFemale: genderFemale,
                 emailInput: emailInput,
                 telInput: telInput,
                 depAssTel: depAssTel
@@ -78,6 +85,8 @@ window.onload = function() {
                 accountInput: accountInput,
                 passwordInput: passwordInput,
                 nameInput: nameInput,
+                genderMale: genderMale,
+                genderFemale: genderFemale,
                 emailInput: emailInput,
                 telInput: telInput,
                 outTeaSch: outTeaSch,
@@ -99,6 +108,8 @@ window.onload = function() {
                 accountInput: accountInput,
                 passwordInput: passwordInput,
                 nameInput: nameInput,
+                genderMale: genderMale,
+                genderFemale: genderFemale,
                 emailInput: emailInput,
                 telInput: telInput,
                 indExpCom: indExpCom,
@@ -108,14 +119,6 @@ window.onload = function() {
                 indExpBank: indExpBank
             });
 
-        }
-
-        function getGender() {
-            if (document.getElementById('gender_input_male').checked == true) {
-                return 1;
-            } else {
-                return 2;
-            }
         }
     }
 }
