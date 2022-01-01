@@ -130,7 +130,7 @@ input {
   box-shadow: 0 5px 20px inset rgba(0, 0, 0, 0.3);
 }
 
-.icon_text_button span {
+.icon_text_button .material-icons {
   font-size: 22px;
   margin-right: 5px;
 }
