@@ -29,7 +29,7 @@ body {
   left: 0;
   right: 0;
   margin: auto;
-  height: 50vh;
+  height: 55vh;
   width: 50vw;
   display: flex;
   flex-direction: column;
@@ -37,31 +37,24 @@ body {
   align-items: center;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(5px);
+  transition: all .5s ease;
 }
 
-@media screen and (max-width: 700px) {
-  .row {
-    width: 60vw;
-  }
-
-}
-
-.col {
-  display: flex;
-  flex-direction: column;
-}
-
-.col h1 {
-  margin-bottom: 80px;
+.title {
+  font-size: 32px;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  margin: 5vh auto 5vh auto;
 }
 
 .col label,
 input {
   display: block;
+  width: 40vw;
   font-weight: bold;
   border-radius: 5px;
-  margin: 10px 0;
+  margin: 10px auto;
   font-size: 22px;
 }
 
@@ -77,16 +70,21 @@ input {
   border-radius: 30px;
 }
 
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
 #login_btn {
-  margin-top: 30px;
+  margin: 5vh auto 3vh auto;
   width: 100px;
   height: 45px;
   border-radius: 5px;
   border: none;
   font-size: 24px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(5px);
-  transition: all 1s;
+  transition: all .5s;
 }
 
 #login_btn:hover {
@@ -95,7 +93,33 @@ input {
 }
 
 .error {
-  margin: 10px 0;
-  font-size: 28px;
-  color: rgb(255, 162, 139);
+  margin: 5vh auto 15px auto;
+  font-size: 20px;
+  color: #fff3e0;
+  text-align: center;
+}
+
+@media screen and (max-width: 1200px) {
+  .row {
+    width: 80vw;
+    height: 65vh;
+  }
+
+  .title {
+    font-size: 28px;
+    width: 70vw;
+    flex-direction: column;
+  }
+
+  .col label,
+  input {
+    width: 50vw;
+    font-size: 18px;
+  }
+
+  .error {
+    font-size: 18px;
+    margin: 5vh auto 15px auto;
+  }
+
 }

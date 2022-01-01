@@ -12,18 +12,21 @@
   <div class="container">
     <div class="row">
       <div class="col">
-        <h1>高大資工系會議管理系統</h1>
+        <div class="title">
+          <div>高雄大學資訊工程系</div>
+          <div>會議管理系統</div>
+        </div>
         <form method="POST" action='/login'>
           <label for="account">帳號</label>
           <input id="account" name="account" type="text">
           <label for="password">密碼</label>
           <input id="password" name="password" type="password">
+          <% if (typeof(errmsg) != 'undefined') { %>
+          <div class="error"><%= errmsg %></div>
+          <% } %>
           <input id="login_btn" type="submit" value="登入">
         </form>
       </div>
-      <% if (typeof(errmsg) != 'undefined') { %>
-      <div class="error"><%= errmsg %></div>
-      <% } %>
     </div>
   </div>
 
