@@ -16,7 +16,6 @@ body.dark {
 }
 
 nav {
-  height: 78px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
 }
 
@@ -69,6 +68,7 @@ nav {
 
 #darkmode_icon {
   padding: 5px;
+  cursor: pointer;
 }
 
 #nav_btn {
@@ -129,7 +129,7 @@ input {
   box-shadow: 0 5px 20px inset rgba(0, 0, 0, 0.3);
 }
 
-.icon_text_button span {
+.icon_text_button .material-icons {
   font-size: 22px;
   margin-right: 5px;
 }

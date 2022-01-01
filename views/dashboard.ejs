@@ -20,21 +20,21 @@
       <span class="material-icons">add</span>
       <div class="card-body">
         <h3 class="card-title">建立會議</h3>
-        <p class="card-text">立即建立新的會議，並選擇與會人員和時間</p>
+        <p class="card-text">設定名稱、與會人員和時間</p>
       </div>
     </a>
     <a href="#" class="card text-white bg-primary m-1 col">
       <span class="material-icons">alarm</span>
       <div class="card-body">
         <h3 class="card-title">即將到來</h3>
-        <p class="card-text">顯示未來即將與會，以及有權限查閱的會議</p>
+        <p class="card-text">顯示未來即將與會的會議</p>
       </div>
     </a>
     <a href="#" class="card text-white bg-secondary m-1 col">
       <span class="material-icons">history</span>
       <div class="card-body">
         <h3 class="card-title">歷史會議</h3>
-        <p class="card-text">顯示過去曾經與會，以及有權限查閱的會議</p>
+        <p class="card-text">顯示過去曾經與會的會議</p>
       </div>
     </a>
     <a href="/profile" class="card text-white bg-danger ms-1 my-1 col">
@@ -49,21 +49,29 @@
   <!-- 小螢幕版本的 Quick Start -->
   <div id="quick_start_mobile" class="container-fluid mb-5 d-block d-md-none">
     <div class="d-grid gap-1">
-      <button class="btn text-white bg-success d-flex justify-content-center align-items-center">
-        <span class="material-icons px-3">add</span>
-        <span class="text">建立會議</span>
+      <button class="btn">
+        <a href="/meeting/edit" class=" text-white bg-success d-flex justify-content-center align-items-center">
+          <span class="material-icons px-3">add</span>
+          <span class="text">建立會議</span>
+        </a>
       </button>
-      <button class="btn text-white bg-primary d-flex justify-content-center align-items-center">
-        <span class="material-icons px-3">alarm</span>
-        <span class="text">即將到來的會議</span>
+      <button class="btn">
+        <a href="#" class="text-white bg-primary d-flex justify-content-center align-items-center">
+          <span class="material-icons px-3">alarm</span>
+          <span class="text">即將到來的會議</span>
+        </a>
       </button>
-      <button class="btn text-white bg-secondary d-flex justify-content-center align-items-center">
-        <span class="material-icons px-3">history</span>
-        <span class="text">歷史會議</span>
+      <button class="btn">
+        <a href="#" class="text-white bg-secondary d-flex justify-content-center align-items-center">
+          <span class="material-icons px-3">history</span>
+          <span class="text">歷史會議</span>
+        </a>
       </button>
-      <button class="btn text-white bg-danger d-flex justify-content-center align-items-center">
-        <span class="material-icons px-3">account_circle</span>
-        <span class="text">查看/修改個人資料</span>
+      <button class="btn">
+        <a href="/profile" class="text-white bg-danger d-flex justify-content-center align-items-center">
+          <span class="material-icons px-3">account_circle</span>
+          <span class="text">查看/修改個人資料</span>
+        </a>
       </button>
     </div>
   </div>
