@@ -8,117 +8,53 @@ window.onload = function() {
     editBtn.addEventListener('click', edit);
 
     function edit(e) {
-        let data = getData(); //取用該頁面資料
-        for (let i in data) {
-            data[i].disabled = false;
+        let input = getInput(); //取用該頁面資料
+        for (let i in input) {
+            input[i].disabled = false;
         }
         editBtn.disabled = true;
         saveBtn.disabled = false;
     }
 
-    function getData() { //透過Json格式回傳該頁面所有欄位
-        let number = document.getElementById('number').textContent.substring(7);
+    function getInput() { //透過Json格式回傳該頁面所有欄位
         let identity = document.getElementById('identity').textContent.substring(4);
-        let accountInput = document.getElementById('account_input');
-        let passwordInput = document.getElementById('password_input');
-        let nameInput = document.getElementById('name_input');
-        let genderMale = document.getElementById('gender_input_male');
-        let genderFemale = document.getElementById('gender_input_female')
-        let emailInput = document.getElementById('email_input');
-        let telInput = document.getElementById('tel_input');
-        if (identity == '系上老師') {
-            let depTeaJob = document.getElementById('department_teacher_job_input');
-            return ({
-                number: number,
-                identity: identity,
-                accountInput: accountInput,
-                passwordInput: passwordInput,
-                nameInput: nameInput,
-                genderMale: genderMale,
-                genderFemale: genderFemale,
-                emailInput: emailInput,
-                telInput: telInput,
-                depTeaJob: depTeaJob
-            });
-        } else if (identity == '學生代表') {
-            let stuId = document.getElementById('student_id_input');
-            let stuSys = document.getElementById('student_system_input');
-            let stuClass = document.getElementById('student_class_input');
-            return ({
-                number: number,
-                identity: identity,
-                accountInput: accountInput,
-                passwordInput: passwordInput,
-                nameInput: nameInput,
-                genderMale: genderMale,
-                genderFemale: genderFemale,
-                emailInput: emailInput,
-                telInput: telInput,
-                stuId: stuId,
-                stuSys: stuSys,
-                stuClass: stuClass
-            });
-        } else if (identity == '系助理') {
-            let depAssTel = document.getElementById('department_assistant_tel_input');
-            return ({
-                number: number,
-                identity: identity,
-                accountInput: accountInput,
-                passwordInput: passwordInput,
-                nameInput: nameInput,
-                genderMale: genderMale,
-                genderFemale: genderFemale,
-                emailInput: emailInput,
-                telInput: telInput,
-                depAssTel: depAssTel
-            });
-        } else if (identity == '校外老師') {
-            let outTeaSch = document.getElementById('outside_teacher_school_input');
-            let outTeaDep = document.getElementById('outside_teacher_department_input');
-            let outTeaTitle = document.getElementById('outside_teacher_title_input');
-            let outTeaTel = document.getElementById('outside_teacher_tel_input');
-            let outTeaAddr = document.getElementById('outside_teacher_addr_input');
-            let outTeaBank = document.getElementById('outside_teacher_bank_input');
-            return ({
-                number: number,
-                identity: identity,
-                accountInput: accountInput,
-                passwordInput: passwordInput,
-                nameInput: nameInput,
-                genderMale: genderMale,
-                genderFemale: genderFemale,
-                emailInput: emailInput,
-                telInput: telInput,
-                outTeaSch: outTeaSch,
-                outTeaDep: outTeaDep,
-                outTeaTitle: outTeaTitle,
-                outTeaTel: outTeaTel,
-                outTeaAddr: outTeaAddr,
-                outTeaBank: outTeaBank
-            });
-        } else if (identity == '業界專家') {
-            let indExpCom = document.getElementById('industry_expert_company_input');
-            let indExpTitle = document.getElementById('industry_expert_title_input');
-            let indExpTel = document.getElementById('industry_expert_tel_input');
-            let indExpAddr = document.getElementById('industry_expert_addr_input');
-            let indExpBank = document.getElementById('industry_expert_bank_input');
-            return ({
-                number: number,
-                identity: identity,
-                accountInput: accountInput,
-                passwordInput: passwordInput,
-                nameInput: nameInput,
-                genderMale: genderMale,
-                genderFemale: genderFemale,
-                emailInput: emailInput,
-                telInput: telInput,
-                indExpCom: indExpCom,
-                indExpTitle: indExpTitle,
-                indExpTel: indExpTel,
-                indExpAddr: indExpAddr,
-                indExpBank: indExpBank
-            });
 
+        let basicInput = [
+            document.getElementById('account'),
+            document.getElementById('password'),
+            document.getElementById('name'),
+            document.getElementById('gender_male'),
+            document.getElementById('gender_female'),
+            document.getElementById('email'),
+            document.getElementById('tel')
+        ];
+
+        if (identity == '系上老師') {
+            basicInput.push(document.getElementById('department_teacher_job'));
+            return basicInput;
+        } else if (identity == '學生代表') {
+            basicInput.push(document.getElementById('student_id'));
+            basicInput.push(document.getElementById('student_system'));
+            basicInput.push(document.getElementById('student_class'));
+            return basicInput;
+        } else if (identity == '系助理') {
+            basicInput.push(document.getElementById('assistant_tel'));
+            return basicInput;
+        } else if (identity == '校外老師') {
+            basicInput.push(document.getElementById('outside_teacher_school'));
+            basicInput.push(document.getElementById('outside_teacher_department'));
+            basicInput.push(document.getElementById('outside_teacher_title'));
+            basicInput.push(document.getElementById('outside_teacher_tel'));
+            basicInput.push(document.getElementById('outside_teacher_addr'));
+            basicInput.push(document.getElementById('outside_teacher_bank'));
+            return basicInput;
+        } else if (identity == '業界專家') {
+            basicInput.push(document.getElementById('expert_company'));
+            basicInput.push(document.getElementById('expert_title'));
+            basicInput.push(document.getElementById('expert_tel'));
+            basicInput.push(document.getElementById('expert_addr'));
+            basicInput.push(document.getElementById('expert_bank'));
+            return basicInput;
         }
     }
 }
