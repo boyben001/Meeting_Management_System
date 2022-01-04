@@ -1,6 +1,12 @@
 let express = require('express');
 let router = express.Router();
 
+/* INFO: body-parser */
+let bodyParser = require('body-parser');
+let urlencodedParser = bodyParser.urlencoded({
+    extended: false
+});
+
 /* INFO: cookie-parser */
 let cookieParser = require('cookie-parser');
 router.use(cookieParser('PurpleRed is awesome!!'));
