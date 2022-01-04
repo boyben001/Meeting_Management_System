@@ -11,6 +11,14 @@ $(document).ready(() => {
     $('#datepicker').datepicker('update', today);
     currentDate = $('#datepicker').val();
 
+    /* 當參數有 errcode */
+    let url = new URL(document.URL);
+    let params = url.searchParams;
+    if (params.has('errcode')) {
+        if (params.get('errcode') == '1') // error code 1: 存取被拒
+            window.alert('權限不足，無法新增會議！');
+    }
+
     /* 當 datepicker 值改變 */
     $('#datepicker').change((e) => {
         currentDate = $('#datepicker').val();

@@ -20,6 +20,7 @@ app.use('/dashboard', dashboard);
 let profile = require('./routes/profile');
 app.use('/profile', profile);
 
+/* INFO: 會議相關路由 */
 let meeting = require('./routes/meeting');
 app.use('/meeting', meeting);
 
