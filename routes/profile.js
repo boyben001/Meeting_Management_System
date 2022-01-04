@@ -135,49 +135,44 @@ router.post('/', urlencodedParser, (req, res) => {
             if (err) sqlError(res, err);
             else {
                 isAdmin = (rows[0]['管理者'] == '1') ? true : false; // 判斷該使用者是否為管理者
-                let deleteUserQuery = `DELETE FROM 使用者 WHERE 使用者編號 = ${req.cookies.userID};`; // 刪除該使用者資料
-                dbConnection.query(deleteUserQuery, (err, row, fields) => {
+                let updateUserQuery = `UPDATE 使用者 set 帳號="${form.accountInput}", 密碼="${form.passwordInput}",姓名="${form.nameInput}",性別=${form.genderInput},電話號碼="${form.telInput}",\`e-mail\`="${form.emailInput}",身分="${req.cookies.userIdentity}",管理者=${isAdmin} WHERE 使用者編號 = ${req.cookies.userID};`; // 更新該使用者資料
+                dbConnection.query(updateUserQuery, (err, row, fields) => {
                     if (err) sqlError(res, err);
                     else {
-                        let addUserQuery = `INSERT INTO 使用者 VALUES(${req.cookies.userID}, "${form.accountInput}", "${form.passwordInput}", "${form.nameInput}", ${form.genderInput}, "${form.telInput}", "${form.emailInput}", "${req.cookies.userIdentity}", ${isAdmin});`; // 重新加回使用者資料(共同)
-                        dbConnection.query(addUserQuery, (err, row, fields) => {
-                            if (err) sqlError(res, err);
-                        });
-
                         if (req.cookies.userIdentity == '系上老師') {
-                            let addDepTeacherQuery = `INSERT INTO 系上老師 VALUES(${req.cookies.userID}, "${form.departmentTeacherJobInput}");`;
-                            dbConnection.query(addDepTeacherQuery, (err, row, fields) => {
+                            let updateTeacher = `UPDATE 系上老師 set 職級 = "${form.departmentTeacherJobInput}";`;
+                            dbConnection.query(updateTeacher, (err, row, fields) => {
                                 if (err) sqlError(res, err);
                                 else getSqlAndRender(req, res, form.nameInput);
                                 dbConnection.end();
                             });
                         } else if (req.cookies.userIdentity == '學生代表') {
-                            let addStudentQuery = `INSERT INTO 學生代表 VALUES(${req.cookies.userID}, "${form.studentIdInput}", "${form.studentSystemInput}", "${form.studentClassInput}");`;
-                            dbConnection.query(addStudentQuery, (err, row, fields) => {
+                            let updateStudentQuery = `UPDATE 學生代表 set 學號="${form.studentIdInput}", 學制="${form.studentSystemInput}", 班級="${form.studentClassInput}" WHERE 使用者編號=${req.cookies.userID};`;
+                            dbConnection.query(updateStudentQuery, (err, row, fields) => {
                                 if (err) sqlError(res, err);
                                 else getSqlAndRender(req, res, form.nameInput);
                                 dbConnection.end();
                             });
 
                         } else if (req.cookies.userIdentity == '系助理') {
-                            let addAssistQuery = `INSERT INTO 系助理 VALUES(${req.cookies.userID}, "${form.departmentAssistantTelInput}");`;
-                            dbConnection.query(addAssistQuery, (err, row, fields) => {
+                            let updateAssistQuery = `UPDATE 系助理 set 辦公室電話="${form.departmentAssistantTelInput}" WHERE 使用者編號=${req.cookies.userID};`;
+                            dbConnection.query(updateAssistQuery, (err, row, fields) => {
                                 if (err) sqlError(res, err);
                                 else getSqlAndRender(req, res, form.nameInput);
                                 dbConnection.end();
                             });
 
                         } else if (req.cookies.userIdentity == '校外老師') {
-                            let addOutTeacherQuery = `INSERT INTO 校外老師 VALUES(${req.cookies.userID}, "${form.outsideTeacherSchoolInput}", "${form.outsideTeacherDepartmentInput}", "${form.outsideTeacherTitleInput}", "${form.outsideTeacherTelInput}", "${form.outsideTeacherAddrInput}", "${form.outsideTeacherBankInput}");`;
-                            dbConnection.query(addOutTeacherQuery, (err, row, fields) => {
+                            let updateOutTeacherQuery = `UPDATE 校外老師 set 任職學校="${form.outsideTeacherSchoolInput}", 系所="${form.outsideTeacherDepartmentInput}", 職稱="${form.outsideTeacherTitleInput}", 辦公室電話="${form.outsideTeacherTelInput}", 聯絡地址="${form.outsideTeacherAddrInput}", 銀行帳號="${form.outsideTeacherBankInput}" WHERE 使用者編號=${req.cookies.userID};`;
+                            dbConnection.query(updateOutTeacherQuery, (err, row, fields) => {
                                 if (err) sqlError(res, err);
                                 else getSqlAndRender(req, res, form.nameInput);
                                 dbConnection.end();
                             });
 
                         } else if (req.cookies.userIdentity == '業界專家') {
-                            let addExpertQuery = `INSERT INTO 業界專家 VALUES(${req.cookies.userID}, "${form.industryExpertCompanyInput}", "${form.industryExpertTitleInput}", "${form.industryExpertTelInput}", "${form.industryExpertAddrInput}", "${form.industryExpertBankInput}");`;
-                            dbConnection.query(addExpertQuery, (err, row, fields) => {
+                            let updateExpertQuery = `UPDATE 業界專家 set 任職公司="${form.industryExpertCompanyInput}", 職稱="${form.industryExpertTitleInput}", 辦公室電話="${form.industryExpertTelInput}", 聯絡地址="${form.industryExpertAddrInput}", 銀行帳號="${form.industryExpertBankInput}" WHERE 使用者編號=${req.cookies.userID};`;
+                            dbConnection.query(updateExpertQuery, (err, row, fields) => {
                                 if (err) sqlError(res, err);
                                 else getSqlAndRender(req, res, form.nameInput);
                                 dbConnection.end();

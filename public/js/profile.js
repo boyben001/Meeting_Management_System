@@ -1,5 +1,4 @@
 window.onload = function() {
-
     let editBtn = document.getElementById('edit_btn');
     let saveBtn = document.getElementById('save_btn');
 
