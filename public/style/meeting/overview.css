@@ -1,3 +1,66 @@
-h2 {
-  color: #faa;
+.row {
+  padding: 1%;
+}
+
+/* ==================================================== */
+#meeting_list {
+  overflow-y: scroll;
+  margin: 3vh 0;
+  height: 94vh;
+  border: 0.3px solid rgba(0, 0, 0, .125);
+  padding: 0;
+}
+
+#meeting_list .card {
+  margin: 3px auto;
+}
+
+#meeting_list .card-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+#meeting_list .card-body {
+  display: flex;
+  justify-content: space-around;
+}
+
+#meeting_list .card-text {
+  background-color: rgb(255, 255, 39);
+  width: 75px;
+  text-align: center;
+}
+
+#meeting_list .btn_group {
+  display: flex;
+  flex-direction: row;
+}
+
+/* ==================================================== */
+#meeting_viewer {
+  padding: 3%;
+  margin: 3vh 0;
+  height: 94vh;
+  border: 0.3px solid rgba(0, 0, 0, .125);
+}
+
+#meeting_viewer .title {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+#meeting_viewer .extended_list {
+  display: flex;
+  flex-direction: row;
+}
+
+@media screen and (max-width:768px) {
+  #meeting_viewer .extended_list {
+    flex-direction: column;
+  }
+
+  #meeting_list .btn_group {
+    flex-direction: column;
+  }
 }
