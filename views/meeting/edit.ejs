@@ -46,45 +46,28 @@
                 <td id="participant_attr">是否參與</td>
               </tr>
             </thead>
-            <tbody>
+            <tbody id=authority>
+              <% for (let i = 0; i < people.length; i++) { %>
               <tr>
-                <td>dannynfs</td>
-                <td>陳泓銘</td>
-                <td>學生代表</td>
-                <td><input id="view1" name="view1" type="checkbox"></td>
-                <td><input id="edit1" name="edit1" type="checkbox"></td>
+                <td><%= people[i][1] %></td>
+                <td><%= people[i][2] %></td>
+                <td><%= people[i][3] %></td>
+                <td><input id="view<%= people[i][0] %>" name="view<%= people[i][0] %>" type="checkbox" <%= people[i][4]==1 ? 'checked disabled' : '' %>></td>
+                <td><input id="edit<%= people[i][0] %>" name="edit<%= people[i][0] %>" type="checkbox" <%= people[i][4]==1 ? 'checked disabled' : '' %>></td>
                 <td>
-                  <input id="participate1" name="participate1" type="radio" class="mx-2" value="1">
+                  <input id="participate<%= people[i][0] %>" name="participate<%= people[i][0] %>" type="radio" class="mx-2" value="1">
                   <span>是</span>
-                  <select id="meeting_identity1" name="meetingIdentity1" disabled>
+                  <select id="meeting_identity<%= people[i][0] %>" name="meetingIdentity<%= people[i][0] %>" disabled>
                     <option value="1">出席人員</option>
                     <option value="2">主席</option>
                     <option value="3">紀錄</option>
                   </select>
 
-                  <input id="not_participate1" name="participate1" type="radio" class="mx-2" value="0" checked>
+                  <input id="not_participate<%= people[i][0] %>" name="participate<%= people[i][0] %>" type="radio" class="mx-2" value="0" checked>
                   <span>否</span>
                 </td>
               </tr>
-              <tr>
-                <td>PR</td>
-                <td>林子閎</td>
-                <td>業界專家</td>
-                <td><input id="view2" name="view2" type="checkbox"></td>
-                <td><input id="edit2" name="edit2" type="checkbox"></td>
-                <td>
-                  <input id="participate2" name="participate2" type="radio" class="mx-2" value="1">
-                  <span>是</span>
-                  <select id="meeting_identity2" name="meetingIdentity1" disabled>
-                    <option value="1">出席人員</option>
-                    <option value="2">主席</option>
-                    <option value="3">紀錄</option>
-                  </select>
-
-                  <input id="not_participate2" name="participate2" type="radio" class="mx-2" value="0" checked>
-                  <span>否</span>
-                </td>
-              </tr>
+              <% } %>
             </tbody>
           </table>
         </div>
