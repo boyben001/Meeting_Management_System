@@ -4,10 +4,9 @@
   box-shadow: 0 2px 1px rgba(0, 0, 0, 0.125);
 }
 
-.material-icons {
+.btn .material-icons {
   font-size: 20px;
 }
-
 
 /* ======================================== */
 
@@ -20,7 +19,7 @@
 }
 
 #meeting_list .card {
-  margin: 0 auto 3% auto;
+  margin: 2% auto;
 }
 
 #meeting_list .card-header {
