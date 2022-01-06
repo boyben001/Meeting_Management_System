@@ -1,8 +1,16 @@
-.row {
-  padding: 1%;
+.btn {
+  width: 28px;
+  height: 28px;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.125);
 }
 
-/* ==================================================== */
+.material-icons {
+  font-size: 20px;
+}
+
+
+/* ======================================== */
+
 #meeting_list {
   overflow-y: scroll;
   margin: 3vh 0;
@@ -12,29 +20,58 @@
 }
 
 #meeting_list .card {
-  margin: 3px auto;
+  margin: 0 auto 3% auto;
 }
 
-#meeting_list .card-title {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+#meeting_list .card-header {
+  font-size: 20px;
 }
 
 #meeting_list .card-body {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  background-color: transparent;
+  height: 80px;
+}
+
+#meeting_list .card-body:hover {
+  background-color: #ddebf9;
+}
+
+#meeting_list .card_content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
 #meeting_list .card-text {
-  background-color: rgb(255, 255, 39);
-  width: 75px;
   text-align: center;
+  width: 79px;
+  min-width: 79px;
 }
 
 #meeting_list .btn_group {
   display: flex;
   flex-direction: row;
+  position: absolute;
+  top: -15px;
+}
+
+#meeting_list .btn_group .btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+
+#meeting_list .btn_group .edit_btn:hover {
+  color: #4caf50;
+}
+
+#meeting_list .btn_group .del_btn:hover {
+  color: red;
 }
 
 /* ==================================================== */
@@ -47,12 +84,16 @@
 
 #meeting_viewer .title {
   text-align: center;
-  margin-bottom: 32px;
+  margin-bottom: 8vh;
+  display: flex;
+  justify-content: center;
+  transition: all 1s ease;
 }
 
 #meeting_viewer .extended_list {
   display: flex;
   flex-direction: row;
+  transition: all 1s ease;
 }
 
 @media screen and (max-width:768px) {
@@ -60,7 +101,26 @@
     flex-direction: column;
   }
 
+  #meeting_list .card-body {
+    align-items: center;
+  }
+
+  #meeting_list .card_content {
+    height: 70px;
+  }
+
+  #meeting_list .card-title {
+    font-size: 20px;
+  }
+
   #meeting_list .btn_group {
-    flex-direction: column;
+    top: -6px;
+  }
+}
+
+@media screen and (max-width:1400px) {
+  #meeting_viewer .title {
+    display: block;
+    margin-bottom: 32px;
   }
 }
