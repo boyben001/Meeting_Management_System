@@ -10,7 +10,7 @@ router.get('/edit', (req, res) => {
     if (Object.keys(req.cookies).length != process.env.NUM_OF_COOKIES) {
         res.redirect('/login');
     } else {
-        res.render('./meeting/edit', {
+        res.render('meeting/edit', {
             username: req.cookies.username
         });
     }
@@ -20,7 +20,7 @@ router.get('/overview', (req, res) => {
     if (Object.keys(req.cookies).length != process.env.NUM_OF_COOKIES) {
         res.redirect('/login');
     } else {
-        res.render('./meeting/overview', {
+        res.render('meeting/overview', {
             username: req.cookies.username
         });
     }

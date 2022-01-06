@@ -16,9 +16,9 @@ app.use('/login', login);
 let dashboard = require('./routes/dashboard');
 app.use('/dashboard', dashboard);
 
-/* INFO: 個人資料路由 */
-let profile = require('./routes/profile');
-app.use('/profile', profile);
+/* INFO: 設定路由 */
+let settings = require('./routes/settings');
+app.use('/settings', settings);
 
 let meeting = require('./routes/meeting');
 app.use('/meeting', meeting);

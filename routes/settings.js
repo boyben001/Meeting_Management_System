@@ -104,7 +104,7 @@ function getSqlAndRender(req, res, username) {
                         basicData.industryExpertTelInput = rowsExpert[0]['辦公室電話'];
                         basicData.industryExpertAddrInput = rowsExpert[0]['聯絡地址'];
                         basicData.industryExpertBankInput = rowsExpert[0]['銀行帳號'];
-                        res.render('profile', basicData);
+                        res.render('settings/profile', basicData);
                     }
                     dbConnection.end();
                 });
@@ -113,13 +113,13 @@ function getSqlAndRender(req, res, username) {
     });
 }
 
-router.get('/', (req, res) => {
+router.get('/profile', (req, res) => {
     if (Object.keys(req.cookies).length != process.env.NUM_OF_COOKIES) {
         res.redirect('/login');
     } else getSqlAndRender(req, res, req.cookies.username);
 });
 
-router.post('/', urlencodedParser, (req, res) => {
+router.post('/profile', urlencodedParser, (req, res) => {
     if (Object.keys(req.cookies).length != process.env.NUM_OF_COOKIES) {
         res.redirect('/login');
     } else {
@@ -134,20 +134,20 @@ router.post('/', urlencodedParser, (req, res) => {
         dbConnection.query(findUserDataQuery, (err, rows, fields) => {
             if (err) sqlError(res, err);
             else {
-                isAdmin = (rows[0]['管理者'] == '1') ? true : false; // 判斷該使用者是否為管理者
-                let updateUserQuery = `UPDATE 使用者 set 帳號="${form.accountInput}", 密碼="${form.passwordInput}",姓名="${form.nameInput}",性別=${form.genderInput},電話號碼="${form.telInput}",\`e-mail\`="${form.emailInput}",身分="${req.cookies.userIdentity}",管理者=${isAdmin} WHERE 使用者編號 = ${req.cookies.userID};`; // 更新該使用者資料
+                isAdmin = (rows[0]['管理者']) ? true : false; // 判斷該使用者是否為管理者
+                let updateUserQuery = `UPDATE 使用者 SET 帳號="${form.accountInput}", 密碼="${form.passwordInput}", 姓名="${form.nameInput}", 性別=${form.genderInput},電話號碼="${form.telInput}", \`e-mail\`="${form.emailInput}", 身分="${req.cookies.userIdentity}", 管理者=${isAdmin} WHERE 使用者編號=${req.cookies.userID};`;
                 dbConnection.query(updateUserQuery, (err, row, fields) => {
                     if (err) sqlError(res, err);
                     else {
                         if (req.cookies.userIdentity == '系上老師') {
-                            let updateTeacher = `UPDATE 系上老師 set 職級 = "${form.departmentTeacherJobInput}";`;
+                            let updateTeacher = `UPDATE 系上老師 SET 職級="${form.departmentTeacherJobInput}";`;
                             dbConnection.query(updateTeacher, (err, row, fields) => {
                                 if (err) sqlError(res, err);
                                 else getSqlAndRender(req, res, form.nameInput);
                                 dbConnection.end();
                             });
                         } else if (req.cookies.userIdentity == '學生代表') {
-                            let updateStudentQuery = `UPDATE 學生代表 set 學號="${form.studentIdInput}", 學制="${form.studentSystemInput}", 班級="${form.studentClassInput}" WHERE 使用者編號=${req.cookies.userID};`;
+                            let updateStudentQuery = `UPDATE 學生代表 SET 學號="${form.studentIdInput}", 學制="${form.studentSystemInput}", 班級="${form.studentClassInput}" WHERE 使用者編號=${req.cookies.userID};`;
                             dbConnection.query(updateStudentQuery, (err, row, fields) => {
                                 if (err) sqlError(res, err);
                                 else getSqlAndRender(req, res, form.nameInput);
@@ -155,7 +155,7 @@ router.post('/', urlencodedParser, (req, res) => {
                             });
 
                         } else if (req.cookies.userIdentity == '系助理') {
-                            let updateAssistQuery = `UPDATE 系助理 set 辦公室電話="${form.departmentAssistantTelInput}" WHERE 使用者編號=${req.cookies.userID};`;
+                            let updateAssistQuery = `UPDATE 系助理 SET 辦公室電話="${form.departmentAssistantTelInput}" WHERE 使用者編號=${req.cookies.userID};`;
                             dbConnection.query(updateAssistQuery, (err, row, fields) => {
                                 if (err) sqlError(res, err);
                                 else getSqlAndRender(req, res, form.nameInput);
@@ -163,7 +163,7 @@ router.post('/', urlencodedParser, (req, res) => {
                             });
 
                         } else if (req.cookies.userIdentity == '校外老師') {
-                            let updateOutTeacherQuery = `UPDATE 校外老師 set 任職學校="${form.outsideTeacherSchoolInput}", 系所="${form.outsideTeacherDepartmentInput}", 職稱="${form.outsideTeacherTitleInput}", 辦公室電話="${form.outsideTeacherTelInput}", 聯絡地址="${form.outsideTeacherAddrInput}", 銀行帳號="${form.outsideTeacherBankInput}" WHERE 使用者編號=${req.cookies.userID};`;
+                            let updateOutTeacherQuery = `UPDATE 校外老師 SET 任職學校="${form.outsideTeacherSchoolInput}", 系所="${form.outsideTeacherDepartmentInput}", 職稱="${form.outsideTeacherTitleInput}", 辦公室電話="${form.outsideTeacherTelInput}", 聯絡地址="${form.outsideTeacherAddrInput}", 銀行帳號="${form.outsideTeacherBankInput}" WHERE 使用者編號=${req.cookies.userID};`;
                             dbConnection.query(updateOutTeacherQuery, (err, row, fields) => {
                                 if (err) sqlError(res, err);
                                 else getSqlAndRender(req, res, form.nameInput);
@@ -171,7 +171,7 @@ router.post('/', urlencodedParser, (req, res) => {
                             });
 
                         } else if (req.cookies.userIdentity == '業界專家') {
-                            let updateExpertQuery = `UPDATE 業界專家 set 任職公司="${form.industryExpertCompanyInput}", 職稱="${form.industryExpertTitleInput}", 辦公室電話="${form.industryExpertTelInput}", 聯絡地址="${form.industryExpertAddrInput}", 銀行帳號="${form.industryExpertBankInput}" WHERE 使用者編號=${req.cookies.userID};`;
+                            let updateExpertQuery = `UPDATE 業界專家 SET 任職公司="${form.industryExpertCompanyInput}", 職稱="${form.industryExpertTitleInput}", 辦公室電話="${form.industryExpertTelInput}", 聯絡地址="${form.industryExpertAddrInput}", 銀行帳號="${form.industryExpertBankInput}" WHERE 使用者編號=${req.cookies.userID};`;
                             dbConnection.query(updateExpertQuery, (err, row, fields) => {
                                 if (err) sqlError(res, err);
                                 else getSqlAndRender(req, res, form.nameInput);
@@ -182,7 +182,6 @@ router.post('/', urlencodedParser, (req, res) => {
                 });
             }
         });
-
     }
 });
 
