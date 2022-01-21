@@ -51,25 +51,25 @@
     <div class="d-grid gap-1">
       <button class="btn">
         <a href="/meeting/edit" class=" text-white bg-success d-flex justify-content-center align-items-center">
-          <span class="material-icons px-3">add</span>
+          <span class="material-icons pe-3">add</span>
           <span class="text">建立會議</span>
         </a>
       </button>
       <button class="btn">
         <a href="#" class="text-white bg-primary d-flex justify-content-center align-items-center">
-          <span class="material-icons px-3">alarm</span>
+          <span class="material-icons pe-3">alarm</span>
           <span class="text">即將到來的會議</span>
         </a>
       </button>
       <button class="btn">
         <a href="#" class="text-white bg-secondary d-flex justify-content-center align-items-center">
-          <span class="material-icons px-3">history</span>
+          <span class="material-icons pe-3">history</span>
           <span class="text">歷史會議</span>
         </a>
       </button>
       <button class="btn">
         <a href="/settings/profile" class="text-white bg-danger d-flex justify-content-center align-items-center">
-          <span class="material-icons px-3">account_circle</span>
+          <span class="material-icons pe-3">account_circle</span>
           <span class="text">查看/修改個人資料</span>
         </a>
       </button>
@@ -105,7 +105,6 @@
         <tr id="week_<%= r %>" class="d-flex justify-content-around">
           <% for (let c = 0; c < 7; c++) { %>
           <td id="<%= r %>-<%= c %>" class="card day_block">
-            <span class="number_block">1</span>
           </td>
           <% } %>
         </tr>
@@ -115,75 +114,33 @@
   </div>
 
   <!-- 小螢幕版本的月曆 -->
-  <div id="calendar_zone_mobile" class="container-fluid mb-5 d-block d-lg-none">
-    <table>
-      <tr class="decorate_current_date">
-        <td class="current_date">
-          <h3>
-            Sat.
-            <br>
-            11
-          </h3>
-        </td>
-        <td class="no_activity">
-          今天沒有活動~
-        </td>
-      </tr>
-      <tr>
-        <td></td>
-        <td>
-          <h5 style="color: aliceblue; margin: 5px 0; text-align: left;">12月12日至18日</h5>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <h3>Sun.<br>12</h3>
-        </td>
-        <td>
-          <div class="first_color">
-            <h3>TDX競賽 開會</h3>
-            <h3>14:00 <span>-</span> 18:00</h3>
+  <div id="calendar_zone_mobile" class="container-fluid d-block d-lg-none">
+    <div id="month_bar" class="d-flex flex-column justify-content-center">
+      <h3 class="mx-3 my-0 fw-bold">2022 年 1 月</h3>
+    </div>
+    <div id="content_zone" class="d-flex flex-column px-3">
+
+      <div class="content_item my-3 d-flex">
+        <div class="day_circle d-flex justify-content-center align-items-center"><span>22</span></div>
+        <div class="event_zone flex-fill ms-4 d-flex flex-column">
+          <div class="event_item_none mb-2 px-3 d-flex flex-column">太棒了！今天沒有會議</div>
+        </div>
+      </div>
+
+      <div class="content_item my-3 d-flex">
+        <div class="day_circle d-flex justify-content-center align-items-center"><span>23</span></div>
+        <div class="event_zone flex-fill ms-4 d-flex flex-column">
+          <div class="event_item mb-2 px-3 d-flex flex-column">
+            <div class="meeting_title">第一個會議</div>
+            <div class="meeting_time">22:00</div>
           </div>
-          <div class="second_color">
-            <h3>資料庫 讀書會</h3>
-            <h3>21:00 <span>-</span> 23:00</h3>
+          <div class="event_item mb-2 px-3 d-flex flex-column">
+            <div class="meeting_title">第一個會議</div>
+            <div class="meeting_time">22:00</div>
           </div>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <h3>
-            Mon.
-            <br>
-            13
-          </h3>
-        </td>
-        <td>
-          <div class="first_color">
-            <h3>嵌入式 確認器材deadline</h3>
-          </div>
-          <div class="second_color">
-            <h3>TDX競賽 開會</h3>
-            <h3>12:00 <span>-</span> 13:00</h3>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <h3>
-            Tue.
-            <br>
-            14
-          </h3>
-        </td>
-        <td>
-          <div class="first_color">
-            <h3>meeting</h3>
-            <h3>16:00 <span>-</span> 17:00</h3>
-          </div>
-        </td>
-      </tr>
-    </table>
+        </div>
+      </div>
+    </div>
   </div>
 
 
