@@ -13,12 +13,6 @@ router.use(cookieParser('PurpleRed is awesome!!'));
 
 /* INFO: MySQL */
 let mysql = require('mysql');
-const {
-    get
-} = require('express/lib/response');
-const {
-    NULL
-} = require('mysql/lib/protocol/constants/types');
 dbOption = {
     host: process.env.DB_HOST,
     port: process.env.DB_PORT,
@@ -46,7 +40,6 @@ router.get('/edit', (req, res) => {
             temp.push(rows[i]['管理者']);
             people.push(temp);
         }
-        console.log(people);
         if (rows[dataNum]['管理者']) {
             res.render('./meeting/edit', {
                 username: req.cookies.username,

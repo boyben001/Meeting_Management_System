@@ -5,14 +5,23 @@ window.onload = function() {
             let partYes = form.childNodes[i].childNodes[11].childNodes[1];
             let partNo = form.childNodes[i].childNodes[11].childNodes[7];
             let partList = form.childNodes[i].childNodes[11].childNodes[5];
-            partYes.addEventListener('click', func => {
+            let read = form.childNodes[i].childNodes[7].childNodes[0];
+            let write = form.childNodes[i].childNodes[9].childNodes[0];
+
+            partYes.addEventListener('click', () => {
                 if (partList.hasAttribute('disabled'))
                     partList.removeAttribute('disabled');
-            })
-            partNo.addEventListener('click', func => {
+                if (!write.hasAttribute('disabled')) {
+                    read.checked = true;
+                    read.setAttribute('disabled', '');
+                }
+            });
+            partNo.addEventListener('click', () => {
                 partList.setAttribute('disabled', '');
-            })
+                if (!write.hasAttribute('disabled')) {
+                    read.removeAttribute('disabled', '');
+                }
+            });
         }
     }
-
 }

@@ -15,8 +15,10 @@ $(document).ready(() => {
     let url = new URL(document.URL);
     let params = url.searchParams;
     if (params.has('errcode')) {
-        if (params.get('errcode') == '1') // error code 1: 存取被拒
+        if (params.get('errcode') == '1') { // error code 1: 存取被拒
             window.alert('權限不足，無法新增會議！');
+            window.location = '/dashboard';
+        }
     }
 
     /* 當 datepicker 值改變 */
