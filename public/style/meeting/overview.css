@@ -1,20 +1,26 @@
 .btn {
-  width: 28px;
-  height: 28px;
-  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.125);
+  width: 35px;
+  height: 35px;
+  box-shadow: 0 1px .5px rgb(0, 0, 0, .25),
+    1px 0 .5px rgb(0, 0, 0, .25),
+    -1px 0 .5px rgb(0, 0, 0, .25),
+    0 -1px .5px rgb(0, 0, 0, .25);
+  padding: 4px;
 }
 
 .btn .material-icons {
-  font-size: 20px;
+  font-size: 24px;
 }
+
+
 
 /* ======================================== */
 
 #meeting_list {
+  height: 100vh;
   overflow-y: scroll;
-  margin: 3vh 0;
-  height: 94vh;
-  border: 0.3px solid rgba(0, 0, 0, .125);
+  overflow-x: hidden;
+  /* border: 0.3px solid rgba(0, 0, 0, .125); */
   padding: 0;
 }
 
@@ -24,38 +30,50 @@
 
 #meeting_list .card-header {
   font-size: 20px;
+  min-width: 300px;
 }
+
 
 #meeting_list .card-body {
   display: flex;
   justify-content: space-between;
   background-color: transparent;
-  height: 80px;
+  align-items: center;
+  height: 100px;
+  transition: all .5s ease;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 
 #meeting_list .card-body:hover {
-  background-color: #ddebf9;
+  background-color: #adb8c4;
 }
 
 #meeting_list .card_content {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  position: relative;
+}
+
+#meeting_list .card_content #card_title {
+  font-size: 18px;
+  margin-top: 20px;
+  transition: all .2s ease;
+  width: 20vw;
+}
+
+.ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 #meeting_list .card-text {
-  text-align: center;
   width: 79px;
-  min-width: 79px;
 }
 
 #meeting_list .btn_group {
   display: flex;
-  flex-direction: row;
-  position: absolute;
-  top: -15px;
 }
 
 #meeting_list .btn_group .btn {
@@ -64,9 +82,8 @@
   justify-content: space-around;
 }
 
-
 #meeting_list .btn_group .edit_btn:hover {
-  color: #4caf50;
+  color: #37c23c;
 }
 
 #meeting_list .btn_group .del_btn:hover {
@@ -76,17 +93,15 @@
 /* ==================================================== */
 #meeting_viewer {
   padding: 3%;
-  margin: 3vh 0;
-  height: 94vh;
-  border: 0.3px solid rgba(0, 0, 0, .125);
+  /* border: 0.3px solid rgba(0, 0, 0, .125); */
 }
 
 #meeting_viewer .title {
   text-align: center;
   margin-bottom: 8vh;
-  display: flex;
-  justify-content: center;
-  transition: all 1s ease;
+  margin-left: 0;
+  margin-right: 0;
+  transition: all .5s ease;
 }
 
 #meeting_viewer .extended_list {
@@ -102,18 +117,19 @@
 
   #meeting_list .card-body {
     align-items: center;
+    height: 130px;
   }
 
   #meeting_list .card_content {
     height: 70px;
   }
 
-  #meeting_list .card-title {
-    font-size: 20px;
+  #meeting_list .btn_group {
+    top: -4px;
   }
 
-  #meeting_list .btn_group {
-    top: -6px;
+  #meeting_list .card_content #card_title {
+    width: 80vw;
   }
 }
 
