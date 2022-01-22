@@ -19,11 +19,56 @@ router.get('/', (req, res) => {
     if (Object.keys(req.cookies).length != process.env.NUM_OF_COOKIES) {
         res.redirect('/login');
     } else {
+        let userID = req.cookies.userID;
+        let str = `select 管理者 from 使用者 where 使用者編號 = ${userID};`;
         let dbConnection = mysql.createConnection(dbOption);
+        dbConnection.query(str, (err, rows, field) => {
+            if (rows[0].管理者) {
+                let findMeeting = 'select * from 會議 order by 開會時間;';
+                dbConnection.query(findMeeting, (err, rows, field) => {
+                    let day = new Date();
+                    let str = day.getFullYear() + '-' + day.getMonth() + 1 + '-' + day.getDate();
+                    let meetingTitle = new Array();
+                    let meetingTime = new Array();
+                    for (let i in rows) {
+                        let temp1 = new Date(rows[i]['開會時間'].split(' ')[0].replace(/\//g, '-')); //把字串中的/都換成-
+                        let temp2 = new Date(str);
+                        if (temp1 >= temp2) { //今天之後的內容才要傳到前端
+                            meetingTitle.push(rows[i]['會議名稱']);
+                            meetingTime.push(rows[i]['開會時間']);
+                        }
+                    }
+                    res.render('dashboard', {
+                        username: req.cookies.username,
+                        meeting_title: meetingTitle,
+                        meeting_time: meetingTime
+                    });
+                })
+            } else {
+                console.log(userID);
+                let search = `select * from 參與 left join 會議 on 會議.會議編號=參與.會議編號 where 使用者編號 = ${userID};`;
+                dbConnection.query(search, (err, rows, field) => {
+                    let meetingTitle = new Array();
+                    let meetingTime = new Array();
+                    for (let i in rows) {
+                        if (rows[i].閱讀權限) {
+                            let temp1 = new Date(rows[i]['開會時間'].split(' ')[0].replace(/\//g, '-')); //把字串中的/都換成-
+                            let temp2 = new Date(str);
+                            if (temp1 >= temp2) { //今天之後的內容才要傳到前端
+                                meetingTitle.push(rows[i]['會議名稱']);
+                                meetingTime.push(rows[i]['開會時間']);
+                            }
+                        }
+                    }
+                    res.render('dashboard', {
+                        username: req.cookies.username,
+                        meeting_title: meetingTitle,
+                        meeting_time: meetingTime
+                    });
+                })
+            }
 
-        res.render('dashboard', {
-            username: req.cookies.username
-        });
+        })
     }
 });
 
