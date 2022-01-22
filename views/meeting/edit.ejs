@@ -60,7 +60,7 @@
                   <select id="meeting_identity<%= people[i][0] %>" name="meetingIdentity<%= people[i][0] %>" disabled>
                     <option value="1">出席人員</option>
                     <option value="2">主席</option>
-                    <option value="3">紀錄</option>
+                    <option value="3">書記</option>
                   </select>
 
                   <input id="not_participate<%= people[i][0] %>" name="participate<%= people[i][0] %>" type="radio" class="mx-2" value="0" checked>
@@ -86,37 +86,12 @@
       <h2>討論事項</h2>
       <hr>
       <div class="form_item">
-        <button id="add_discuss_btn" class="icon_text_button">
+        <button type="button" id="add_discuss_btn" class="icon_text_button">
           <span class="material-icons">add</span>
           <span>新增</span>
         </button>
       </div>
-      <div id="discuss_container" class="form_item">
-        <div id="discuss1" class="card">
-          <div class="d-flex justify-content-between align-items-center mb-3">
-            <h3>提案一</h3>
-            <button id="delete_discuss1_btn" class="icon_text_button">
-              <span class="material-icons">delete</span>
-              <span>刪除</span>
-            </button>
-          </div>
-          <div class="card_item">
-            <label>案&emsp;&emsp;由</label>
-            <textarea id="discuss1_title" name="discuss1Title" rows="3"></textarea>
-          </div>
-          <div class="card_item">
-            <label>說&emsp;&emsp;明</label>
-            <textarea id="discuss1_content" name="discuss1Content" rows="6"></textarea>
-          </div>
-          <div class="card_item">
-            <label>決議事項</label>
-            <textarea id="discuss1_resolution" name="discuss1Resolution" rows="6"></textarea>
-          </div>
-          <div class="card_item">
-            <label>執行情況</label>
-            <textarea id="discuss1_implementation" name="discuss1Implementation" rows="6"></textarea>
-          </div>
-        </div>
+      <div id="discuss_container" class="form_item flex-column">
       </div>
     </div>
 
@@ -124,7 +99,7 @@
       <h2>附件</h2>
       <hr>
       <div class="form_item">
-        <button id="add_attachment_btn" class="icon_text_button">
+        <button type="button" id="add_attachment_btn" class="icon_text_button">
           <span class="material-icons">add</span>
           <span>新增</span>
         </button>
@@ -151,6 +126,7 @@
     </div>
   </form>
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="/js/meeting/edit.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>

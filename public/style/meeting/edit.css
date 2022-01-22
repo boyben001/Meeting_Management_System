@@ -65,6 +65,7 @@
   width: 100%;
   max-width: 1200px;
   padding: 2vh 2vw;
+  margin-bottom: 2vh;
 }
 
 .card_item {
