@@ -34,10 +34,21 @@
 }
 
 #attachment_list input {
-  width: 100%;
+  width: 80%;
   max-width: 800px;
-  margin-left: 1vw;
-  margin-bottom: 1vh;
+  margin: 0 1vw;
+  display: inline-block;
+}
+
+.delete_attachment_btn {
+  color: #000;
+  transition: 0.3s;
+}
+
+.delete_attachment_btn:hover {
+  cursor: pointer;
+  color: #f00;
+  transition: 0.3s;
 }
 
 #account_attr,

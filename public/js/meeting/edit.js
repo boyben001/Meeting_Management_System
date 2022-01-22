@@ -23,6 +23,14 @@ $(document).ready(() => {
                     read.removeAttribute('disabled', '');
                 }
             });
+            write.addEventListener('click', () => {
+                if (write.checked) {
+                    read.checked = true;
+                    read.setAttribute('disabled', '');
+                } else {
+                    read.removeAttribute('disabled', '');
+                }
+            });
         }
     }
 
@@ -57,13 +65,32 @@ $(document).ready(() => {
                 <textarea id="${item}_implementation" name="${item}Implementation" rows="6"></textarea>
               </div>
             </div>
-        `).hide().appendTo('#discuss_container').fadeIn(1000);
+        `).hide().appendTo('#discuss_container').fadeIn(500);
         $('html, body').animate({
             scrollTop: $('#' + item).offset().top - 100
         }, 300);
 
         $('#delete_' + item + '_btn').click(() => {
-            $('#' + item).fadeOut(1000, () => $('#' + item).remove());
+            $('#' + item).fadeOut(500, () => $('#' + item).remove());
+        });
+    });
+
+    /* INFO: 動態新增刪除附件 */
+    let attachmentNum = 0;
+    $('#add_attachment_btn').click(() => {
+        attachmentNum += 1;
+        let item = 'attachment' + attachmentNum;
+        $(`
+            <li id="${item}">
+              <div class="d-flex align-items-center mb-2">
+                <input  type="file" id="${item}_input" name="${item}Input" class="form-control">
+                <span id="delete_${item}_btn" class="material-icons delete_attachment_btn">delete</span>
+              </div>
+            </li>
+        `).hide().appendTo('#attachment_container').fadeIn(500);
+
+        $('#delete_' + item + '_btn').click(() => {
+            $('#' + item).fadeOut(500, () => $('#' + item).remove());
         });
     });
 });
