@@ -12,16 +12,31 @@
   font-size: 24px;
 }
 
+/* ======================================== */
+.modal {
+  display: none;
+}
 
+.modal-title {
+  font-size: 22px;
+  padding: 0;
+}
+
+@media screen and (max-width:768px) {
+  #meeting_viewer {
+    display: none;
+  }
+}
 
 /* ======================================== */
+a {
+  color: none;
+  text-decoration: none;
+}
 
 #meeting_list {
-  height: 100vh;
   overflow-y: scroll;
-  overflow-x: hidden;
-  /* border: 0.3px solid rgba(0, 0, 0, .125); */
-  padding: 0;
+  padding: 0 5px;
 }
 
 #meeting_list .card {
@@ -30,17 +45,16 @@
 
 #meeting_list .card-header {
   font-size: 20px;
-  min-width: 300px;
 }
 
 
 #meeting_list .card-body {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   background-color: transparent;
   align-items: center;
-  height: 100px;
-  transition: all .5s ease;
+  /* height: 100px; */
+  transition: all .35s ease;
   padding-top: 8px;
   padding-bottom: 8px;
 }
@@ -59,17 +73,13 @@
   font-size: 18px;
   margin-top: 20px;
   transition: all .2s ease;
-  width: 20vw;
+  width: 18vw;
 }
 
 .ellipsis {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-}
-
-#meeting_list .card-text {
-  width: 79px;
 }
 
 #meeting_list .btn_group {
@@ -110,6 +120,8 @@
   transition: all 1s ease;
 }
 
+
+
 @media screen and (max-width:768px) {
   #meeting_viewer .extended_list {
     flex-direction: column;
@@ -129,7 +141,7 @@
   }
 
   #meeting_list .card_content #card_title {
-    width: 80vw;
+    width: 75vw;
   }
 }
 
