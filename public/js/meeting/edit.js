@@ -19,7 +19,7 @@ $(document).ready(() => {
             });
             partNo.addEventListener('click', () => {
                 partList.setAttribute('disabled', '');
-                if (!write.hasAttribute('disabled')) {
+                if (!write.hasAttribute('disabled') && !write.checked) {
                     read.removeAttribute('disabled', '');
                 }
             });
@@ -27,7 +27,7 @@ $(document).ready(() => {
                 if (write.checked) {
                     read.checked = true;
                     read.setAttribute('disabled', '');
-                } else {
+                } else if (partList.hasAttribute('disabled')) {
                     read.removeAttribute('disabled', '');
                 }
             });
@@ -92,5 +92,16 @@ $(document).ready(() => {
         $('#delete_' + item + '_btn').click(() => {
             $('#' + item).fadeOut(500, () => $('#' + item).remove());
         });
+    });
+
+    $('#save_btn').click(() => {
+        for (let i in form.childNodes) {
+            if (i % 2 == 1) {
+                let read = form.childNodes[i].childNodes[7].childNodes[0];
+                let write = form.childNodes[i].childNodes[9].childNodes[0];
+                read.removeAttribute('disabled');
+                write.removeAttribute('disabled');
+            }
+        }
     });
 });

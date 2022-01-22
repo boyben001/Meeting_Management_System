@@ -13,7 +13,7 @@
 <body>
   <%- include('../layout') %>
 
-  <form action="" method="post">
+  <form action="/meeting/edit" method="post">
     <div class="container-fluid my-5">
       <h2>會議資訊</h2>
       <hr>
@@ -22,15 +22,15 @@
       </div>
       <div class="form_item">
         <label>會議名稱</label>
-        <input id="meeting_name" name="meetingName" type="text">
+        <input type="text" id="meeting_name" name="meetingName" required>
       </div>
       <div class="form_item">
         <label>開會時間</label>
-        <input id="meeting_time" name="meetingTime" type="datetime-local">
+        <input type="datetime-local" id="meeting_time" name="meetingTime" required>
       </div>
       <div class="form_item">
         <label>會議地點</label>
-        <input id="meeting_location" name="meetingLocation" type="text">
+        <input type="text" id="meeting_location" name="meetingLocation">
       </div>
       <div class="form_item">
         <label>身分權限</label>
@@ -58,9 +58,9 @@
                   <input id="participate<%= people[i][0] %>" name="participate<%= people[i][0] %>" type="radio" class="mx-2" value="1">
                   <span>是</span>
                   <select id="meeting_identity<%= people[i][0] %>" name="meetingIdentity<%= people[i][0] %>" disabled>
-                    <option value="1">出席人員</option>
-                    <option value="2">主席</option>
-                    <option value="3">書記</option>
+                    <option value="3">出席人員</option>
+                    <option value="1">主席</option>
+                    <option value="2">書記</option>
                   </select>
 
                   <input id="not_participate<%= people[i][0] %>" name="participate<%= people[i][0] %>" type="radio" class="mx-2" value="0" checked>

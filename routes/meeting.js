@@ -51,4 +51,43 @@ router.get('/edit', (req, res) => {
     })
 });
 
+function sqlError(res, err) {
+    res.render('error', {
+        errmsg: err.stack
+    });
+}
+
+router.post('/edit', urlencodedParser, (req, res) => {
+    console.log(req.body);
+    let createQuery = `insert into 會議 values(NULL, '${req.body.meetingName}', '${req.body.meetingLocation}', '${req.body.meetingTime}', '${req.body.chairmanSpeech}', '${req.body.announcements}');`;
+
+    let dbConnection = mysql.createConnection(dbOption);
+    dbConnection.query(createQuery, (err, rows, fields) => {
+        if (err) sqlError(res, err);
+        else {
+            findIdQuery = `select 會議編號 from 會議 where 會議名稱="${req.body.meetingName}" and 開會時間="${req.body.meetingTime}";`;
+            dbConnection.query(findIdQuery, (err, rows, fields) => {
+                if (err) sqlError(res, err);
+                else {
+                    let meetingId = rows[0]['會議編號'];
+                    for (i in req.body) {
+                        if (i.includes('participate')) {
+                            let userId = i.substring(11);
+                            let query = [meetingId, userId];
+                            query.push(req.body[`participate${userId}`] == '0' ? 0 : req.body[`meetingIdentity${userId}`]);
+                            query.push(req.body[`view${userId}`] == 'on' ? true : false);
+                            query.push(req.body[`edit${userId}`] == 'on' ? true : false);
+
+                            createJoinQuery = `insert into 參與 values(${query[0]}, ${query[1]}, ${query[2]}, ${query[3]}, ${query[4]});`;
+                            dbConnection.query(createJoinQuery);
+                        }
+                    }
+
+                    dbConnection.end();
+                }
+            });
+        }
+    });
+});
+
 module.exports = router;
