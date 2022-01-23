@@ -60,10 +60,8 @@ $(document).ready(() => {
         /* TODO: 更改桌面版日曆程式碼 */
 
     });
-    let meetingTime = document.getElementById('meeting_time').textContent;
-    let meetingTitle = document.getElementById('meeting_title').textContent;
-    console.log(meetingTime);
-    console.log(meetingTitle);
+    let meetingTime = document.getElementById('meeting_time').textContent.trim().split(',');
+    let meetingTitle = document.getElementById('meeting_title').textContent.trim().split(',');
     let mobileContent = document.getElementById('calendar_zone_mobile');
     initialContent();
     setTitieYear();
@@ -85,17 +83,17 @@ $(document).ready(() => {
 
         let level1 = document.createElement('div');
         level1.setAttribute('class', 'd-flex flex-column px-3');
-        let str = today.getFullYear() + '/' + today.getMonth() + 1 + '/' + today.getDate();
+        let str = today.getFullYear() + '-' + today.getMonth() + 1 + '-' + today.getDate();
         let arr = [];
         for (let i = 0; i < meetingTime.length; i++) {
-            if (parseInt(meetingTime[i].split(' ')[0].split('/')[1]) == today.getMonth() + 1 && parseInt(meetingTime[i].split(' ')[0].split('/')[0]) == today.getFullYear())
-                arr.push(parseInt(meetingTime[i].split(' ')[0].split('/')[2]));
+            // if (parseInt(meetingTime[i].split('T')[0].split('-')[1]) == today.getMonth() + 1 && parseInt(meetingTime[i].split('T')[0].split('-')[0]) == today.getFullYear())
+            arr.push(parseInt(meetingTime[i].split('T')[0].split('-')[2]));
         }
         let count = {}; //對日期進行每個值的重複數量紀錄
         arr.forEach(function(x) {
             count[x] = (count[x] || 0) + 1;
         });
-        if (str != meetingTime[0].split(' ')[0]) {
+        if (str != meetingTime[0].split('T')[0]) {
             let level2 = document.createElement('div');
             level2.setAttribute('class', 'content_item my-3 d-flex');
             let level3_date = createDateNode(today.getDate()); //新增日期
@@ -117,7 +115,7 @@ $(document).ready(() => {
             let level3_meet = document.createElement('div');
             level3_meet.setAttribute('class', 'event_zone flex-fill ms-4 d-flex flex-column');
             for (let j = 0; j < count[i]; j++) {
-                let level4 = createEventNode(meetingTitle[index], meetingTime[index].split(' ')[1]); //新增會議內容
+                let level4 = createEventNode(meetingTitle[index], meetingTime[index].split('T')[1]); //新增會議內容
                 level3_meet.appendChild(level4);
                 index++;
             }
