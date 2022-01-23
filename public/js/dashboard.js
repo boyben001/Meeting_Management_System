@@ -121,7 +121,7 @@ $(document).ready(() => {
         }
         let index = 0;
         for (let i in count) {
-
+            if (meetingTime[0] == '') break;
             let level2 = document.createElement('div');
             level2.setAttribute('class', 'content_item my-3 d-flex');
             let level3_date = createDateNode(i); //新增日期

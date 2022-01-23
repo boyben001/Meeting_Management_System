@@ -31,10 +31,10 @@ router.get('/', (req, res) => {
                     let meetingTitle = new Array();
                     let meetingTime = new Array();
                     for (let i in rows) {
-                        let temp1 = new Date(rows[i]['開會時間'].split('-')[0], rows[i]['開會時間'].split('-')[1], rows[i]['開會時間'].split('-')[2].substring(0, 2));
+                        let content = rows[i]['開會時間'].split('-')[0]+'-'+rows[i]['開會時間'].split('-')[1]+'-'+rows[i]['開會時間'].split('-')[2].substring(0, 2);
+                        let temp1 = new Date(content);
                         let temp2 = new Date(str);
-
-                        if (temp1 >= temp2) { //今天之後的內容才要傳到前端
+                        if (temp1 >= temp2 && (temp1.getFullYear()==temp1.getFullYear() && temp1.getMonth()==temp2.getMonth())) { //今天之後的內容才要傳到前端
                             meetingTitle.push(rows[i]['會議名稱']);
                             meetingTime.push(rows[i]['開會時間']);
                         }
@@ -56,9 +56,7 @@ router.get('/', (req, res) => {
                             let str = day.getFullYear() + '-' + day.getMonth() + 1 + '-' + day.getDate();
                             let temp1 = new Date(rows[i]['開會時間'].split('-')[0] + '-' + rows[i]['開會時間'].split('-')[1] + '-' + rows[i]['開會時間'].split('-')[2].substring(0, 2));
                             let temp2 = new Date(str);
-                            console.log(temp1);
-                            console.log(temp2);
-                            if (temp1 >= temp2) { //今天之後的內容才要傳到前端
+                            if ((temp1 >= temp2) && (temp1.getFullYear()==temp1.getFullYear() && temp1.getMonth()==temp2.getMonth())) { //今天之後的內容才要傳到前端
                                 meetingTitle.push(rows[i]['會議名稱']);
                                 meetingTime.push(rows[i]['開會時間']);
                             }
@@ -69,10 +67,9 @@ router.get('/', (req, res) => {
                         meeting_title: meetingTitle,
                         meeting_time: meetingTime
                     });
-                })
+                });
             }
-
-        })
+        });
     }
 });
 
