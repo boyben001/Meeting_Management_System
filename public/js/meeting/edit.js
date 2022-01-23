@@ -50,7 +50,7 @@ $(document).ready(() => {
               </div>
               <div class="card_item">
                 <label>案&emsp;&emsp;由</label>
-                <textarea id="${item}_title" name="${item}Title" rows="3"></textarea>
+                <textarea id="${item}_title" name="${item}Title" rows="3" required></textarea>
               </div>
               <div class="card_item">
                 <label>說&emsp;&emsp;明</label>

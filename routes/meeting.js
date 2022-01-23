@@ -27,12 +27,12 @@ router.get('/edit', (req, res) => {
     dbConnection.query(findUserDataQuery, (err, rows, fields) => {
         if (err) sqlError(res, err);
         let dataNum = -1;
-        let people = []; //儲存要回傳給ejs前端資料的陣列
+        let people = []; // 儲存要回傳給ejs前端資料的陣列
         for (let i in rows) { //抓取目前使用者編號為rows中第幾筆資料
             if (rows[i]['使用者編號'] == req.cookies.userID) {
                 dataNum = i;
             }
-            let temp = []; //儲存每個人要回傳給前端ejs的資料，並逐步push到people之中
+            let temp = []; // 儲存每個人要回傳給前端ejs的資料，並逐步push到people之中
             temp.push(rows[i]['使用者編號']);
             temp.push(rows[i]['帳號']);
             temp.push(rows[i]['姓名']);
@@ -46,7 +46,7 @@ router.get('/edit', (req, res) => {
                 people: people
             });
         } else {
-            res.redirect('/dashboard?errcode=1'); // error code 1: 存取被拒
+            res.redirect('/dashboard?code=1'); // code 1: 存取被拒
         }
     })
 });
@@ -80,10 +80,18 @@ router.post('/edit', urlencodedParser, (req, res) => {
 
                             createJoinQuery = `insert into 參與 values(${query[0]}, ${query[1]}, ${query[2]}, ${query[3]}, ${query[4]});`;
                             dbConnection.query(createJoinQuery);
+                        } else if (i.includes('Title')) {
+                            let discussStr = i.substring(0, i.length - 5);
+                            let query = [meetingId, req.body[i]];
+                            query.push(req.body[discussStr + 'Content'] == undefined ? '' : req.body[discussStr + 'Content']);
+                            query.push(req.body[discussStr + 'Resolution'] == undefined ? '' : req.body[discussStr + 'Resolution']);
+                            query.push(req.body[discussStr + 'Implementation'] == undefined ? '' : req.body[discussStr + 'Implementation']);
+                            createDiscussQuery = `insert into 討論事項 values(NULL, ${query[0]}, "${query[1]}", "${query[2]}", "${query[3]}", "${query[4]}");`;
+                            dbConnection.query(createDiscussQuery);
                         }
                     }
-
                     dbConnection.end();
+                    res.redirect('/dashboard?code=2');
                 }
             });
         }
