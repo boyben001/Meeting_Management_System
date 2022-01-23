@@ -35,12 +35,17 @@ nav {
   align-items: center;
 }
 
+.nav_dark_mode {
+  box-shadow: 0 5px 20px rgba(255, 255, 255, 0.5);
+}
+
 .nav-link {
   font-size: 20px;
   font-weight: bold;
   display: inline-block;
   text-align: center;
   white-space: nowrap;
+  transition: color .15s ease-in-out;
 }
 
 @media screen and (max-width:992px) {
@@ -135,4 +140,9 @@ input {
 
 .card h3 {
   font-weight: bold;
+}
+
+.body_dark_mode {
+  background-color: #303134;
+  color: #fff;
 }
