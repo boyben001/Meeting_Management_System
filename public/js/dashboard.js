@@ -60,8 +60,10 @@ $(document).ready(() => {
         /* TODO: 更改桌面版日曆程式碼 */
 
     });
-    let meetingTime = document.getElementById('meeting_time').textContent.trim().split(',');
-    let meetingTitle = document.getElementById('meeting_title').textContent.trim().split(',');
+    let meetingTime = document.getElementById('meeting_time').textContent;
+    let meetingTitle = document.getElementById('meeting_title').textContent;
+    console.log(meetingTime);
+    console.log(meetingTitle);
     let mobileContent = document.getElementById('calendar_zone_mobile');
     initialContent();
     setTitieYear();

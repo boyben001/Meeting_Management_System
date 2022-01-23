@@ -26,18 +26,23 @@ router.get('/', (req, res) => {
             if (rows[0].管理者) {
                 let findMeeting = 'select * from 會議 order by 開會時間;';
                 dbConnection.query(findMeeting, (err, rows, field) => {
+                    console.log(rows);
                     let day = new Date();
                     let str = day.getFullYear() + '-' + day.getMonth() + 1 + '-' + day.getDate();
                     let meetingTitle = new Array();
                     let meetingTime = new Array();
                     for (let i in rows) {
-                        let temp1 = new Date(rows[i]['開會時間'].split(' ')[0].replace(/\//g, '-')); //把字串中的/都換成-
+                        let temp1 = new Date(rows[i]['開會時間'].split('-')[0], rows[i]['開會時間'].split('-')[1], rows[i]['開會時間'].split('-')[2].substring(0, 2));
                         let temp2 = new Date(str);
+                        console.log(temp1);
+                        console.log(temp2);
                         if (temp1 >= temp2) { //今天之後的內容才要傳到前端
                             meetingTitle.push(rows[i]['會議名稱']);
                             meetingTime.push(rows[i]['開會時間']);
                         }
                     }
+                    console.log(meetingTitle);
+                    console.log(meetingTime);
                     res.render('dashboard', {
                         username: req.cookies.username,
                         meeting_title: meetingTitle,
@@ -52,7 +57,7 @@ router.get('/', (req, res) => {
                     let meetingTime = new Array();
                     for (let i in rows) {
                         if (rows[i].閱讀權限) {
-                            let temp1 = new Date(rows[i]['開會時間'].split(' ')[0].replace(/\//g, '-')); //把字串中的/都換成-
+                            let temp1 = new Date(rows[i]['開會時間'].split('-')[0], rows[i]['開會時間'].split('-')[1], rows[i]['開會時間'].split('-')[2].subtring(0.2));
                             let temp2 = new Date(str);
                             if (temp1 >= temp2) { //今天之後的內容才要傳到前端
                                 meetingTitle.push(rows[i]['會議名稱']);
