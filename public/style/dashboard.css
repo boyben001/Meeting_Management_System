@@ -1,3 +1,12 @@
+#quick_start a,
+#quick_start_mobile a {
+  text-decoration: none;
+}
+
+#quick_start_mobile a {
+  height: 100%;
+}
+
 #quick_start .material-icons {
   font-size: 80px;
   padding-top: 8%;
@@ -6,15 +15,15 @@
 
 #quick_start h3,
 #quick_start_mobile button {
-  font-weight: bold;
   height: 50px;
+  padding: 0;
 }
 
 #quick_start_mobile .text {
   font-size: 20px;
 }
 
-.calendar_choose {
+#calendar_choose {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -23,6 +32,7 @@
   font-weight: bold;
   background-color: hsl(203, 10%, 86%);
   padding: 15px 0;
+  border-radius: 0.25rem 0.25rem 0 0;
 }
 
 .month_control_btn {
@@ -40,7 +50,6 @@
   background-color: transparent;
 }
 
-
 #datepicker {
   border-radius: 10px;
   border: none;
@@ -53,12 +62,6 @@
   font-weight: bold;
   caret-color: transparent;
   cursor: pointer;
-}
-
-#datepicker td,
-th {
-  width: 100px;
-  height: 100px;
 }
 
 #calendar thead {
@@ -81,6 +84,7 @@ th {
 
 #calendar tbody {
   background-color: #80b2db;
+  border-radius: 0 0 0.25rem 0.25rem;
 }
 
 #calendar tbody tr {
@@ -113,61 +117,73 @@ th {
   text-align: center;
 }
 
-#calendar .meeting_name {
-  font-family: "Gen Jyuu Gothic";
-  font-weight: bold;
-  font-size: 20px;
-  text-align: center;
-}
-
 .hide {
   visibility: hidden;
 }
 
-.highlight {
-  background-color: #b2ebf2;
+/* 小螢幕版本的月曆 */
+#calendar_zone_mobile .meeting_title {}
+
+#month_bar {
+  height: 60px;
+  background-color: #dddddd;
+  border-radius: 10px 10px 0 0;
 }
 
-#calendar_zone_mobile {
-  background-color: #1b1b1b;
-  color: aliceblue;
-  font-family: "Gen Jyuu Gothic";
-  padding: 0 5px;
+#content_zone {
+  min-height: 50vh;
+  max-height: 50vh;
+  overflow: auto;
+  background-color: #f0f0f0;
+  border-radius: 0 0 10px 10px;
 }
 
-#calendar_zone_mobile table {
-  width: 100%;
+.content_item {
+  display: flex;
 }
 
-#calendar_zone_mobile tr {
-  vertical-align: top;
+.day_circle {
+  width: 60px;
+  height: 60px;
+  min-width: 60px;
+  min-height: 60px;
+  border-radius: 50%;
+  background-color: #999;
 }
 
-#calendar_zone_mobile td {
-  text-align: center;
-  color: #1b1b1b;
+.day_circle span {
+  font-size: 30px;
+  color: #fff;
 }
 
-#calendar_zone_mobile td div {
-  border-radius: 8px;
+.event_zone {
+  width: 75%;
 }
 
-#calendar_zone_mobile td h3 {
-  padding: 3px 0;
+
+/* 針對大小螢幕，每個會議名稱和時間的樣式 */
+#calendar_zone .event_item {
+  background-color: #88e;
 }
 
-#calendar_zone_mobile table tr td:first-child {
-  color: aliceblue;
+#calendar_zone_mobile .event_item {
+  max-width: 100%;
+  height: 60px;
+  background-color: #88e;
+  border-radius: 10px;
+  color: #fff;
 }
 
-.decorate_current_date {
-  background-color: #424242;
-  border-bottom: 5px solid lightslategray;
+#calendar_zone_mobile .event_item_none {
+  max-width: 100%;
+  height: 60px;
+  background-color: transparent;
 }
 
-.no_activity {
-  color: #6d6d6d;
-  font-size: 28px;
-  vertical-align: middle;
-  text-align-last: left;
+#calendar_zone_mobile .meeting_title {
+  max-width: 100%;
+  font-size: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

@@ -5,26 +5,32 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>登入 | 高大資工會議管理系統</title>
-  <link rel="stylesheet" href="./../style/login.css">
+  <link rel="stylesheet" href="/style/login.css">
 </head>
 <body>
   <div id="holder"></div>
   <div class="container">
     <div class="row">
       <div class="col">
-        <h1>高大資工系會議管理系統</h1>
-        <label for="account">帳號</label>
-        <input name="account">
-        <label for="password">密碼</label>
-        <input type="password">
+        <div class="title">高大資工會議管理系統</div>
+        <form method="POST" action='/login'>
+          <label for="account">帳號</label>
+          <input id="account" name="account" type="text">
+          <label for="password">密碼</label>
+          <input id="password" name="password" type="password">
+          <% if (typeof(errmsg) != 'undefined') { %>
+          <div class="error"><%= errmsg %></div>
+          <% } else { %>
+          <div class="error"></div>
+          <% } %>
+          <input id="login_btn" type="submit" value="登入">
+        </form>
       </div>
-      <div class="error">登入錯誤</div>
-      <button class="login" type="submit">登入</button>
     </div>
   </div>
 
 
 
-  <script src="./../js/login.js"></script>
+  <script src="/js/login.js"></script>
 </body>
 </html>

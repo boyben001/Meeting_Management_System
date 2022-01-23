@@ -1,0 +1,113 @@
+.form_item {
+  margin: 0 auto 20px;
+  width: 75vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.form_item label {
+  font-size: 18px;
+  padding-right: 5%;
+}
+
+.form_item input {
+  width: 70%;
+  max-width: 400px;
+}
+
+#authority_table,
+.form_item textarea,
+#attachment_list ol {
+  width: 70%;
+  max-width: 800px;
+  resize: none;
+}
+
+#authority_table table {
+  margin: 0;
+}
+
+#authority_table input {
+  width: auto;
+  margin: 0;
+}
+
+#attachment_list input {
+  width: 80%;
+  max-width: 800px;
+  margin: 0 1vw;
+  display: inline-block;
+}
+
+.delete_attachment_btn {
+  color: #000;
+  transition: 0.3s;
+}
+
+.delete_attachment_btn:hover {
+  cursor: pointer;
+  color: #f00;
+  transition: 0.3s;
+}
+
+#account_attr,
+#name_attr,
+#id_attr {
+  min-width: 100px;
+}
+
+#view_attr,
+#edit_attr {
+  min-width: 50px;
+}
+
+#participant_attr {
+  min-width: 250px;
+}
+
+.scroll {
+  border: .3px solid rgba(0, 0, 0, .125);
+  height: 240px;
+  overflow: auto;
+}
+
+.card {
+  width: 100%;
+  max-width: 1200px;
+  padding: 2vh 2vw;
+  margin-bottom: 2vh;
+}
+
+.card_item {
+  margin: 0 auto 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.card_item h3 {
+  margin: 0;
+}
+
+@media screen and (max-width: 992px) {
+
+  .form_item,
+  .card_item {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .form_item label {
+    padding-bottom: 1vh;
+  }
+
+  .form_item input,
+  .form_item textarea,
+  .card_item textarea,
+  #authority_table,
+  #attachment_list ol {
+    width: 100%;
+  }
+}
