@@ -20,6 +20,7 @@ app.use('/dashboard', dashboard);
 let settings = require('./routes/settings');
 app.use('/settings', settings);
 
+/* INFO: 會議相關路由 */
 let meeting = require('./routes/meeting');
 app.use('/meeting', meeting);
 
