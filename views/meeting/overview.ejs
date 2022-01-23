@@ -17,94 +17,53 @@
     <div class="row">
       <!-- 會議列表 -->
       <div id="meeting_list" class="col-sm-12 col-md-4 col-lg-4">
+        <% for (i in meetings) { %>
         <div class="card">
-          <div class="card-header">2022/01/01</div>
-          <div class="card-body">
-            <div class="card_content">
-              <div id="card_title">
-                <div class="ellipsis">109學年度第二學期第一次系務會議議程</div>
+          <div class="card-header"><%= i %></div>
+          <% for (let j = 0; j < meetings[i].length; j++) { %>
+          <a href="/meeting/overview?meetingid=<%= meetings[i][j][0] %>">
+            <div id="meeting_id_<%= meetings[i][j][0] %>" class="card-body">
+              <div class="card_content">
+                <div id="card_title">
+                  <div class="ellipsis"><%= meetings[i][j][1] %></div>
+                </div>
+                <p class="card-text m-0"><%= meetings[i][j][2] %></p>
               </div>
-              <p class="card-text m-0">18:00</p>
-            </div>
-            <div class="btn_group">
-              <a href="#">
-                <button class="edit_btn btn mb-1">
-                  <span class="material-icons">edit</span>
+              <div class="btn_group">
+                <button class="edit_btn btn mb-1" <%= (meetings[i][j][3] == 0) ? 'disabled' : '' %>>
+                  <a href="<%= (meetings[i][j][3] == 0) ? '#' : `/meeting/edit?meetingid=${meetings[i][j][0]}` %>"> <span class="material-icons">edit</span>
+                  </a>
                 </button>
-              </a>
-              <a href="#">
-                <button class="del_btn btn mb-1">
-                  <span class="material-icons">delete</span>
+                <button class="del_btn btn mb-1" <%= (meetings[i][j][4] == 0) ? 'disabled' : '' %>>
+                  <a href="#">
+                    <span class="material-icons">delete</span>
+                  </a>
                 </button>
-              </a>
+              </div>
             </div>
-          </div>
+          </a>
+          <% } %>
         </div>
-        <div class="card">
-          <div class="card-header">2022/01/11</div>
-          <div class="card-body">
-            <div class="card_content">
-              <div id="card_title">
-                <div class="ellipsis">109學年度第二學期第一次系務會議議程</div>
-              </div>
-              <p class="card-text m-0">18:00</p>
-            </div>
-            <div class="btn_group">
-              <a href="#">
-                <button class="edit_btn btn mb-1">
-                  <span class="material-icons">edit</span>
-                </button>
-              </a>
-              <a href="#">
-                <button class="del_btn btn mb-1">
-                  <span class="material-icons">delete</span>
-                </button>
-              </a>
-            </div>
-          </div>
-          <div class="card-body">
-            <div class="card_content">
-              <div id="card_title">
-                <div class="ellipsis">109學年度第二學期第一次系務會議議程</div>
-              </div>
-              <p class="card-text m-0">18:00</p>
-            </div>
-            <div class="btn_group">
-              <a href="#">
-                <button class="edit_btn btn mb-1">
-                  <span class="material-icons">edit</span>
-                </button>
-              </a>
-              <a href="#">
-                <button class="del_btn btn mb-1">
-                  <span class="material-icons">delete</span>
-                </button>
-              </a>
-            </div>
-          </div>
-        </div>
+        <% } %>
       </div>
 
       <!-- 會議預覽 -->
       <div id="meeting_viewer" class="col-sm-12 col-md-8 col-lg-8">
-        <h2 id="title">國立高雄大學109學年度第二學期第一次系務會議議程</h2>
-        <p>主席：陳鼎元</p>
-        <p>書記：林鈺修</p>
-        <div class="extended_list">
-          <p>與會人員：</p>
-          <p>林子閎、陳泓銘</p>
-        </div>
-        <div class="extended_list">
-          <p>可閱讀人員：</p>
-          <p>陳鼎元、林鈺修、林子閎、陳泓銘、陳淑真</p>
-        </div>
-        <div class="extended_list">
-          <p>可編輯人員：</p>
-          <p>林鈺修、林子閎</p>
-        </div>
-        <p>地點：本校工學院 3 樓資工系會議室 313 室</p>
-        <h3>主席致詞</h3>
-        <p>略</p>
+        <% if (typeof(viewer) != 'undefined') { %>
+        <h2 id="title"><%= viewer[0]['會議名稱'] %></h2>
+        <p>開會時間：<%= viewer[0]['開會時間'] %></p>
+        <p>開會地點：<%= viewer[0]['開會地點'] %></p>
+        <h4>主席致詞</h4>
+        <p><%= viewer[0]['主席致詞'] %></p>
+        <h4>報告內容</h4>
+        <p><%= viewer[0]['報告內容'] %></p>
+        <% for (let i = 1; i <= viewer.length; i++) { %>
+        <h4>提案 <%= i %></h4>
+        <p>案由：<%= viewer[i-1]['案由'] %></p>
+        <p>說明：<%= viewer[i-1]['說明'] %></p>
+        <p>決議事項：<%= viewer[i-1]['決議事項'] %></p>
+        <p>執行情況：<%= viewer[i-1]['執行情況'] %></p>
+        <% } %>
         <div class="back">
           <button class="btn btn-secondary mt-3">
             <span class="material-icons">
@@ -112,7 +71,7 @@
             </span>
           </button>
         </div>
-
+        <% } %>
       </div>
     </div>
   </div>

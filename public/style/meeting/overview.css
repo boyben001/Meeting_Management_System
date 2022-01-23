@@ -14,8 +14,9 @@
 
 /* ======================================== */
 a {
-  color: none;
+  color: #000;
   text-decoration: none;
+  transition: .35s;
 }
 
 #meeting_list {
@@ -42,6 +43,7 @@ a {
   transition: all .35s ease;
   padding-top: 8px;
   padding-bottom: 8px;
+  cursor: pointer;
 }
 
 #meeting_list .card-body:hover {
@@ -56,7 +58,7 @@ a {
 
 #meeting_list .card_content #card_title {
   font-size: 18px;
-  margin-top: 20px;
+  margin-top: 10px;
   transition: all .2s ease;
   width: 18vw;
 }
@@ -77,11 +79,11 @@ a {
   justify-content: space-around;
 }
 
-#meeting_list .btn_group .edit_btn:hover {
+#meeting_list .btn_group .edit_btn a:hover {
   color: #37c23c;
 }
 
-#meeting_list .btn_group .del_btn:hover {
+#meeting_list .btn_group .del_btn a:hover {
   color: red;
 }
 
@@ -102,6 +104,11 @@ a {
   margin-left: 0;
   margin-right: 0;
   transition: all .5s ease;
+}
+
+#meeting_viewer h4 {
+  font-weight: bold;
+  margin-top: 10px;
 }
 
 #meeting_viewer .extended_list {
