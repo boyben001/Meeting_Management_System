@@ -146,3 +146,8 @@ input {
   background-color: #303134;
   color: #fff;
 }
+
+.dark_icon {
+  color: azure;
+  background-color: azure;
+}

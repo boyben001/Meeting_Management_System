@@ -1,3 +1,7 @@
+* {
+  transition: all .05s;
+}
+
 label {
   font-size: 18px;
   margin: 15px 0 5px;
@@ -59,6 +63,10 @@ label {
 #identity_list li:hover {
   transition: 0.3s;
   background-color: #cbdcf7;
+}
+
+.list_hover:hover {
+  background-color: #707986 !important;
 }
 
 #advanced_setting .badge {
