@@ -1,27 +1,27 @@
 $(document).ready(() => {
+    let flag = 0;
+    $('#meeting_viewer').hide();
     $(window).resize(() => {
         var wdth = $(window).width();
         if (wdth > 768) {
-            $("#meeting_viewer").css("display", "flex");
+            $('#meeting_viewer').css('display', 'flex');
         } else {
-            $("#meeting_viewer").css("display", "none");
+            $('#meeting_viewer').css('display', 'block');
         }
     });
-    $('.card_content').click(() => {
+    $('.card_body').click(() => {
+        flag = 1;
         if (window.innerWidth <= 768) {
-            $('#meeting_list').hide();
             $('#meeting_viewer').fadeIn();
 
         } else if (window.innerWidth <= 768) {
             $('#meeting_viewer').hide();
-            $('#meeting_list').fadeIn();
-
         }
     });
     $('.back').click(() => {
+        flag = 0;
         if (window.innerWidth <= 768) {
-            $('#meeting_viewer').hide();
-            $('#meeting_list').show();
+            $('#meeting_viewer').fadeOut();
         }
     });
 });
