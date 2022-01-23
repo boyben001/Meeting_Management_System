@@ -1,12 +1,10 @@
 {
-    /* Language Setting */
-    "[html]": {
-        "editor.tabSize": 2,
-        "editor.defaultFormatter": "HookyQR.beautify"
-    },
-    "[css]": {
-        "editor.tabSize": 2
-    },
+    "editor.defaultFormatter": "HookyQR.beautify",
+    "files.autoSave": "onFocusChange",
+    "editor.formatOnType": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.wordWrap": "on",
 
     /* Beautify */
     "beautify.config": {
@@ -14,7 +12,9 @@
         "end_with_newline": true,
         "extra_liners": [],
         "js": {
-            "indent_size": 4
+            "indent_size": 4,
+            "space_before_conditional": true,
+            "max_preserve_newlines": "2",
         },
     },
 

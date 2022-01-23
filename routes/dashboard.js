@@ -67,10 +67,10 @@ router.get('/', (req, res) => {
                         meeting_title: meetingTitle,
                         meeting_time: meetingTime
                     });
-                })
+                });
             }
-
-        })
+        });
     }
 });
+
 module.exports = router;
