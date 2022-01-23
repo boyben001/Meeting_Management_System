@@ -13,28 +13,13 @@
 }
 
 /* ======================================== */
-.modal {
-  display: none;
-}
-
-.modal-title {
-  font-size: 22px;
-  padding: 0;
-}
-
-@media screen and (max-width:768px) {
-  #meeting_viewer {
-    display: none;
-  }
-}
-
-/* ======================================== */
 a {
   color: none;
   text-decoration: none;
 }
 
 #meeting_list {
+  height: 85vh;
   overflow-y: scroll;
   padding: 0 5px;
 }
@@ -47,20 +32,18 @@ a {
   font-size: 20px;
 }
 
-
 #meeting_list .card-body {
   display: flex;
   justify-content: space-around;
   background-color: transparent;
   align-items: center;
-  /* height: 100px; */
   transition: all .35s ease;
   padding-top: 8px;
   padding-bottom: 8px;
 }
 
 #meeting_list .card-body:hover {
-  background-color: #adb8c4;
+  background-color: #ccccce;
 }
 
 #meeting_list .card_content {
@@ -103,7 +86,8 @@ a {
 /* ==================================================== */
 #meeting_viewer {
   padding: 3%;
-  /* border: 0.3px solid rgba(0, 0, 0, .125); */
+  display: flex;
+  flex-direction: column;
 }
 
 #meeting_viewer .title {
@@ -120,16 +104,27 @@ a {
   transition: all 1s ease;
 }
 
-
+#meeting_viewer .back {
+  display: none
+}
 
 @media screen and (max-width:768px) {
+  #meeting_viewer {
+    display: none;
+  }
+
+  #meeting_viewer .back {
+    display: flex;
+    justify-content: center;
+    border-top: .3px solid rgb(0, 0, 0, .25);
+  }
+
   #meeting_viewer .extended_list {
     flex-direction: column;
   }
 
   #meeting_list .card-body {
     align-items: center;
-    height: 130px;
   }
 
   #meeting_list .card_content {
