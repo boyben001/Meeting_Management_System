@@ -25,33 +25,41 @@ router.get('/edit', (req, res) => {
     if (Object.keys(req.cookies).length != process.env.NUM_OF_COOKIES) {
         res.redirect('/login');
     } else {
-        let dbConnection = mysql.createConnection(dbOption);
-        let findUserDataQuery = `SELECT * FROM 使用者;`; // 透過編號搜尋使用者資料
-        dbConnection.query(findUserDataQuery, (err, rows, fields) => {
-            if (err) sqlError(res, err);
-            let dataNum = -1;
-            let people = []; // 儲存要回傳給ejs前端資料的陣列
-            for (let i in rows) { //抓取目前使用者編號為rows中第幾筆資料
-                if (rows[i]['使用者編號'] == req.cookies.userID) {
-                    dataNum = i;
+        if (req.query.meetingid != undefined) {
+            // TODO: req.query.meetingid 這個編號的會議存不存在
+            // 不存在 console.log()
+            // 存在 => 檢查參與 table，該使用者編號(req.cookies.userID)有沒有編輯權限
+            // 有權限 => 會議和討論事項 table, render
+            // 沒權限 => console.log()
+        } else {
+            let dbConnection = mysql.createConnection(dbOption);
+            let findUserDataQuery = `SELECT * FROM 使用者;`; // 透過編號搜尋使用者資料
+            dbConnection.query(findUserDataQuery, (err, rows, fields) => {
+                if (err) sqlError(res, err);
+                let dataNum = -1;
+                let people = []; // 儲存要回傳給ejs前端資料的陣列
+                for (let i in rows) { //抓取目前使用者編號為rows中第幾筆資料
+                    if (rows[i]['使用者編號'] == req.cookies.userID) {
+                        dataNum = i;
+                    }
+                    let temp = []; // 儲存每個人要回傳給前端ejs的資料，並逐步push到people之中
+                    temp.push(rows[i]['使用者編號']);
+                    temp.push(rows[i]['帳號']);
+                    temp.push(rows[i]['姓名']);
+                    temp.push(rows[i]['身分']);
+                    temp.push(rows[i]['管理者']);
+                    people.push(temp);
                 }
-                let temp = []; // 儲存每個人要回傳給前端ejs的資料，並逐步push到people之中
-                temp.push(rows[i]['使用者編號']);
-                temp.push(rows[i]['帳號']);
-                temp.push(rows[i]['姓名']);
-                temp.push(rows[i]['身分']);
-                temp.push(rows[i]['管理者']);
-                people.push(temp);
-            }
-            if (rows[dataNum]['管理者']) {
-                res.render('meeting/edit', {
-                    username: req.cookies.username,
-                    people: people
-                });
-            } else {
-                res.redirect('/dashboard?code=1'); // code 1: 存取被拒
-            }
-        });
+                if (rows[dataNum]['管理者']) {
+                    res.render('meeting/edit', {
+                        username: req.cookies.username,
+                        people: people
+                    });
+                } else {
+                    res.redirect('/dashboard?code=1'); // code 1: 存取被拒
+                }
+            });
+        }
     }
 });
 
