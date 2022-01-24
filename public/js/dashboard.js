@@ -192,4 +192,7 @@ $(document).ready(() => {
 
         $('#datepicker').datepicker('update', new Date(year, month - 1));
     });
+
+    $('#meeting_title').hide();
+    $('#meeting_time').hide();
 });

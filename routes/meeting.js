@@ -162,11 +162,26 @@ router.get('/overview', (req, res) => {
                             else
                                 meetingDict[date].push([rows[i]['會議編號'], rows[i]['會議名稱'], rows[i]['開會時間'].substring(11), rows[i]['編輯權限'], 0]);
                         }
-                        console.log(meetingDict);
-                        res.render('meeting/overview', {
-                            username: req.cookies.username,
-                            meetings: meetingDict
-                        });
+
+                        /* 若使用者有選擇會議 */
+                        if (req.query.meetingid != undefined) {
+                            let detailQuery = `select * from 參與 natural join 會議 natural join 討論事項 where 使用者編號=${req.cookies.userID} and 會議編號=${req.query.meetingid} and 閱讀權限=1;`;
+                            dbConnection.query(detailQuery, (err, rows, fields) => {
+                                if (err) sqlError(res, err);
+                                else {
+                                    res.render('meeting/overview', {
+                                        username: req.cookies.username,
+                                        meetings: meetingDict,
+                                        viewer: rows
+                                    });
+                                }
+                            });
+                        } else {
+                            res.render('meeting/overview', {
+                                username: req.cookies.username,
+                                meetings: meetingDict
+                            });
+                        }
                     }
                 });
             }
