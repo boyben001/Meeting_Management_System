@@ -59,6 +59,9 @@ $(document).ready(() => {
         } else if (params.get('code') == '2') { // code 1: 新增會議成功
             window.alert('成功新增會議！');
             window.location = '/dashboard';
+        } else if (params.get('code') == '3') {
+            window.alert('成功修改會議！'); // code 2: 修改會議成功
+            window.location = '/dashboard';
         }
     }
 

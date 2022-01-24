@@ -13,24 +13,24 @@
 <body>
   <%- include('../layout') %>
 
-  <form action="/meeting/edit" method="post">
+  <form action="/meeting/edit?meetingid=<%= typeof(meeting_id)!='undefined'?meeting_id:"" %>" method="post">
     <div class="container-fluid my-5">
       <h2>會議資訊</h2>
       <hr>
       <div class="form_item">
-        <label>會議編號: </label>
+        <label>會議編號: <%= typeof(meeting_id)!='undefined'?meeting_id:"" %></label>
       </div>
       <div class="form_item">
         <label>會議名稱</label>
-        <input type="text" id="meeting_name" name="meetingName" required>
+        <input type="text" id="meeting_name" name="meetingName" value=<%= typeof(meeting_title)!='undefined'?meeting_title:"" %> required>
       </div>
       <div class="form_item">
         <label>開會時間</label>
-        <input type="datetime-local" id="meeting_time" name="meetingTime" required>
+        <input type="datetime-local" id="meeting_time" <%= typeof(meeting_time)!='undefined'?'value=meeting_time':"" %> name="meetingTime" required>
       </div>
       <div class="form_item">
         <label>會議地點</label>
-        <input type="text" id="meeting_location" name="meetingLocation">
+        <input type="text" id="meeting_location" name="meetingLocation" value=<%= typeof(meeting_place)!='undefined'?meeting_place:"" %>>
       </div>
       <div class="form_item">
         <label>身分權限</label>
@@ -74,11 +74,11 @@
       </div>
       <div class="form_item">
         <label>主席致詞</label>
-        <textarea id="chairman_speech" name="chairmanSpeech" rows="6"></textarea>
+        <textarea id="chairman_speech" name="chairmanSpeech" value=<%= typeof(meeting_speech)!='undefined'?meeting_speech:" " %> rows="6"></textarea>
       </div>
       <div class="form_item">
         <label>報告事項</label>
-        <textarea id="announcements" name="announcements" rows="6"></textarea>
+        <textarea id="announcements" name="announcements" value=<%= typeof(meeting_content)!='undefined'?meeting_content:" " %> rows="6"></textarea>
       </div>
     </div>
 
@@ -92,6 +92,34 @@
         </button>
       </div>
       <div id="discuss_container" class="form_item flex-column">
+        <% for(let i=0;i<meeting_discuss.length;i++){ %>
+        <%= meeting_discuss[i][1] %>
+        <div id="${item}" class="card">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h3>提案</h3>
+            <button type="button" id="delete_${item}_btn" class="icon_text_button">
+              <span class="material-icons">delete</span>
+              <span>刪除</span>
+            </button>
+          </div>
+          <div class="card_item">
+            <label>案&emsp;&emsp;由</label>
+            <textarea id="${item}_title" name="Title<%= meeting_discuss[i][0] %>" rows="3" required><%= typeof(meeting_discuss[i][1])!='undefined'?meeting_discuss[i][1]:" " %></textarea>
+          </div>
+          <div class="card_item">
+            <label>說&emsp;&emsp;明</label>
+            <textarea id="${item}_content" name="Content<%= meeting_discuss[i][0] %>" rows="6"><%= typeof(meeting_discuss[i][2])!='undefined'?meeting_discuss[i][2]:" " %></textarea>
+          </div>
+          <div class="card_item">
+            <label>決議事項</label>
+            <textarea id="${item}_resolution" name="Resolution<%= meeting_discuss[i][0] %>" rows="6"><%= typeof(meeting_discuss[i][3])!='undefined'?meeting_discuss[i][3]:" " %></textarea>
+          </div>
+          <div class="card_item">
+            <label>執行情況</label>
+            <textarea id="${item}_implementation" name="Implementation<%= meeting_discuss[i][0] %>" rows="6"><%= typeof(meeting_discuss[i][4])!='undefined'?meeting_discuss[i][4]:" " %></textarea>
+          </div>
+        </div>
+        <% } %>
       </div>
     </div>
 
