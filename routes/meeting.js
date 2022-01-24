@@ -232,4 +232,92 @@ router.get('/overview', (req, res) => {
     }
 });
 
+router.get('/overview', (req, res) => {
+    if (Object.keys(req.cookies).length != process.env.NUM_OF_COOKIES) {
+        res.redirect('/login');
+    } else {
+        let meetingDict = {};
+
+        let isAdminQuery = `select 管理者 from 使用者 where 使用者編號=${req.cookies.userID};`;
+        let dbConnection = mysql.createConnection(dbOption);
+        dbConnection.query(isAdminQuery, (err, rows, fields) => {
+            if (err) sqlError(res, err);
+            else if (rows[0]['管理者'] == 1) {
+                let listAllMeetingQuery = `select 會議編號, 會議名稱, 開會時間 from 會議 order by 開會時間 desc;`;
+                dbConnection.query(listAllMeetingQuery, (err, rows, fields) => {
+                    if (err) sqlError(res, err);
+                    else {
+                        for (i in rows) {
+                            let date = rows[i]['開會時間'].substring(0, 10);
+                            if (meetingDict[date] == undefined)
+                                meetingDict[date] = [
+                                    [rows[i]['會議編號'], rows[i]['會議名稱'], rows[i]['開會時間'].substring(11), 1, 1] // 最後兩個為編輯權限 & 刪除權限
+                                ];
+                            else
+                                meetingDict[date].push([rows[i]['會議編號'], rows[i]['會議名稱'], rows[i]['開會時間'].substring(11), 1, 1]);
+
+                        }
+
+                        /* 若使用者有選擇會議 */
+                        if (req.query.meetingid != undefined) {
+                            let detailQuery = `select * from 參與 natural join 會議 natural join 討論事項 where 使用者編號=${req.cookies.userID} and 會議編號=${req.query.meetingid} and 閱讀權限=1;`;
+                            dbConnection.query(detailQuery, (err, rows, fields) => {
+                                if (err) sqlError(res, err);
+                                else {
+                                    res.render('meeting/overview', {
+                                        username: req.cookies.username,
+                                        meetings: meetingDict,
+                                        viewer: rows
+                                    });
+                                }
+                            });
+                        } else {
+                            res.render('meeting/overview', {
+                                username: req.cookies.username,
+                                meetings: meetingDict
+                            });
+                        }
+                    }
+                });
+            } else {
+                let listMeetingQuery = `select 會議編號, 會議名稱, 開會時間, 編輯權限 from 會議 natural join 參與 where 使用者編號=${req.cookies.userID} and 閱讀權限=1 order by 開會時間 desc;`;
+                dbConnection.query(listMeetingQuery, (err, rows, fields) => {
+                    if (err) sqlError(res, err);
+                    else {
+                        for (i in rows) {
+                            let date = rows[i]['開會時間'].substring(0, 10);
+                            if (meetingDict[date] == undefined)
+                                meetingDict[date] = [
+                                    [rows[i]['會議編號'], rows[i]['會議名稱'], rows[i]['開會時間'].substring(11), rows[i]['編輯權限'], 0] // 最後兩個為編輯權限 & 刪除權限
+                                ];
+                            else
+                                meetingDict[date].push([rows[i]['會議編號'], rows[i]['會議名稱'], rows[i]['開會時間'].substring(11), rows[i]['編輯權限'], 0]);
+                        }
+
+                        /* 若使用者有選擇會議 */
+                        if (req.query.meetingid != undefined) {
+                            let detailQuery = `select * from 參與 natural join 會議 natural join 討論事項 where 使用者編號=${req.cookies.userID} and 會議編號=${req.query.meetingid} and 閱讀權限=1;`;
+                            dbConnection.query(detailQuery, (err, rows, fields) => {
+                                if (err) sqlError(res, err);
+                                else {
+                                    res.render('meeting/overview', {
+                                        username: req.cookies.username,
+                                        meetings: meetingDict,
+                                        viewer: rows
+                                    });
+                                }
+                            });
+                        } else {
+                            res.render('meeting/overview', {
+                                username: req.cookies.username,
+                                meetings: meetingDict
+                            });
+                        }
+                    }
+                });
+            }
+        });
+    }
+});
+
 module.exports = router;

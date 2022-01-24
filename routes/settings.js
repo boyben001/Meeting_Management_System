@@ -53,7 +53,7 @@ function getSqlAndRender(req, res, username) {
                     if (err) sqlError(res, err);
                     else {
                         basicData.departmentTeacherJobInput = rowsDepTeacher[0]['職級'];
-                        res.render('profile', basicData);
+                        res.render('settings/profile', basicData);
                     }
                     dbConnection.end();
                 });
@@ -65,7 +65,7 @@ function getSqlAndRender(req, res, username) {
                         basicData.studentIdInput = rowsStudent[0]['學號'];
                         basicData.studentSystemInput = rowsStudent[0]['學制'];
                         basicData.studentClassInput = rowsStudent[0]['班級'];
-                        res.render('profile', basicData);
+                        res.render('settings/profile', basicData);
                     }
                     dbConnection.end();
                 });
@@ -75,7 +75,7 @@ function getSqlAndRender(req, res, username) {
                     if (err) sqlError(res, err);
                     else {
                         basicData.departmentAssistantTelInput = rowsAssist[0]['辦公室電話'];
-                        res.render('profile', basicData);
+                        res.render('settings/profile', basicData);
                     }
                     dbConnection.end();
                 });
@@ -90,7 +90,7 @@ function getSqlAndRender(req, res, username) {
                         basicData.outsideTeacherTelInput = rowsOutTeacher[0]['辦公室電話'];
                         basicData.outsideTeacherAddrInput = rowsOutTeacher[0]['聯絡地址'];
                         basicData.outsideTeacherBankInput = rowsOutTeacher[0]['銀行帳號'];
-                        res.render('profile', basicData);
+                        res.render('settings/profile', basicData);
                     }
                     dbConnection.end();
                 });

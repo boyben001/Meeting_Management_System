@@ -36,7 +36,12 @@ $(document).ready(() => {
 
     /* INFO: 動態新增刪除提案 */
     let disscussNum = 0;
+    let originMode = localStorage.getItem("theme");
     $('#add_discuss_btn').click(() => {
+        let changeMode = localStorage.getItem("theme");
+        if (originMode != changeMode) {
+            changeMode = originMode
+        }
         disscussNum += 1;
         let item = 'discuss' + disscussNum;
         $(`
@@ -66,6 +71,22 @@ $(document).ready(() => {
               </div>
             </div>
         `).hide().appendTo('#discuss_container').fadeIn(500);
+        /* INFO: Darkmode */
+        if (changeMode == 'dark') {
+            localStorage.setItem("theme", "light");
+            $('#' + item).css({
+                "background-color": "#1b1b1b",
+                "color": "#fff",
+                "border": "1px solid rgba(255,255,255,.125)"
+            });
+        } else {
+            localStorage.setItem("theme", "dark");
+            $('#' + item).css({
+                "background-color": "",
+                "color": "",
+                "border": "1px solid rgba(0,0,0,.125)"
+            });
+        }
         $('html, body').animate({
             scrollTop: $('#' + item).offset().top - 100
         }, 300);
@@ -104,4 +125,5 @@ $(document).ready(() => {
             }
         }
     });
+
 });

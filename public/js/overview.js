@@ -1,6 +1,4 @@
 $(document).ready(() => {
-    let flag = 0;
-    $('#meeting_viewer').hide();
     $(window).resize(() => {
         var wdth = $(window).width();
         if (wdth > 768) {
@@ -10,7 +8,6 @@ $(document).ready(() => {
         }
     });
     $('.card_body').click(() => {
-        flag = 1;
         if (window.innerWidth <= 768) {
             $('#meeting_viewer').fadeIn();
 
@@ -19,7 +16,6 @@ $(document).ready(() => {
         }
     });
     $('.back').click(() => {
-        flag = 0;
         if (window.innerWidth <= 768) {
             $('#meeting_viewer').fadeOut();
         }

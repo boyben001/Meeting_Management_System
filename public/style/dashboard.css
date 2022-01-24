@@ -1,3 +1,7 @@
+* {
+  transition: all .05s;
+}
+
 #quick_start a,
 #quick_start_mobile a {
   text-decoration: none;
