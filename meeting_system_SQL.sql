@@ -97,6 +97,7 @@ insert into 使用者 values(2, 'PR', '0602', '林子閎', '1', '0900000002', 'a
 insert into 使用者 values(3, 'boyben', '0111', '陳鼎元', '1', '0900000003', 'a1085507@mail.nuk.edu.tw', '校外老師', true);
 insert into 使用者 values(4, 'TA', '0628', '林鈺修', '1', '0900000004', 'a1085524@mail.nuk.edu.tw', '系上老師', true);
 insert into 使用者 values(5, 'SJ', '0000', '陳淑真', '2', '0900000005', 'csie@mail.nuk.edu.tw', '系助理', false);
+
 insert into 學生代表 values('1', 'a1085511', '日間部', '3');
 insert into 業界專家 values('2', '鼎元洗屁股公司', '月薪20萬馬桶大隊長', '071234567', '高雄市彌陀區鹽港一路41巷', '123456-654321');
 insert into 校外老師 values('3', '國立台灣大學', '資訊工程學系', '模範碩士生', '0212345678', '高雄市彌陀區鹽港一路41巷', '654321-123456');
@@ -110,3 +111,5 @@ insert into 參與 values(1, 2, 1, true, true);
 insert into 參與 values(1, 3, 2, true, true);
 insert into 參與 values(1, 4, 3, true, false);
 insert into 參與 values(1, 5, 3, true, false);
+
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';

@@ -35,7 +35,7 @@ router.post('/', urlencodedParser, (req, res) => {
 
     let findAccQuery = 'SELECT * FROM 使用者 WHERE 帳號 = "' + accInput + '"'; // 尋找資料庫是否有輸入者所輸入的帳號
     dbConnection.query(findAccQuery, (err, rows, fields) => {
-        if (err) res.render('login', {
+        if (err) res.render('login', {         
             errmsg: '無法跟資料庫取得連線'
         });
         else if (rows.length == 0 || rows[0]['密碼'] != pwdInput) res.render('login', {
